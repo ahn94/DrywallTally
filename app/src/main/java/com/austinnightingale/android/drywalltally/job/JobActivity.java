@@ -50,6 +50,8 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
     BriteDatabase db;
     List<HeightCharge> charges;
 
+    //comment
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
