@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="titles">
+        <item>Title A</item>
+        <item>Title B</item>
+        <item>Title C</item>
+        <item>Title D</item>
+        <item>Title E</item>
+    </string-array>
+
+    <string-array name="wall_finishes">
+        <item>Smooth</item>
+        <item>Smooth w/ Primer</item>
+        <item>Spray Texture</item>
+        <item>Spray KnockDown</item>
+    </string-array>
+
+    <string-array name="ceiling_finishes">
+        <item>Stomp</item>
+        <item>Stomp Knockdown</item>
+        <item>Smooth</item>
+        <item>Smooth w/ Primer</item>
+        <item>Spray</item>
+        <item>Spray w/ Primer</item>
+        <item>Spray Knockdown</item>
+        <item>Spray Knockdown w/ Primer</item>
+    </string-array>
+</resources>

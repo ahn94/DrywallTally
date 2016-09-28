@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Drywall Tally</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="new_job">New Job</string>
+    <string name="new_item_hint">Description</string>
+    <string name="half_regular">1/2\u0022 Lite &amp; Stretch</string>
+    <string name="ceilings">Ceilings</string>
+    <string name="fire">Fire Resistant</string>
+    <string name="five_eight_regular">5/8\u0022 Regular &amp; Stretch</string>
+    <string name="five_eight_regular_no_stretch">5/8\u0022 Regular</string>
+    <string name="stretch_mold">Stretch</string>
+    <string name="regular_half_8">Regular 8\'</string>
+    <string name="regular_half_10">Regular 10\'</string>
+    <string name="eight_feet">8\'</string>
+    <string name="nine_feet">9\'</string>
+    <string name="ten_feet">10\'</string>
+    <string name="twelve_feet">12\'</string>
+    <string name="fourteen_feet">14\'</string>
+    <string name="sixteen_feet">16\'</string>
+    <string name="ceiling_eight_feet">c8\'</string>
+    <string name="ceiling_nine_feet">c9\'</string>
+    <string name="ceiling_ten_feet">c10\'</string>
+    <string name="ceiling_twelve_feet">c12\'</string>
+    <string name="ceiling_fourteen_feet">c14\'</string>
+    <string name="ceiling_sixteen_feet">c16\'</string>
+    <string name="mold_eight_feet">m8\'</string>
+    <string name="mold_twelve_feet">m12\'</string>
+    <string name="zero">0</string>
+    <string name="stretch_twelve_feet">s12\'</string>
+    <string name="stretch_fourteen_feet">s14\'</string>
+    <string name="stretch_sixteen_feet">s16\'</string>
+    <string name="hyphen_with_space">"-   "</string>
+    <string name="half_inch_regular">1/2\" Lite</string>
+    <string name="five_eighths_regular">5/8\" Regular</string>
+    <string name="half_inch_stretch">1/2\" Stretch</string>
+    <string name="five_eighths_stretch">5/8\" Stretch</string>
+    <string name="ceiling">Ceilings</string>
+    <string name="mold_u">Mold Resist.</string>
+    <string name="menu_report">Send Report</string>
+    <string name="hint_input_address">Address</string>
+
+    <string name="format_height_charge">%1$s x %2$s @ %3$sft</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="height_charges">Height Charges</string>
+    <string name="format_wall_finish">"Wall Finish - %1s"</string>
+    <string name="format_ceil_finish">"Ceiling Finish - %1s"</string>
+    <string name="format_ceil_square">"Ceiling - %1s Sq. Ft."</string>
+    <string name="format_total_square">"Total - %1s Sq. Ft."</string>
+    <string name="title_activity_backup">BackupActivity</string>
+</resources>

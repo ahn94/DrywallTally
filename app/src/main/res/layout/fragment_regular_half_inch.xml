@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/half8Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/half8View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/eight_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/regHalfEightTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/half8Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/half9Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/half9View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nine_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/regHalfNineTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/half9Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/half10Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/half10View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/ten_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/regHalfTenTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/half10Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/half12Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/half12View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/twelve_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/regHalfTwelveTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/half12Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/half14Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/half14View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/fourteen_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/regHalfFourteenTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/half14Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/half16Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/half16View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sixteen_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="sans-serif"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/regHalfSixteenTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/half16Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/stretchHalfTwelveMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/halfS12View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stretch_twelve_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/stretchHalfTwelveTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/halfStr12Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/halfStr14Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/halfS14View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stretch_fourteen_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/stretchHalfFourteenTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/halfStr14Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/halfStr16Minus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/minus_icon"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/halfS16View">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stretch_sixteen_feet"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/stretchHalfSixteenTally"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/halfStr16Plus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/plus_icon"/>
+    </LinearLayout>
+
+</LinearLayout>

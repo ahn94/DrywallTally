@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Tally">
+        <menu>
+            <item
+                android:id="@+id/half_regular"
+                android:title="@string/half_regular"/>
+            <item
+                android:id="@+id/five_eight_regular"
+                android:title="@string/five_eight_regular"/>
+            <item
+                android:id="@+id/ceilings"
+                android:title="@string/ceilings"/>
+            <item
+                android:id="@+id/fire"
+                android:title="@string/fire"/>
+        </menu>
+    </item>
+
+    <item android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/tabbed"
+                android:title="Job Options"/>
+        </menu>
+    </item>
+
+    <item android:title="Job Summary">
+        <menu>
+            <item
+                android:id="@+id/summary"
+                android:title="Tally Totals"/>
+            <item
+                android:id="@+id/recycleview_options"
+                android:title="Option Totals"/>
+        </menu>
+    </item>
+
+</menu>

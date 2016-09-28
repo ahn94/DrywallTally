@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/dialog_height_layout"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center">
+
+    <biz.kasual.materialnumberpicker.MaterialNumberPicker
+        android:id="@+id/spinner_length"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:npTextSize="18dp"
+        app:npSeparatorColor="@color/colorPrimary"
+        app:npMaxValue="500"
+        app:npMinValue="0"
+        app:npDefaultValue="20"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" X "
+        android:id="@+id/text_width"
+        android:layout_gravity="center_vertical"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
+
+    <biz.kasual.materialnumberpicker.MaterialNumberPicker
+        android:id="@+id/spinner_width"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:npTextSize="18dp"
+        app:npSeparatorColor="@color/colorPrimary"
+        app:npMaxValue="500"
+        app:npMinValue="0"
+        app:npDefaultValue="24"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" @ "
+        android:id="@+id/text_height"
+        android:layout_gravity="center_vertical"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
+
+
+    <biz.kasual.materialnumberpicker.MaterialNumberPicker
+        android:id="@+id/spinner_height"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:npTextSize="18dp"
+        app:npSeparatorColor="@color/colorPrimary"
+        app:npMaxValue="500"
+        app:npMinValue="0"
+        app:npDefaultValue="10"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ft."
+        android:layout_gravity="center_vertical"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
+
+
+</LinearLayout>
