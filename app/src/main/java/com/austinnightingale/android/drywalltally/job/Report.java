@@ -13,6 +13,12 @@ import java.util.List;
  */
 public class Report {
 
+    /**
+     *
+     * TODO: report each job area separately
+     *
+     */
+
     public static String forJob(Job job, List<HeightCharge> heightChargeList, List<TallyArea> tallyAreas) {
         String report = job.jobName() + "\n\n";
         report += "Created on:\n";
@@ -20,8 +26,8 @@ public class Report {
         report += getAddress(job) + "\n\n";
 
         report += getComment(job);
-        report += "Ceiling - " + Utils.printCeilingSqFt(job) + " Sq. Ft.\n";
-        report += "Total - " + Utils.printTotalSqFt(job) +  " Sq. Ft.\n\n";
+        report += "Ceiling - " + Utils.printCeilingSqFt(tallyAreas.get(0)) + " Sq. Ft.\n";
+        report += "Total - " + Utils.printTotalSqFt(tallyAreas.get(0)) +  " Sq. Ft.\n\n";
         report += heightCharges(heightChargeList);
         report += "1/2\" Regular\n";
         report += addLine(tallyAreas.get(0).halfRegEight(), "8'");

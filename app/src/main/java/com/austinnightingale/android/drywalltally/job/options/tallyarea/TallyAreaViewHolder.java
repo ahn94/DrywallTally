@@ -7,16 +7,20 @@ import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.android.drywalltally.job.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 
 public class TallyAreaViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.vocab)
-    TextView textView;
+    @BindView(R.id.job_name)
+    TextView name;
+    @BindView(R.id.square_footage)
+    TextView squareFootage;
     private TallyCallback callback;
     private TallyArea mTallyArea;
 
@@ -29,12 +33,18 @@ public class TallyAreaViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(TallyArea tallyArea) {
         mTallyArea = tallyArea;
-        textView.setText(tallyArea.areaName());
+        name.setText(tallyArea.areaName());
+        squareFootage.setText(Utils.printTotalSqFt(tallyArea) + " Sq. Ft.");
     }
 
-    @OnClick(R.id.view_height_upcharge)
+    @OnClick(R.id.item_view)
     public void clicked() {
-        Log.d("tag", "onClick: clicked");
         callback.openTallyForArea(mTallyArea.Id());
+    }
+
+    @OnLongClick(R.id.item_view)
+    public boolean longClicked() {
+        callback.showDialog(mTallyArea.Id(), mTallyArea.areaName());
+        return true;
     }
 }

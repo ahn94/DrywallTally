@@ -15,7 +15,9 @@ import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
 import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.android.drywalltally.tally.TallyActivity;
 import com.squareup.sqlbrite.BriteDatabase;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import javax.inject.Inject;
 
@@ -27,7 +29,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 
-public class TallyAreasFragment extends Fragment {
+public class TallyAreasFragment extends Fragment implements TallyCallback{
 
     @BindView(R.id.recycleView)
     RecyclerView recyclerView;
@@ -55,8 +57,12 @@ public class TallyAreasFragment extends Fragment {
 
         ButterKnife.bind(this, view);
 
-        adapter = new TallyAreaAdapter(getContext());
+        adapter = new TallyAreaAdapter(this);
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(getContext())
+                        .build()
+        );
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return view;
@@ -96,5 +102,17 @@ public class TallyAreasFragment extends Fragment {
 
     public void openFragment(DialogFragment fragment) {
         fragment.show(getFragmentManager(), "jobsActivity fragment");
+    }
+
+    @Override
+    public void openTallyForArea(int id) {
+        Intent intent = TallyActivity.newInstance(id);
+        intent.setClass(getContext(), TallyActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void showDialog(Integer id, String areaName) {
+        RemoveTallyAreaDialog.newInstance(id, areaName).show(getFragmentManager(), "remove tally area");
     }
 }

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.Utils;
 import com.austinnightingale.android.drywalltally.db.Job;
 
@@ -35,11 +36,11 @@ public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerV
         this.jobsCallBack = jobsCallBack;
     }
 
-    public void bindName(Job name) {
-        mJob = name;
+    public void bindName(Job job) {
+        mJob = job;
         jobName.setText(mJob.jobName());
         jobDate.setText(DateFormat.get(mJob.createdOn()));
-        footage.setText(Utils.printTotalSqFt(mJob) + " Sq. Ft.");
+//        footage.setText(Utils.printTotalSqFt(mJob) + " Sq. Ft.");
     }
 
 

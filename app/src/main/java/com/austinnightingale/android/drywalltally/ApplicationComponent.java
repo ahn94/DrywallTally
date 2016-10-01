@@ -7,6 +7,7 @@ import com.austinnightingale.android.drywalltally.job.options.MainOptionsFragmen
 import com.austinnightingale.android.drywalltally.job.dialogs.RemoveChargeDialog;
 import com.austinnightingale.android.drywalltally.job.options.UpchargeOptionsFragment;
 import com.austinnightingale.android.drywalltally.job.options.tallyarea.NewJobAreaDialog;
+import com.austinnightingale.android.drywalltally.job.options.tallyarea.RemoveTallyAreaDialog;
 import com.austinnightingale.android.drywalltally.job.options.tallyarea.TallyAreasFragment;
 import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
 import com.austinnightingale.android.drywalltally.tally.CeilingsFragment;
@@ -49,4 +50,5 @@ public interface ApplicationComponent {
     void inject(FireFragment fireFragment);
     void inject(NewJobAreaDialog jobAreaDialog);
     void inject(TallyAreasFragment tallyAreasFragment);
+    void inject(RemoveTallyAreaDialog tallyAreaDialog);
 }

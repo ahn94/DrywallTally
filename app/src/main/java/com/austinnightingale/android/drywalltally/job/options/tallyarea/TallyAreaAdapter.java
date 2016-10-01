@@ -17,22 +17,21 @@ import java.util.List;
 import rx.functions.Action1;
 
 
-public class TallyAreaAdapter extends RecyclerView.Adapter<TallyAreaViewHolder> implements Action1<List<TallyArea>>, TallyCallback{
+public class TallyAreaAdapter extends RecyclerView.Adapter<TallyAreaViewHolder> implements Action1<List<TallyArea>>{
 
-    private static final String TAG = "adapterTally";
     private List<TallyArea> mTallyAreas;
-    private Context context;
+    private TallyCallback callback;
 
-    public TallyAreaAdapter(Context context) {
-        this.context = context;
+    public TallyAreaAdapter(TallyCallback callback) {
+        this.callback = callback;
     }
 
 
     @Override
     public TallyAreaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_text, parent, false);
-        return new TallyAreaViewHolder(view, this);
+        View view = inflater.inflate(R.layout.item_jobs_list, parent, false);
+        return new TallyAreaViewHolder(view, callback);
     }
 
     @Override
@@ -51,11 +50,4 @@ public class TallyAreaAdapter extends RecyclerView.Adapter<TallyAreaViewHolder> 
         notifyDataSetChanged();
     }
 
-    @Override
-    public void openTallyForArea(int id) {
-        Log.d(TAG, "openTallyForArea: clicked");
-        Intent intent = TallyActivity.newInstance(id);
-        intent.setClass(context, TallyActivity.class);
-        context.startActivity(intent);
-    }
 }
