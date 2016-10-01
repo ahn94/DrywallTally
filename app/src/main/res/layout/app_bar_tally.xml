@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".jobs.JobsActivity">
+    tools:context="com.austinnightingale.android.drywalltally.tally.TallyActivity">
 
-    <include layout="@layout/jobs_list"/>
+
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -23,5 +23,8 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_tally"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

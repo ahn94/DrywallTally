@@ -25,7 +25,8 @@ import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.job.options.TabsFragment;
 import com.austinnightingale.android.drywalltally.job.summary.SummaryViewPager;
-import com.austinnightingale.android.drywalltally.job.tally.TallyViewPager;
+import com.austinnightingale.android.drywalltally.tally.TallyViewPager;
+import com.austinnightingale.android.drywalltally.tally.TallyActivity;
 import com.squareup.sqlbrite.BriteDatabase;
 
 import java.util.List;
@@ -68,10 +69,6 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
             headerName.setText(intent.getStringExtra(Job.JOB_NAME));
         }
 
-        if (savedInstanceState == null) {
-            setTallyFragment(0);
-        }
-
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -109,7 +106,7 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
     private void sendReport(Job job, List<HeightCharge> heightChargeList) {
         Intent r = new Intent(Intent.ACTION_SEND);
         r.setType("text/plain");
-        r.putExtra(Intent.EXTRA_TEXT, Report.forJob(job, heightChargeList));
+        r.putExtra(Intent.EXTRA_TEXT, Report.forJob(job, heightChargeList, null));
         r.putExtra(Intent.EXTRA_SUBJECT, job.jobName() + " Tally");
         startActivity(Intent.createChooser(r, "Send tally via"));
     }
@@ -145,14 +142,10 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.half_regular) {
-            setTallyFragment(0);
-        } else if (id == R.id.ceilings) {
-            setTallyFragment(2);
-        } else if (id == R.id.five_eight_regular) {
-            setTallyFragment(1);
-        } else if (id == R.id.fire) {
-            setTallyFragment(3);
+        if (id == R.id.job_area) {
+            Intent intent = TallyActivity.newInstance(getID());
+            intent.setClass(this, TallyActivity.class);
+            startActivityForResult(intent, 0);
         } else if (id == R.id.summary) {
             setSummaryFragment(0);
         } else if (id == R.id.tabbed) {
@@ -163,7 +156,7 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return false;
     }
 
     private void setSummaryFragment(int position) {

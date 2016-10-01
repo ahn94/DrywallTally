@@ -2,15 +2,17 @@ package com.austinnightingale.android.drywalltally;
 
 import com.austinnightingale.android.drywalltally.backup.BackupActivity;
 import com.austinnightingale.android.drywalltally.job.JobActivity;
-import com.austinnightingale.android.drywalltally.job.options.FinishOptionsFragment;
+import com.austinnightingale.android.drywalltally.job.options.finish.FinishOptionsFragment;
 import com.austinnightingale.android.drywalltally.job.options.MainOptionsFragment;
 import com.austinnightingale.android.drywalltally.job.dialogs.RemoveChargeDialog;
 import com.austinnightingale.android.drywalltally.job.options.UpchargeOptionsFragment;
-import com.austinnightingale.android.drywalltally.job.tally.BaseJobFragment;
-import com.austinnightingale.android.drywalltally.job.tally.CeilingsFragment;
-import com.austinnightingale.android.drywalltally.job.tally.FireFragment;
-import com.austinnightingale.android.drywalltally.job.tally.FiveEighthFragment;
-import com.austinnightingale.android.drywalltally.job.tally.HalfInchFragment;
+import com.austinnightingale.android.drywalltally.job.options.tallyarea.NewJobAreaDialog;
+import com.austinnightingale.android.drywalltally.job.options.tallyarea.TallyAreasFragment;
+import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
+import com.austinnightingale.android.drywalltally.tally.CeilingsFragment;
+import com.austinnightingale.android.drywalltally.tally.FireFragment;
+import com.austinnightingale.android.drywalltally.tally.FiveEighthFragment;
+import com.austinnightingale.android.drywalltally.tally.HalfInchFragment;
 import com.austinnightingale.android.drywalltally.job.summary.OptionTotalsFragment;
 import com.austinnightingale.android.drywalltally.job.summary.TotalsFragment;
 import com.austinnightingale.android.drywalltally.jobs.DeleteJobDialog;
@@ -45,4 +47,6 @@ public interface ApplicationComponent {
     void inject(RemoveChargeDialog removeChargeDialog);
     void inject(BackupActivity backupActivity);
     void inject(FireFragment fireFragment);
+    void inject(NewJobAreaDialog jobAreaDialog);
+    void inject(TallyAreasFragment tallyAreasFragment);
 }

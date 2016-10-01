@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options;
+package com.austinnightingale.android.drywalltally.job.options.finish;
 
 /**
  * Created by Austin on 9/6/2016.

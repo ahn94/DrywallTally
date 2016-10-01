@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options;
+package com.austinnightingale.android.drywalltally.job.options.finish;
 
 import android.app.Dialog;
 import android.content.Context;

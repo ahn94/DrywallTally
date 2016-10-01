@@ -12,12 +12,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.job.Utils;
 import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.job.options.HeightChargeAdapter;
+import com.austinnightingale.android.drywalltally.job.options.finish.HeightChargeAdapter;
 import com.austinnightingale.android.drywalltally.job.summary.optionadapter.OptionsAdapter;
-import com.austinnightingale.android.drywalltally.job.tally.BaseJobFragment;
+import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import butterknife.BindView;
@@ -152,11 +151,11 @@ public class OptionTotalsFragment extends BaseJobFragment {
             divider.setVisibility(View.VISIBLE);
         }
 
-        textWallFinish.setText(getString(R.string.format_wall_finish, job.wallFinish()));
-        textCeilingFinish.setText(getString(R.string.format_ceil_finish, job.ceilFinish()));
-
-        textCeilingSqare.setText(getString(R.string.format_ceil_square, Utils.printCeilingSqFt(job)));
-        textTotalSquare.setText(getString(R.string.format_total_square, Utils.printTotalSqFt(job)));
+//        textWallFinish.setText(getString(R.string.format_wall_finish, job.wallFinish()));
+//        textCeilingFinish.setText(getString(R.string.format_ceil_finish, job.ceilFinish()));
+//
+//        textCeilingSqare.setText(getString(R.string.format_ceil_square, Utils.printCeilingSqFt(job)));
+//        textTotalSquare.setText(getString(R.string.format_total_square, Utils.printTotalSqFt(job)));
 
     }
 }

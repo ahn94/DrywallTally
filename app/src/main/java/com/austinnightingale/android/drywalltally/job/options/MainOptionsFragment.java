@@ -16,7 +16,7 @@ import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.job.dialogs.InputDialog;
 import com.austinnightingale.android.drywalltally.job.dialogs.InputListener;
-import com.austinnightingale.android.drywalltally.job.tally.BaseJobFragment;
+import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
 import butterknife.BindView;
@@ -58,18 +58,10 @@ public class MainOptionsFragment extends BaseJobFragment implements InputListene
     public void onResume() {
         super.onResume();
         textChange = RxTextView.textChanges(inputComment)
-                .map(new Func1<CharSequence, ContentValues>() {
-                    @Override
-                    public ContentValues call(CharSequence value) {
-                        return new Job.ContentBuilder().comment(value.toString()).build();
-                    }
-                })
-                .subscribe(new Action1<ContentValues>() {
-                    @Override
-                    public void call(ContentValues contentValues) {
-                        if (!isFirstTime) {
-                            updateJob(contentValues);
-                        }
+                .map(value -> new Job.ContentBuilder().comment(value.toString()).build())
+                .subscribe(contentValues -> {
+                    if (!isFirstTime) {
+                        updateJob(contentValues);
                     }
                 });
         subscription.add(db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))

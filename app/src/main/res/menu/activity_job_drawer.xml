@@ -3,18 +3,8 @@
 
     <item android:title="Tally">
         <menu>
-            <item
-                android:id="@+id/half_regular"
-                android:title="@string/half_regular"/>
-            <item
-                android:id="@+id/five_eight_regular"
-                android:title="@string/five_eight_regular"/>
-            <item
-                android:id="@+id/ceilings"
-                android:title="@string/ceilings"/>
-            <item
-                android:id="@+id/fire"
-                android:title="@string/fire"/>
+            <item android:id="@+id/job_area"
+                  android:title="@string/menu_lable_job_areas"/>
         </menu>
     </item>
 

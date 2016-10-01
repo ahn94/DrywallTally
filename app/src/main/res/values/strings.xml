@@ -53,4 +53,7 @@
     <string name="format_ceil_square">"Ceiling - %1s Sq. Ft."</string>
     <string name="format_total_square">"Total - %1s Sq. Ft."</string>
     <string name="title_activity_backup">BackupActivity</string>
+    <string name="title_activity_tally">TallyActivity</string>
+    <string name="menu_lable_job_areas">Job Areas</string>
+    <string name="lbl_add_job_area">Add Job Area</string>
 </resources>

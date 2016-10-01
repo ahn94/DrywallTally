@@ -6,14 +6,14 @@ import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.austinnightingale.android.drywalltally.db.DbOpenHelper;
-import com.austinnightingale.android.drywalltally.job.tally.Ceiling;
-import com.austinnightingale.android.drywalltally.job.tally.CeilingPresenter;
-import com.austinnightingale.android.drywalltally.job.tally.Fire;
-import com.austinnightingale.android.drywalltally.job.tally.FirePresenter;
-import com.austinnightingale.android.drywalltally.job.tally.FiveEigths;
-import com.austinnightingale.android.drywalltally.job.tally.HalfInchPresenter;
-import com.austinnightingale.android.drywalltally.job.tally.fiveEighthsPresenter;
-import com.austinnightingale.android.drywalltally.job.tally.HalfInch;
+import com.austinnightingale.android.drywalltally.tally.Ceiling;
+import com.austinnightingale.android.drywalltally.tally.CeilingPresenter;
+import com.austinnightingale.android.drywalltally.tally.Fire;
+import com.austinnightingale.android.drywalltally.tally.FirePresenter;
+import com.austinnightingale.android.drywalltally.tally.FiveEigths;
+import com.austinnightingale.android.drywalltally.tally.HalfInchPresenter;
+import com.austinnightingale.android.drywalltally.tally.fiveEighthsPresenter;
+import com.austinnightingale.android.drywalltally.tally.HalfInch;
 import com.squareup.sqlbrite.BriteDatabase;
 import com.squareup.sqlbrite.SqlBrite;
 

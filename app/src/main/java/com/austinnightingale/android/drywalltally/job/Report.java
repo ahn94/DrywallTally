@@ -2,6 +2,7 @@ package com.austinnightingale.android.drywalltally.job;
 
 import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.jobs.DateFormat;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public class Report {
 
-    public static String forJob(Job job, List<HeightCharge> heightChargeList) {
+    public static String forJob(Job job, List<HeightCharge> heightChargeList, List<TallyArea> tallyAreas) {
         String report = job.jobName() + "\n\n";
         report += "Created on:\n";
         report += DateFormat.getLong(job.createdOn()) + "\n\n";
@@ -23,47 +24,47 @@ public class Report {
         report += "Total - " + Utils.printTotalSqFt(job) +  " Sq. Ft.\n\n";
         report += heightCharges(heightChargeList);
         report += "1/2\" Regular\n";
-        report += addLine(job.halfRegEight(), "8'");
-        report += addLine(job.halfRegNine(), "9'");
-        report += addLine(job.halfRegTen(), "10'");
-        report += addLine(job.halfRegTwelve(), "12'");
-        report += addLine(job.halfRegFourteen(), "14'");
-        report += addLine(job.halfRegSixteen(), "16'");
+        report += addLine(tallyAreas.get(0).halfRegEight(), "8'");
+        report += addLine(tallyAreas.get(0).halfRegNine(), "9'");
+        report += addLine(tallyAreas.get(0).halfRegTen(), "10'");
+        report += addLine(tallyAreas.get(0).halfRegTwelve(), "12'");
+        report += addLine(tallyAreas.get(0).halfRegFourteen(), "14'");
+        report += addLine(tallyAreas.get(0).halfRegSixteen(), "16'");
         report += "\n";
         report += "1/2\" Stretch\n";
-        report += addLine(job.halfStretchTwelve(), "12'");
-        report += addLine(job.halfStretchFourteen(), "14'");
-        report += addLine(job.halfStretchSixteen(), "16'");
+        report += addLine(tallyAreas.get(0).halfStretchTwelve(), "12'");
+        report += addLine(tallyAreas.get(0).halfStretchFourteen(), "14'");
+        report += addLine(tallyAreas.get(0).halfStretchSixteen(), "16'");
         report += "\n";
         report += "5/8\" Regular\n";
-        report += addLine(job.fiveEighthRegEight(), "8'");
-        report += addLine(job.fiveEighthRegNine(), "9'");
-        report += addLine(job.fiveEighthRegTen(), "10'");
-        report += addLine(job.fiveEighthRegTwelve(), "12'");
-        report += addLine(job.fiveEighthRegFourteen(), "14'");
+        report += addLine(tallyAreas.get(0).fiveEighthRegEight(), "8'");
+        report += addLine(tallyAreas.get(0).fiveEighthRegNine(), "9'");
+        report += addLine(tallyAreas.get(0).fiveEighthRegTen(), "10'");
+        report += addLine(tallyAreas.get(0).fiveEighthRegTwelve(), "12'");
+        report += addLine(tallyAreas.get(0).fiveEighthRegFourteen(), "14'");
         report += "\n";
         report += "5/8\" Stretch\n";
-        report += addLine(job.fiveEightStretchTwelve(), "12'");
+        report += addLine(tallyAreas.get(0).fiveEightStretchTwelve(), "12'");
         report += "\n";
         report += "Ceilings\n";
-        report += addLine(job.ceilingEight(), "8'");
-        report += addLine(job.ceilingNine(), "9'");
-        report += addLine(job.ceilingTen(), "10'");
-        report += addLine(job.ceilingTwelve(), "12'");
-        report += addLine(job.ceilingFourteen(), "14'");
-        report += addLine(job.ceilingSixteen(), "16'");
+        report += addLine(tallyAreas.get(0).ceilingEight(), "8'");
+        report += addLine(tallyAreas.get(0).ceilingNine(), "9'");
+        report += addLine(tallyAreas.get(0).ceilingTen(), "10'");
+        report += addLine(tallyAreas.get(0).ceilingTwelve(), "12'");
+        report += addLine(tallyAreas.get(0).ceilingFourteen(), "14'");
+        report += addLine(tallyAreas.get(0).ceilingSixteen(), "16'");
         report += "\n";
         report += "Fire Resistant\n";
-        report += addLine(job.fireEight(), "8'");
-        report += addLine(job.fireNine(), "9'");
-        report += addLine(job.fireTen(), "10'");
-        report += addLine(job.fireTwelve(), "12'");
-        report += addLine(job.fireFourteen(), "14'");
-        report += addLine(job.fireSixteen(), "16'");
+        report += addLine(tallyAreas.get(0).fireEight(), "8'");
+        report += addLine(tallyAreas.get(0).fireNine(), "9'");
+        report += addLine(tallyAreas.get(0).fireTen(), "10'");
+        report += addLine(tallyAreas.get(0).fireTwelve(), "12'");
+        report += addLine(tallyAreas.get(0).fireFourteen(), "14'");
+        report += addLine(tallyAreas.get(0).fireSixteen(), "16'");
         report += "\n";
         report += "Mold Resistant\n";
-        report += addLine(job.moldEight(), "8'");
-        report += addLine(job.moldTwelve(), "12'");
+        report += addLine(tallyAreas.get(0).moldEight(), "8'");
+        report += addLine(tallyAreas.get(0).moldTwelve(), "12'");
         report += "\n";
         report += "Options\n";
         List<String[]> options = Report.getOptionValueLabelPairs(job);
@@ -165,67 +166,67 @@ public class Report {
         return options;
     }
 
-    public static Integer[] getHalfTallies(Job job) {
+    public static Integer[] getHalfTallies(TallyArea tally) {
         return new Integer[]{
-                job.halfRegEight(),
-                job.halfRegNine(),
-                job.halfRegTen(),
-                job.halfRegTwelve(),
-                job.halfRegFourteen(),
-                job.halfRegSixteen()
+                tally.halfRegEight(),
+                tally.halfRegNine(),
+                tally.halfRegTen(),
+                tally.halfRegTwelve(),
+                tally.halfRegFourteen(),
+                tally.halfRegSixteen()
         };
     }
 
-    public static Integer[] getHalfStretchTallies(Job job) {
+    public static Integer[] getHalfStretchTallies(TallyArea tally) {
         return new Integer[]{
-                job.halfStretchTwelve(),
-                job.halfStretchFourteen(),
-                job.halfStretchSixteen()
+                tally.halfStretchTwelve(),
+                tally.halfStretchFourteen(),
+                tally.halfStretchSixteen()
         };
     }
 
-    public static Integer[] getCeilTallies(Job job) {
+    public static Integer[] getCeilTallies(TallyArea tally) {
         return new Integer[]{
-                job.ceilingEight(),
-                job.ceilingNine(),
-                job.ceilingTen(),
-                job.ceilingTwelve(),
-                job.ceilingFourteen(),
-                job.ceilingSixteen()
+                tally.ceilingEight(),
+                tally.ceilingNine(),
+                tally.ceilingTen(),
+                tally.ceilingTwelve(),
+                tally.ceilingFourteen(),
+                tally.ceilingSixteen()
         };
     }
 
-    public static Integer[] getFiveETallies(Job job) {
+    public static Integer[] getFiveETallies(TallyArea tally) {
         return new Integer[]{
-                job.fiveEighthRegEight(),
-                job.fiveEighthRegNine(),
-                job.fiveEighthRegTen(),
-                job.fiveEighthRegTwelve(),
-                job.fiveEighthRegFourteen(),
+                tally.fiveEighthRegEight(),
+                tally.fiveEighthRegNine(),
+                tally.fiveEighthRegTen(),
+                tally.fiveEighthRegTwelve(),
+                tally.fiveEighthRegFourteen(),
         };
     }
 
-    public static Integer[] getFiveEStretchTallies(Job job) {
+    public static Integer[] getFiveEStretchTallies(TallyArea tally) {
         return new Integer[]{
-                job.fiveEightStretchTwelve()
+                tally.fiveEightStretchTwelve()
         };
     }
 
-    public static Integer[] getMoldTallies(Job job) {
+    public static Integer[] getMoldTallies(TallyArea tally) {
         return new Integer[]{
-                job.moldEight(),
-                job.moldTwelve()
+                tally.moldEight(),
+                tally.moldTwelve()
         };
     }
 
-    public static Integer[] getFireTallies(Job job) {
+    public static Integer[] getFireTallies(TallyArea tally) {
         return new Integer[]{
-                job.fireEight(),
-                job.fireNine(),
-                job.fireTen(),
-                job.fireTwelve(),
-                job.fireFourteen(),
-                job.fireSixteen()
+                tally.fireEight(),
+                tally.fireNine(),
+                tally.fireTen(),
+                tally.fireTwelve(),
+                tally.fireFourteen(),
+                tally.fireSixteen()
         };
     }
 

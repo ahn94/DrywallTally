@@ -30,6 +30,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".jobs.JobsActivity"/>
         </activity>
+        <activity
+            android:name=".tally.TallyActivity"
+            android:label="@string/title_activity_tally"
+            android:parentActivityName=".job.JobActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.austinnightingale.android.drywalltally.job.JobActivity"/>
+        </activity>
     </application>
 
 </manifest>

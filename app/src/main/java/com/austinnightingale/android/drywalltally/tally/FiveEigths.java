@@ -1,4 +1,6 @@
-package com.austinnightingale.android.drywalltally.job.tally;
+package com.austinnightingale.android.drywalltally.tally;
+
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 
 /**
  * Created by Austin on 8/19/2016.
@@ -28,7 +30,7 @@ public interface FiveEigths {
 
         void setView(final Object view);
 
-        void refreshView();
+        void refreshView(TallyArea tallyArea);
 
         void updateJob(String column, int value);
 

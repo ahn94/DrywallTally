@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.tally;
+package com.austinnightingale.android.drywalltally.tally;
 
 import android.content.ContentValues;
 import android.content.Intent;

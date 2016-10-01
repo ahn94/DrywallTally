@@ -26,9 +26,10 @@ public abstract class Job {
     public static final String ID = "_id";
     public static final String JOB_NAME = "job_name";
     public static final String CREATED_AT = "created_at";
+
+
+
     public static final String HALF_8 = "half_regular_eight";
-
-
     public static final String HALF_9 = "half_regular_nine";
     public static final String HALF_10 = "half_regular_ten";
     public static final String HALF_12 = "half_regular_twelve";
@@ -128,100 +129,6 @@ public abstract class Job {
     @ColumnName(L_TRIM)
     public abstract int lTrim();
 
-    @ColumnName(HALF_8)
-    public abstract int halfRegEight();
-
-    @ColumnName(HALF_9)
-    public abstract int halfRegNine();
-
-    @ColumnName(HALF_10)
-    public abstract int halfRegTen();
-
-    @ColumnName(HALF_12)
-    public abstract int halfRegTwelve();
-
-    @ColumnName(HALF_14)
-    public abstract int halfRegFourteen();
-
-    @ColumnName(HALF_16)
-    public abstract int halfRegSixteen();
-
-    @ColumnName(CEIL_8)
-    public abstract int ceilingEight();
-
-    @ColumnName(CEIL_9)
-    public abstract int ceilingNine();
-
-    @ColumnName(CEIL_10)
-    public abstract int ceilingTen();
-
-    @ColumnName(CEIL_12)
-    public abstract int ceilingTwelve();
-
-    @ColumnName(CEIL_14)
-    public abstract int ceilingFourteen();
-
-    @ColumnName(CEIL_16)
-    public abstract int ceilingSixteen();
-
-
-
-
-
-    @ColumnName(FIRE_8)
-    public abstract int fireEight();
-
-    @ColumnName(FIRE_9)
-    public abstract int fireNine();
-
-    @ColumnName(FIRE_10)
-    public abstract int fireTen();
-
-    @ColumnName(FIRE_12)
-    public abstract int fireTwelve();
-
-    @ColumnName(FIRE_14)
-    public abstract int fireFourteen();
-
-    @ColumnName(FIRE_16)
-    public abstract int fireSixteen();
-    
-    
-    
-
-    @ColumnName(MOLD_8)
-    public abstract int moldEight();
-
-    @ColumnName(MOLD_12)
-    public abstract int moldTwelve();
-
-    @ColumnName(FiveE_8)
-    public abstract int fiveEighthRegEight();
-
-    @ColumnName(FiveE_9)
-    public abstract int fiveEighthRegNine();
-
-    @ColumnName(FiveE_10)
-    public abstract int fiveEighthRegTen();
-
-    @ColumnName(FiveE_12)
-    public abstract int fiveEighthRegTwelve();
-
-    @ColumnName(FiveE_14)
-    public abstract int fiveEighthRegFourteen();
-
-    @ColumnName(HALF_s12)
-    public abstract int halfStretchTwelve();
-
-    @ColumnName(HALF_s14)
-    public abstract int halfStretchFourteen();
-
-    @ColumnName(HALF_s16)
-    public abstract int halfStretchSixteen();
-
-    @ColumnName(FiveE_s12)
-    public abstract int fiveEightStretchTwelve();
-
 
     public static Job create(Cursor cursor) {
         return AutoValue_Job.createFromCursor(cursor);
@@ -275,68 +182,6 @@ public abstract class Job {
         abstract Builder openingWrap(int value);
 
         abstract Builder lTrim(int value);
-
-        abstract Builder halfRegEight(int value);
-
-        abstract Builder halfRegNine(int value);
-
-        abstract Builder halfRegTen(int value);
-
-        abstract Builder halfRegTwelve(int value);
-
-        abstract Builder halfRegFourteen(int value);
-
-        abstract Builder halfRegSixteen(int value);
-
-        abstract Builder ceilingEight(int value);
-
-        abstract Builder ceilingNine(int value);
-
-        abstract Builder ceilingTen(int value);
-
-        abstract Builder ceilingTwelve(int value);
-
-        abstract Builder ceilingFourteen(int value);
-
-        abstract Builder ceilingSixteen(int value);
-
-
-
-        abstract Builder fireEight(int value);
-
-        abstract Builder fireNine(int value);
-
-        abstract Builder fireTen(int value);
-
-        abstract Builder fireTwelve(int value);
-
-        abstract Builder fireFourteen(int value);
-
-        abstract Builder fireSixteen(int value);
-        
-        
-
-        abstract Builder moldEight(int value);
-
-        abstract Builder moldTwelve(int value);
-
-        abstract Builder fiveEighthRegEight(int value);
-
-        abstract Builder fiveEighthRegNine(int value);
-
-        abstract Builder fiveEighthRegTen(int value);
-
-        abstract Builder fiveEighthRegTwelve(int value);
-
-        abstract Builder fiveEighthRegFourteen(int value);
-
-        abstract Builder halfStretchTwelve(int value);
-
-        abstract Builder halfStretchFourteen(int value);
-
-        abstract Builder halfStretchSixteen(int value);
-
-        abstract Builder fiveEightStretchTwelve(int value);
     }
 
     public static final class ContentBuilder {

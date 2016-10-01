@@ -4,11 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by Austin on 8/12/2016.
- */
+
 public class DbOpenHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 2;
+    private static final int VERSION = 1;
 
     private static final String CREATE_JOBS_TABLE = ""
             + "CREATE TABLE " + Job.TABLE + "("
@@ -27,36 +25,43 @@ public class DbOpenHelper extends SQLiteOpenHelper {
             + Job.ARCH_CORNER + " INTEGER NOT NULL DEFAULT 0,"
             + Job.DOOR_WRAP + " INTEGER NOT NULL DEFAULT 0,"
             + Job.OPENING_WRAP + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.L_TRIM + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_8 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_9 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_10 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_12 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_14 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_16 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.CEIL_8 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.CEIL_9 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.CEIL_10 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.CEIL_12 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.CEIL_14 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.CEIL_16 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FIRE_8 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FIRE_9 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FIRE_10 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FIRE_12 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FIRE_14 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FIRE_16 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.MOLD_8 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.MOLD_12 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FiveE_8 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FiveE_9 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FiveE_10 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FiveE_12 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FiveE_14 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_s12 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_s14 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.HALF_s16 + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.FiveE_s12 + " INTEGER NOT NULL DEFAULT 0"
+            + Job.L_TRIM + " INTEGER NOT NULL DEFAULT 0"
+            + ")";
+
+    private static final String CREATE_TALLY_AREA_TABLE = ""
+            + "CREATE TABLE " + TallyArea.TABLE + "("
+            + TallyArea.ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TallyArea.AREA_NAME + " TEXT NOT NULL,"
+            + TallyArea.JOB_ID + " INTEGER NOT NULL,"
+            + TallyArea.HALF_8 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_9 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_10 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_12 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_14 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_16 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.CEIL_8 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.CEIL_9 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.CEIL_10 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.CEIL_12 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.CEIL_14 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.CEIL_16 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FIRE_8 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FIRE_9 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FIRE_10 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FIRE_12 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FIRE_14 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FIRE_16 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.MOLD_8 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.MOLD_12 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FiveE_8 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FiveE_9 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FiveE_10 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FiveE_12 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FiveE_14 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_s12 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_s14 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.HALF_s16 + " INTEGER NOT NULL DEFAULT 0,"
+            + TallyArea.FiveE_s12 + " INTEGER NOT NULL DEFAULT 0"
             + ")";
 
     public static final String CREATE_HEIGHT_CHARGE_TABLE = ""
@@ -78,6 +83,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_JOBS_TABLE);
         sqLiteDatabase.execSQL(CREATE_HEIGHT_CHARGE_TABLE);
+        sqLiteDatabase.execSQL(CREATE_TALLY_AREA_TABLE);
     }
 
     @Override

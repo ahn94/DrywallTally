@@ -1,6 +1,7 @@
-package com.austinnightingale.android.drywalltally.job.tally;
+package com.austinnightingale.android.drywalltally.tally;
 
 import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 
 /**
  * Created by Austin on 9/24/2016.
@@ -35,7 +36,7 @@ public interface Fire {
 
         void setView(final Object view);
 
-        void refreshView(Job job);
+        void refreshView(TallyArea tallyArea);
 
         void updateJob(String column, int value);
 

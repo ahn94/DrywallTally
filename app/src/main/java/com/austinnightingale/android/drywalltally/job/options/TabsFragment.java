@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.austinnightingale.android.drywalltally.R;
+import com.austinnightingale.android.drywalltally.job.options.finish.FinishOptionsFragment;
+import com.austinnightingale.android.drywalltally.job.options.tallyarea.TallyAreasFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +37,7 @@ public class TabsFragment extends Fragment {
         adapter.addFragment(new MainOptionsFragment(), "Main");
         adapter.addFragment(new UpchargeOptionsFragment(), "Up Charge");
         adapter.addFragment(new FinishOptionsFragment(), "Finish");
+        adapter.addFragment(new TallyAreasFragment(), "Job Areas");
         pager.setAdapter(adapter);
         pager.setOffscreenPageLimit(3);
         tabLayout.setupWithViewPager(pager, true);

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.Report;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import rx.functions.Action1;
  * Created by Austin on 9/26/2016.
  */
 
-public class TallyTotalAdapter extends RecyclerView.Adapter<TallyViewHolder> implements Action1<Job> {
+public class TallyTotalAdapter extends RecyclerView.Adapter<TallyViewHolder> implements Action1<TallyArea> {
 
     private static final int HALF = 1;
     private static final int HALF_S = 2;
@@ -106,17 +107,17 @@ public class TallyTotalAdapter extends RecyclerView.Adapter<TallyViewHolder> imp
     }
 
     @Override
-    public void call(Job job) {
+    public void call(TallyArea tallyArea) {
         data.clear();
         types.clear();
 
-        Integer[] half = Report.getHalfTallies(job);
-        Integer[] halfStretch = Report.getHalfStretchTallies(job);
-        Integer[] five = Report.getFiveETallies(job);
-        Integer[] fiveS = Report.getFiveEStretchTallies(job);
-        Integer[] ceiling = Report.getCeilTallies(job);
-        Integer[] fire = Report.getFireTallies(job);
-        Integer[] mold = Report.getMoldTallies(job);
+        Integer[] half = Report.getHalfTallies(tallyArea);
+        Integer[] halfStretch = Report.getHalfStretchTallies(tallyArea);
+        Integer[] five = Report.getFiveETallies(tallyArea);
+        Integer[] fiveS = Report.getFiveEStretchTallies(tallyArea);
+        Integer[] ceiling = Report.getCeilTallies(tallyArea);
+        Integer[] fire = Report.getFireTallies(tallyArea);
+        Integer[] mold = Report.getMoldTallies(tallyArea);
 
         if (Report.getTallySum(half) > 0) {
             types.add(HALF);

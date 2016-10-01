@@ -74,17 +74,19 @@ public class TotalsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        subscription = db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
-                .mapToOne(Job.mapper())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(adapter);
+//        subscription = db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
+//                .mapToOne(Job.mapper())
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(adapter);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        subscription.unsubscribe();
+        if (subscription != null && !subscription.isUnsubscribed()) {
+            subscription.unsubscribe();
+        }
     }
 
     public int getID() {

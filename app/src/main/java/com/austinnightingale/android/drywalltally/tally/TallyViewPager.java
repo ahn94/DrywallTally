@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.tally;
+package com.austinnightingale.android.drywalltally.tally;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
