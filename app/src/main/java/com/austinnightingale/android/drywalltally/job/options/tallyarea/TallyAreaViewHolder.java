@@ -1,7 +1,6 @@
 package com.austinnightingale.android.drywalltally.job.options.tallyarea;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -34,7 +33,7 @@ public class TallyAreaViewHolder extends RecyclerView.ViewHolder {
     public void bind(TallyArea tallyArea) {
         mTallyArea = tallyArea;
         name.setText(tallyArea.areaName());
-        squareFootage.setText(Utils.printTotalSqFt(tallyArea) + " Sq. Ft.");
+        squareFootage.setText(Utils.areaTotalSqFt(tallyArea) + " Sq. Ft.");
     }
 
     @OnClick(R.id.item_view)

@@ -154,8 +154,8 @@ public class OptionTotalsFragment extends BaseJobFragment {
 //        textWallFinish.setText(getString(R.string.format_wall_finish, job.wallFinish()));
 //        textCeilingFinish.setText(getString(R.string.format_ceil_finish, job.ceilFinish()));
 //
-//        textCeilingSqare.setText(getString(R.string.format_ceil_square, Utils.printCeilingSqFt(job)));
-//        textTotalSquare.setText(getString(R.string.format_total_square, Utils.printTotalSqFt(job)));
+//        textCeilingSqare.setText(getString(R.string.format_ceil_square, Utils.areaCeilingSqFt(job)));
+//        textTotalSquare.setText(getString(R.string.format_total_square, Utils.areaTotalSqFt(job)));
 
     }
 }

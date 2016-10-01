@@ -2,21 +2,45 @@ package com.austinnightingale.android.drywalltally.job;
 
 import com.austinnightingale.android.drywalltally.db.TallyArea;
 
+import java.util.List;
+import java.util.Locale;
+
 
 public class Utils {
 
-    public static double getCeilingSqFt(TallyArea tallyArea) {
-        double totalSquare = 0;
-        totalSquare += tallyArea.ceilingEight() * 8 * 4;
-        totalSquare += tallyArea.ceilingNine() * 9 * 4;
-        totalSquare += tallyArea.ceilingTen() * 10 * 4;
-        totalSquare += tallyArea.ceilingTwelve() * 12 * 4;
-        totalSquare += tallyArea.ceilingFourteen() * 14 * 4;
-        totalSquare += tallyArea.ceilingSixteen() * 16 * 4;
-        return totalSquare;
+    public static String areaTotalSqFt(TallyArea tallyArea) {
+        return Utils.strFromDouble(areaTotalFt(tallyArea));
     }
 
-    public static double getTotalSqFt(TallyArea tallyArea) {
+    public static String areaCeilingSqFt(TallyArea tallyArea) {
+        return Utils.strFromDouble(areaCeilingFt(tallyArea));
+    }
+
+    public static String jobTotalFtString(List<TallyArea> tallyAreaList) {
+        return Utils.strFromDouble(jobTotalFtNum(tallyAreaList));
+    }
+
+    public static String jobCeilingFtString(List<TallyArea> tallyAreaList) {
+        return Utils.strFromDouble(jobCeilingFtNum(tallyAreaList));
+    }
+
+    public static double jobCeilingFtNum(List<TallyArea> tallyAreaList) {
+        double ceilingSqFt = 0;
+        for (TallyArea tallyArea : tallyAreaList) {
+            ceilingSqFt += areaCeilingFt(tallyArea);
+        }
+        return ceilingSqFt;
+    }
+
+    public static double jobTotalFtNum(List<TallyArea> tallyAreaList) {
+        double totalSqFt = 0;
+        for (TallyArea tallyArea : tallyAreaList) {
+            totalSqFt += areaTotalFt(tallyArea);
+        }
+        return totalSqFt;
+    }
+
+    public static double areaTotalFt(TallyArea tallyArea) {
         double totalSquare = 0;
 
         totalSquare += tallyArea.halfRegEight() * 8 * 4;
@@ -40,30 +64,29 @@ public class Utils {
         totalSquare += tallyArea.fiveEighthRegFourteen() * 14 * 4;
         totalSquare += tallyArea.fiveEightStretchTwelve() * 12 * 4.5;
 
-        totalSquare += getCeilingSqFt(tallyArea);
+        totalSquare += areaCeilingFt(tallyArea);
 
         return totalSquare;
     }
 
-    public static String printTotalSqFt(TallyArea tallyArea) {
-        {
-            double d = getTotalSqFt(tallyArea);
-            if (d == (long) d)
-                return String.format("%d", (long) d);
-            else
-                return String.format("%s", d);
-        }
+    public static double areaCeilingFt(TallyArea tallyArea) {
+        double totalSquare = 0;
+
+        totalSquare += tallyArea.ceilingEight() * 8 * 4;
+        totalSquare += tallyArea.ceilingNine() * 9 * 4;
+        totalSquare += tallyArea.ceilingTen() * 10 * 4;
+        totalSquare += tallyArea.ceilingTwelve() * 12 * 4;
+        totalSquare += tallyArea.ceilingFourteen() * 14 * 4;
+        totalSquare += tallyArea.ceilingSixteen() * 16 * 4;
+
+        return totalSquare;
     }
 
-    public static String printCeilingSqFt(TallyArea tallyArea) {
-        {
-            double d = getCeilingSqFt(tallyArea);
-            if (d == (long) d)
-                return String.format("%d", (long) d);
-            else
-                return String.format("%s", d);
-        }
+    private static String strFromDouble(double value) {
+        if (value == (long) value)
+            return String.format(Locale.ENGLISH,"%d", (long) value);
+        else
+            return String.format("%s", value);
     }
-
 
 }

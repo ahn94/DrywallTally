@@ -40,7 +40,7 @@ public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerV
         mJob = job;
         jobName.setText(mJob.jobName());
         jobDate.setText(DateFormat.get(mJob.createdOn()));
-//        footage.setText(Utils.printTotalSqFt(mJob) + " Sq. Ft.");
+//        footage.setText(Utils.areaTotalSqFt(mJob) + " Sq. Ft.");
     }
 
 
