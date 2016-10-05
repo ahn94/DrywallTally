@@ -12,9 +12,11 @@ import android.widget.Toast;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.db.JobInfo;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
@@ -42,6 +44,10 @@ public class BackupActivity extends AppCompatActivity {
     protected Subscription subscription;
     @Inject
     protected BriteDatabase db;
+
+    @Inject
+    DAO dao;
+
     Gson gson;
 
     @Override
@@ -96,6 +102,14 @@ public class BackupActivity extends AppCompatActivity {
                             .toContentValues()
                     );
                 }
+                for (TallyArea tallyArea : jobInfo.tallyAreas()) {
+                    db.insert(TallyArea.TABLE, tallyArea.toBuilder()
+                            .Id(null)
+                            .jobID((int) id)
+                            .build()
+                            .toContentValues()
+                    );
+                }
             }
             text.setText(jobs.length + " jobs restored");
             transaction.markSuccessful();
@@ -127,9 +141,15 @@ public class BackupActivity extends AppCompatActivity {
                     charges.add(charge.heightCharge());
                 }
             }
+
+            List<TallyArea> tallyAreas = dao.getTallyAreaListForJobId(job.jobID())
+                    .toBlocking().first();
+
+
             JobInfo jobInfo = JobInfo.builder()
                     .job(job)
                     .heightCharges(charges)
+                    .tallyAreas(tallyAreas)
                     .build();
             jobInfoList.add(jobInfo);
         }

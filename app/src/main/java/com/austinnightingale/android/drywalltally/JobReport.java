@@ -82,14 +82,14 @@ public class JobReport {
     public String jobTallyTotals() {
         String report = "";
         if (tallyAreas.isEmpty()) {
-            report += "\n------------------------------------------------------\n";
+            report += "\n----------------------------\n";
             report += "No tallies added to job.\n";
-            report += "------------------------------------------------------\n";
+            report += "----------------------------\n";
             return report;
         }
-        report += "\n\n------------------------------------------------------\n";
+        report += "\n\n----------------------------\n";
         report += "Job: " +job.jobName()+ "\n";
-        report += "------------------------------------------------------\n";
+        report += "----------------------------\n";
         if (tallyAreas.size() == 1) {
             report += tallyAreas.get(0).areaName() + " is only job area added to job\n";
         }
@@ -170,15 +170,15 @@ public class JobReport {
             Integer[] mold = Report.getMoldTallies(area);
 
             if (Utils.areaTotalFt(area) == 0) {
-                report += "\n------------------------------------------------------\n";
+                report += "\n----------------------------\n";
                 report += "Area: " +area.areaName() + " is empty\n";
-                report += "------------------------------------------------------\n";
+                report += "----------------------------\n";
                 continue;
             }
 
-            report += "\n\n------------------------------------------------------\n";
+            report += "\n\n----------------------------\n";
             report += "Area: " +area.areaName() + "\n";
-            report += "------------------------------------------------------\n";
+            report += "----------------------------\n";
 
             if (Report.getTallySum(half) > 0) {
                 report += "1/2\" Lite\n";
