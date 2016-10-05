@@ -2,7 +2,7 @@ package com.austinnightingale.android.drywalltally.db;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.net.Uri;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 
 import com.gabrielittner.auto.value.cursor.ColumnName;
@@ -12,14 +12,9 @@ import com.google.gson.TypeAdapter;
 
 import rx.functions.Func1;
 
-import static com.austinnightingale.android.drywalltally.db.TallyArea.AREA_NAME;
-
-/**
- * Created by Austin on 9/29/2016.
- */
 
 @AutoValue
-public abstract class TallyArea {
+public abstract class TallyArea implements Parcelable{
 
     public static final String getAllTallyAreasForJob = "SELECT * FROM " + TallyArea.TABLE
             + " WHERE " + TallyArea.JOB_ID + " = ?";
@@ -181,74 +176,78 @@ public abstract class TallyArea {
 
     public abstract TallyArea.Builder toBuilder();
 
+    public static Builder builder() {
+        return new AutoValue_TallyArea.Builder();
+    }
+
 
     @AutoValue.Builder
     public abstract static class Builder {
         public abstract TallyArea build();
 
-        abstract Builder Id(Integer value);
+        public abstract Builder Id(Integer value);
 
-        abstract Builder areaName(String name);
+        public abstract Builder areaName(String name);
 
-        abstract Builder jobID(int value);
+        public abstract Builder jobID(int value);
 
-        abstract Builder halfRegEight(int value);
+        public abstract Builder halfRegEight(int value);
 
-        abstract Builder halfRegNine(int value);
+        public abstract Builder halfRegNine(int value);
 
-        abstract Builder halfRegTen(int value);
+        public abstract Builder halfRegTen(int value);
 
-        abstract Builder halfRegTwelve(int value);
+        public abstract Builder halfRegTwelve(int value);
 
-        abstract Builder halfRegFourteen(int value);
+        public abstract Builder halfRegFourteen(int value);
 
-        abstract Builder halfRegSixteen(int value);
+        public abstract Builder halfRegSixteen(int value);
 
-        abstract Builder ceilingEight(int value);
+        public abstract Builder ceilingEight(int value);
 
-        abstract Builder ceilingNine(int value);
+        public abstract Builder ceilingNine(int value);
 
-        abstract Builder ceilingTen(int value);
+        public abstract Builder ceilingTen(int value);
 
-        abstract Builder ceilingTwelve(int value);
+        public abstract Builder ceilingTwelve(int value);
 
-        abstract Builder ceilingFourteen(int value);
+        public abstract Builder ceilingFourteen(int value);
 
-        abstract Builder ceilingSixteen(int value);
+        public abstract Builder ceilingSixteen(int value);
 
-        abstract Builder fireEight(int value);
+        public abstract Builder fireEight(int value);
 
-        abstract Builder fireNine(int value);
+        public abstract Builder fireNine(int value);
 
-        abstract Builder fireTen(int value);
+        public abstract Builder fireTen(int value);
 
-        abstract Builder fireTwelve(int value);
+        public abstract Builder fireTwelve(int value);
 
-        abstract Builder fireFourteen(int value);
+        public abstract Builder fireFourteen(int value);
 
-        abstract Builder fireSixteen(int value);
+        public abstract Builder fireSixteen(int value);
 
-        abstract Builder moldEight(int value);
+        public abstract Builder moldEight(int value);
 
-        abstract Builder moldTwelve(int value);
+        public abstract Builder moldTwelve(int value);
 
-        abstract Builder fiveEighthRegEight(int value);
+        public abstract Builder fiveEighthRegEight(int value);
 
-        abstract Builder fiveEighthRegNine(int value);
+        public abstract Builder fiveEighthRegNine(int value);
 
-        abstract Builder fiveEighthRegTen(int value);
+        public abstract Builder fiveEighthRegTen(int value);
 
-        abstract Builder fiveEighthRegTwelve(int value);
+        public abstract Builder fiveEighthRegTwelve(int value);
 
-        abstract Builder fiveEighthRegFourteen(int value);
+        public abstract Builder fiveEighthRegFourteen(int value);
 
-        abstract Builder halfStretchTwelve(int value);
+        public abstract Builder halfStretchTwelve(int value);
 
-        abstract Builder halfStretchFourteen(int value);
+        public abstract Builder halfStretchFourteen(int value);
 
-        abstract Builder halfStretchSixteen(int value);
+        public abstract Builder halfStretchSixteen(int value);
 
-        abstract Builder fiveEightStretchTwelve(int value);
+        public abstract Builder fiveEightStretchTwelve(int value);
     }
 
     public static final class ContentBuilder {

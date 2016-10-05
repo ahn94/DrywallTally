@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Tally">
-        <menu>
-            <item android:id="@+id/job_area"
-                  android:title="@string/menu_lable_job_areas"/>
-        </menu>
-    </item>
+    <item
+        android:id="@+id/options_job_area"
+        android:title="Job Tally"/>
 
-    <item android:title="Options">
-        <menu>
-            <item
-                android:id="@+id/tabbed"
-                android:title="Job Options"/>
-        </menu>
-    </item>
+    <item
+        android:id="@+id/options_main"
+        android:title="Job Options"/>
 
-    <item android:title="Job Summary">
-        <menu>
-            <item
-                android:id="@+id/summary"
-                android:title="Tally Totals"/>
-            <item
-                android:id="@+id/recycleview_options"
-                android:title="Option Totals"/>
-        </menu>
-    </item>
+    <item
+        android:id="@+id/job_summary"
+        android:title="Job Summary"/>
+
+    <item
+        android:id="@+id/area_tally_summary"
+        android:title="Area Tallies"/>
+
+    <item
+        android:id="@+id/job_tally_summary"
+        android:title="Job Tally"/>
 
 </menu>

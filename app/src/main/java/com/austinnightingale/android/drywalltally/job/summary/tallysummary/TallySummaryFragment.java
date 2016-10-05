@@ -1,6 +1,5 @@
-package com.austinnightingale.android.drywalltally.job.summary;
+package com.austinnightingale.android.drywalltally.job.summary.tallysummary;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,35 +8,46 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.job.summary.tallyadapter.viewholders.GridSpacingItemDecoration;
-import com.austinnightingale.android.drywalltally.job.summary.tallyadapter.viewholders.TallyTotalAdapter;
-import com.squareup.sqlbrite.BriteDatabase;
+import com.austinnightingale.android.drywalltally.db.DAO;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.android.drywalltally.job.Utils;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
-public class TotalsFragment extends Fragment {
+public class TallySummaryFragment extends Fragment{
 
+    public static TallySummaryFragment newInstance(TallyArea area, boolean showEmtpyCards) {
+        TallySummaryFragment tallySummaryFragment = new TallySummaryFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("tally", area);
+        bundle.putBoolean("showEmptyCards", showEmtpyCards);
+        tallySummaryFragment.setArguments(bundle);
+        return tallySummaryFragment;
+    }
+
+    @BindView(R.id.tally_name)
+    TextView tallNameText;
+    @BindView(R.id.tally_ceil_sq_total)
+    TextView ceilSqTotal;
+    @BindView(R.id.tally_total_sq)
+    TextView tallySqTotal;
     @BindView(R.id.recycleView)
     RecyclerView recyclerView;
     @BindView(R.id.jobs_switcher)
     ViewSwitcher switcher;
     TallyTotalAdapter adapter;
 
-    Subscription subscription;
     @Inject
-    BriteDatabase db;
+    DAO dao;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +61,7 @@ public class TotalsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tally_totals_recycleview, container, false);
         ButterKnife.bind(this, view);
 
-        adapter = new TallyTotalAdapter();
+        adapter = new TallyTotalAdapter(getArguments().getBoolean("showEmptyCards"));
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 18, true));
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
@@ -66,39 +76,29 @@ public class TotalsFragment extends Fragment {
                 }
             }
         });
-
-
         return view;
     }
+
 
     @Override
     public void onResume() {
         super.onResume();
-//        subscription = db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
-//                .mapToOne(Job.mapper())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(adapter);
+        TallyArea tallies = getTallies();
+        adapter.call(tallies);
+        tallNameText.setText(tallies.areaName());
+        ceilSqTotal.setText(getString(R.string.format_ceil_square, Utils.areaCeilingSqFt(tallies)));
+        tallySqTotal.setText(getString(R.string.format_total_square, Utils.areaTotalSqFt(tallies)));
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (subscription != null && !subscription.isUnsubscribed()) {
-            subscription.unsubscribe();
-        }
-    }
 
-    public int getID() {
-        int id;
-        Intent intent = getActivity().getIntent();
-        if (intent.hasExtra(Job.ID)) {
-            id = intent.getIntExtra(Job.ID, -1);
+    public TallyArea getTallies() {
+        TallyArea tally;
+        Bundle intent = getArguments();
+        if (intent.containsKey("tally")) {
+            tally = intent.getParcelable("tally");
         } else {
-            throw new IllegalArgumentException("no job Id in Intent");
+            throw new IllegalArgumentException("tally area missing from arguments for TallySummaryFragment");
         }
-        return id;
+        return tally;
     }
-
-
 }

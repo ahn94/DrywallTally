@@ -25,7 +25,19 @@ public class DbOpenHelper extends SQLiteOpenHelper {
             + Job.ARCH_CORNER + " INTEGER NOT NULL DEFAULT 0,"
             + Job.DOOR_WRAP + " INTEGER NOT NULL DEFAULT 0,"
             + Job.OPENING_WRAP + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.L_TRIM + " INTEGER NOT NULL DEFAULT 0"
+            + Job.L_TRIM + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.SCREWS + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.DSA20 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.SHIMS + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.LITE_BLUE + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.MAGNUM_HP + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.HOT_45 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.HOT_90 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.HOT_20 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.HOT_5 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.LEVELCOAT + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.ULTRAFLEX_325 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.ULTRAFLEX_450 + " INTEGER NOT NULL DEFAULT 0"
             + ")";
 
     private static final String CREATE_TALLY_AREA_TABLE = ""
@@ -88,14 +100,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        if (oldVersion < 2) {
-            sqLiteDatabase.execSQL(addColumntoJobTable(Job.FIRE_8));
-            sqLiteDatabase.execSQL(addColumntoJobTable(Job.FIRE_9));
-            sqLiteDatabase.execSQL(addColumntoJobTable(Job.FIRE_10));
-            sqLiteDatabase.execSQL(addColumntoJobTable(Job.FIRE_12));
-            sqLiteDatabase.execSQL(addColumntoJobTable(Job.FIRE_14));
-            sqLiteDatabase.execSQL(addColumntoJobTable(Job.FIRE_16));
-        }
+
     }
 
 }

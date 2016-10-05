@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.austinnightingale.android.drywalltally.TallyApplication;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
@@ -18,7 +18,7 @@ public abstract class BaseJobFragment extends Fragment {
 
     protected CompositeSubscription subscription;
     @Inject
-    protected BriteDatabase db;
+    protected DAO dao;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public abstract class BaseJobFragment extends Fragment {
 
 
     public void updateJob(ContentValues values) {
-        db.update(Job.TABLE, values, Job.ID + " = ?", String.valueOf(getID()));
+        dao.updateJob(getID(), values);
     }
 
     public int getID() {

@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.summary.optionadapter;
+package com.austinnightingale.android.drywalltally.job.summary.jobsummary;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,23 +14,25 @@ import java.util.List;
 
 import rx.functions.Action1;
 
-public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> implements Action1<Job> {
+public class JobSummaryAdapter extends RecyclerView.Adapter<JobSummaryViewHolder> implements Action1<Job> {
 
     List<String[]> options;
+    int type;
 
-    public OptionsAdapter() {
+    public JobSummaryAdapter(int type) {
+        this.type = type;
         options = new ArrayList<>();
     }
 
     @Override
-    public OptionsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public JobSummaryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_upcharge, parent, false);
-        return new OptionsViewHolder(view);
+        return new JobSummaryViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(OptionsViewHolder holder, int position) {
+    public void onBindViewHolder(JobSummaryViewHolder holder, int position) {
         holder.bindOption(options.get(position));
     }
 
@@ -41,7 +43,11 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> impl
 
     @Override
     public void call(Job job) {
-        options = Report.getOptionValueLabelPairs(job);
+        if (type == 1) {
+            options = Report.getOptionValueLabelPairs(job);
+        } else {
+            options = Report.getExtraValueLabelPairs(job);
+        }
         notifyDataSetChanged();
     }
 

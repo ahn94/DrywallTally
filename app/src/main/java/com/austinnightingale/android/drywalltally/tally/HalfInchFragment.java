@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.dialogs.TallyInputDialog;
 
 import javax.inject.Inject;
@@ -77,8 +77,8 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
     public int getID() {
         int id;
         Intent intent = getActivity().getIntent();
-        if (intent.hasExtra(Job.ID)) {
-            id = intent.getIntExtra(Job.ID, -1);
+        if (intent.hasExtra(TallyArea.ID)) {
+            id = intent.getIntExtra(TallyArea.ID, -1);
         } else {
             throw new IllegalArgumentException("no job Id in Intent");
         }
@@ -111,12 +111,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.half8Plus)
     public void regHalfEightIncrement() {
-        halfPresenter.updateJob(Job.HALF_8, 1);
+        halfPresenter.updateJob(TallyArea.HALF_8, 1);
     }
 
     @OnClick(R.id.half8Minus)
     public void regHalfEightDecrement() {
-        halfPresenter.updateJob(Job.HALF_8, -1);
+        halfPresenter.updateJob(TallyArea.HALF_8, -1);
     }
 
     @Override
@@ -126,7 +126,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.half8View)
     public boolean half8LP() {
-        showDialog(Job.HALF_8, "8'");
+        showDialog(TallyArea.HALF_8, "8'");
         return true;
     }
 
@@ -135,12 +135,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.half9Plus)
     public void regHalfNineAdd() {
-        halfPresenter.updateJob(Job.HALF_9, 1);
+        halfPresenter.updateJob(TallyArea.HALF_9, 1);
     }
 
     @OnClick(R.id.half9Minus)
     public void regHalfNineMinus() {
-        halfPresenter.updateJob(Job.HALF_9, -1);
+        halfPresenter.updateJob(TallyArea.HALF_9, -1);
     }
 
     @Override
@@ -150,7 +150,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.half9View)
     public boolean half9LP() {
-        showDialog(Job.HALF_9, "9'");
+        showDialog(TallyArea.HALF_9, "9'");
         return true;
     }
 
@@ -159,12 +159,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.half10Plus)
     public void regHalfTenAdd() {
-        halfPresenter.updateJob(Job.HALF_10, 1);
+        halfPresenter.updateJob(TallyArea.HALF_10, 1);
     }
 
     @OnClick(R.id.half10Minus)
     public void regHalfTenMinus() {
-        halfPresenter.updateJob(Job.HALF_10, -1);
+        halfPresenter.updateJob(TallyArea.HALF_10, -1);
     }
 
     @Override
@@ -174,7 +174,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.half10View)
     public boolean half10LP() {
-        showDialog(Job.HALF_10, "10'");
+        showDialog(TallyArea.HALF_10, "10'");
         return true;
     }
 
@@ -183,12 +183,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.half12Plus)
     public void regHalfTwelveAdd() {
-        halfPresenter.updateJob(Job.HALF_12, 1);
+        halfPresenter.updateJob(TallyArea.HALF_12, 1);
     }
 
     @OnClick(R.id.half12Minus)
     public void regHalfTwelveMinus() {
-        halfPresenter.updateJob(Job.HALF_12, -1);
+        halfPresenter.updateJob(TallyArea.HALF_12, -1);
     }
 
     @Override
@@ -198,7 +198,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.half12View)
     public boolean half12LP() {
-        showDialog(Job.HALF_12, "12'");
+        showDialog(TallyArea.HALF_12, "12'");
         return true;
     }
 
@@ -207,12 +207,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.half14Plus)
     public void regHalfFourteenPlus() {
-        halfPresenter.updateJob(Job.HALF_14, 1);
+        halfPresenter.updateJob(TallyArea.HALF_14, 1);
     }
 
     @OnClick(R.id.half14Minus)
     public void regHalfFourteenMinus() {
-        halfPresenter.updateJob(Job.HALF_14, -1);
+        halfPresenter.updateJob(TallyArea.HALF_14, -1);
     }
 
     @Override
@@ -222,7 +222,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.half14View)
     public boolean half14LP() {
-        showDialog(Job.HALF_14, "14'");
+        showDialog(TallyArea.HALF_14, "14'");
         return true;
     }
 
@@ -232,12 +232,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.half16Plus)
     public void reghalfSixteenPlus() {
-        halfPresenter.updateJob(Job.HALF_16, 1);
+        halfPresenter.updateJob(TallyArea.HALF_16, 1);
     }
 
     @OnClick(R.id.half16Minus)
     public void reghalfSixteenMinus() {
-        halfPresenter.updateJob(Job.HALF_16, -1);
+        halfPresenter.updateJob(TallyArea.HALF_16, -1);
     }
 
     @Override
@@ -247,7 +247,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.half16View)
     public boolean half16LP() {
-        showDialog(Job.HALF_16, "16'");
+        showDialog(TallyArea.HALF_16, "16'");
         return true;
     }
 
@@ -257,12 +257,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.halfStr12Plus)
     public void stretchHalfTwelvePlus(){
-        halfPresenter.updateJob(Job.HALF_s12, 1);
+        halfPresenter.updateJob(TallyArea.HALF_s12, 1);
     }
 
     @OnClick(R.id.stretchHalfTwelveMinus)
     public void stretchHalfTwelveMinus(){
-        halfPresenter.updateJob(Job.HALF_s12, -1);
+        halfPresenter.updateJob(TallyArea.HALF_s12, -1);
     }
 
     @Override
@@ -272,7 +272,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.halfS12View)
     public boolean halfS12LP() {
-        showDialog(Job.HALF_s12, "s12'");
+        showDialog(TallyArea.HALF_s12, "s12'");
         return true;
     }
 
@@ -282,12 +282,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.halfStr14Plus)
     public void stretchHalfFourteenPlus(){
-        halfPresenter.updateJob(Job.HALF_s14, 1);
+        halfPresenter.updateJob(TallyArea.HALF_s14, 1);
     }
 
     @OnClick(R.id.halfStr14Minus)
     public void stretchHalfFourteenMinus(){
-        halfPresenter.updateJob(Job.HALF_s14, -1);
+        halfPresenter.updateJob(TallyArea.HALF_s14, -1);
     }
 
     @Override
@@ -297,7 +297,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.halfS14View)
     public boolean halfS14LP() {
-        showDialog(Job.HALF_s14, "s14'");
+        showDialog(TallyArea.HALF_s14, "s14'");
         return true;
     }
 
@@ -307,12 +307,12 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
      */
     @OnClick(R.id.halfStr16Plus)
     public void stretchHalfSixteenPlus(){
-        halfPresenter.updateJob(Job.HALF_s16, 1);
+        halfPresenter.updateJob(TallyArea.HALF_s16, 1);
     }
 
     @OnClick(R.id.halfStr16Minus)
     public void stretchHalfSixteenMinus(){
-        halfPresenter.updateJob(Job.HALF_s16, -1);
+        halfPresenter.updateJob(TallyArea.HALF_s16, -1);
     }
 
     @Override
@@ -322,7 +322,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
 
     @OnLongClick(R.id.halfS16View)
     public boolean halfS16LP() {
-        showDialog(Job.HALF_s16, "s16'");
+        showDialog(TallyArea.HALF_s16, "s16'");
         return true;
     }
 

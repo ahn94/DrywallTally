@@ -1,20 +1,19 @@
 package com.austinnightingale.android.drywalltally.tally;
 
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
-import static com.austinnightingale.android.drywalltally.R.menu.job;
+
 
 public class CeilingPresenter extends BasePresenter implements Ceiling.Presenter {
 
     private Ceiling.View ceilingView;
 
     @Inject
-    public CeilingPresenter(BriteDatabase db) {
-        super(db);
+    public CeilingPresenter(DAO dao) {
+        super(dao);
     }
 
     @Override

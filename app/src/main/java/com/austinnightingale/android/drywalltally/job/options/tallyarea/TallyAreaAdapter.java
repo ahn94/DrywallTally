@@ -1,16 +1,12 @@
 package com.austinnightingale.android.drywalltally.job.options.tallyarea;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.tally.TallyActivity;
 
 import java.util.List;
 

@@ -16,7 +16,16 @@ import com.austinnightingale.android.drywalltally.job.options.tallyarea.TallyAre
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TabsFragment extends Fragment {
+public class OptionsTabFragment extends Fragment {
+
+    public static OptionsTabFragment newInstance(int position) {
+        OptionsTabFragment pager = new OptionsTabFragment();
+        Bundle args = new Bundle();
+        args.putInt("position", position);
+        pager.setArguments(args);
+        return pager;
+    }
+
     PageAdapter adapter;
     @BindView(R.id.tab_layout) TabLayout tabLayout;
     @BindView(R.id.pager) ViewPager pager;
@@ -36,12 +45,18 @@ public class TabsFragment extends Fragment {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         adapter.addFragment(new MainOptionsFragment(), "Main");
         adapter.addFragment(new UpchargeOptionsFragment(), "Up Charge");
+        adapter.addFragment(new ExtraOptionsFragment(), "Extras");
         adapter.addFragment(new FinishOptionsFragment(), "Finish");
         adapter.addFragment(new TallyAreasFragment(), "Job Areas");
         pager.setAdapter(adapter);
+        pager.setCurrentItem(3);
         pager.setOffscreenPageLimit(3);
         tabLayout.setupWithViewPager(pager, true);
 
         return view;
+    }
+
+    public void setPosition(int pos) {
+        pager.setCurrentItem(pos);
     }
 }

@@ -1,0 +1,478 @@
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:nestedScrollingEnabled="true"
+    android:fillViewport="false"
+    tools:context=".job.options.UpchargeOptionsFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/view_course_screws"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:padding="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_course_screws"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_course_screws"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_course_screws"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_course_screws"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+
+
+        <RelativeLayout
+            android:id="@+id/view_dsa20"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_dsa20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_dsa20"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_dsa20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_dsa20"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_shims"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_shims"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_shims"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_shims"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_shims"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_lite_blue"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_lite_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_lite_blue"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_lite_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_lite_blue"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_magnum_hp"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_magnum_hp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_magnum_hp"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_magnum_hp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_magnum_hp"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_hot_45"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_hot_45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_mud_hot_45"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_hot_45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_hot_45"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_hot_90"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_hot_90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_mud_hot_90"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_hot_90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_hot_90"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_hot_20"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_hot_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_mud_hot_20"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_hot_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_hot_20"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_hot_5"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_hot_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_mud_hot_5"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_hot_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_hot_5"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_levelcoat"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_levelcoat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_5g_levelcoat"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_levelcoat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_levelcoat"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_ultraflex_325"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_ultraflex_325"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_ultraflex_325"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_ultraflex_325"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_ultraflex_325"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
+            android:id="@+id/view_ultraflex_450"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_ultraflex_450"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descr_ultraflex_450"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_ultraflex_450"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_ultraflex_450"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+</ScrollView>

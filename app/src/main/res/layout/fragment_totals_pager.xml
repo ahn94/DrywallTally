@@ -1,12 +1,30 @@
 <RelativeLayout
-    android:id="@+id/main_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+
+    <ViewFlipper
+        android:id="@+id/tallies_flipper"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Add Drywall To Job!"
+            android:textAlignment="center"
+            android:textSize="30sp"/>
+    </ViewFlipper>
+
 
 </RelativeLayout>

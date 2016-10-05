@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.dialogs.TallyInputDialog;
 
 import javax.inject.Inject;
@@ -64,8 +64,8 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
     public int getID() {
         int id;
         Intent intent = getActivity().getIntent();
-        if (intent.hasExtra(Job.ID)) {
-            id = intent.getIntExtra(Job.ID, -1);
+        if (intent.hasExtra(TallyArea.ID)) {
+            id = intent.getIntExtra(TallyArea.ID, -1);
         } else {
             throw new IllegalArgumentException("no job Id in Intent");
         }
@@ -109,12 +109,12 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
      */
     @OnClick(R.id.fiveEighthEightPlus)
     public void fiveEighthsEightPlus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_8, 1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_8, 1);
     }
 
     @OnClick(R.id.fiveEighthEightMinus)
     public void fiveEighthsEightMinus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_8, -1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_8, -1);
     }
 
     @Override
@@ -124,7 +124,7 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
 
     @OnLongClick(R.id.fiveEighths8View)
     public boolean fiveEighth8LP() {
-        showDialog(Job.FiveE_8, "8'");
+        showDialog(TallyArea.FiveE_8, "8'");
         return true;
     }
 
@@ -134,12 +134,12 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
      */
     @OnClick(R.id.fiveEighthNinePlus)
     public void fiveEighthsNinePlus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_9, 1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_9, 1);
     }
 
     @OnClick(R.id.fiveEighthNineMinus)
     public void fiveEighthsNineMinus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_9, -1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_9, -1);
     }
 
     @Override
@@ -149,7 +149,7 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
 
     @OnLongClick(R.id.fiveEighths9View)
     public boolean fiveEighth9LP() {
-        showDialog(Job.FiveE_9, "9'");
+        showDialog(TallyArea.FiveE_9, "9'");
         return true;
     }
 
@@ -159,12 +159,12 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
      */
     @OnClick(R.id.fiveEighthTenPlus)
     public void fiveEighthsTenPlus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_10, 1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_10, 1);
     }
 
     @OnClick(R.id.fiveEighthTenMinus)
     public void fiveEighthsTenMinus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_10, -1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_10, -1);
     }
     @Override
     public void updateFiveEighthTenText(String tally) {
@@ -173,7 +173,7 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
 
     @OnLongClick(R.id.fiveEighths10View)
     public boolean fiveEighth10LP() {
-        showDialog(Job.FiveE_10, "10'");
+        showDialog(TallyArea.FiveE_10, "10'");
         return true;
     }
 
@@ -183,12 +183,12 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
      */
     @OnClick(R.id.fiveEighthTwelvePlus)
     public void fiveEighthsTwelvePlus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_12, 1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_12, 1);
     }
 
     @OnClick(R.id.fiveEighthTwelveMinus)
     public void fiveEighthsTwelveMinus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_12, -1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_12, -1);
     }
     @Override
     public void updateFiveEighthTwelveText(String tally) {
@@ -197,7 +197,7 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
 
     @OnLongClick(R.id.fiveEighths12View)
     public boolean fiveEighth12LP() {
-        showDialog(Job.FiveE_12, "12'");
+        showDialog(TallyArea.FiveE_12, "12'");
         return true;
     }
 
@@ -207,12 +207,12 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
      */
     @OnClick(R.id.fiveEighthFourteenPlus)
     public void fiveEighthsFourteenPlus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_14, 1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_14, 1);
     }
 
     @OnClick(R.id.fiveEighthFourteenMinus)
     public void fiveEighthsFourteenMinus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_14, -1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_14, -1);
     }
     @Override
     public void updateFiveEighthFourteenText(String tally) {
@@ -221,7 +221,7 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
 
     @OnLongClick(R.id.fiveEighths14View)
     public boolean fiveEighth14LP() {
-        showDialog(Job.FiveE_14, "14'");
+        showDialog(TallyArea.FiveE_14, "14'");
         return true;
     }
 
@@ -231,12 +231,12 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
      */
     @OnClick(R.id.stretchFiveEighthTwelvePlus)
     public void stretchFiveEighthTwelvePlus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_s12, 1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_s12, 1);
     }
 
     @OnClick(R.id.stretchFiveEighthTwelveMinus)
     public void stretchFiveEighthTwelveMinus() {
-        fiveEigthsPresenter.updateJob(Job.FiveE_s12, -1);
+        fiveEigthsPresenter.updateJob(TallyArea.FiveE_s12, -1);
     }
     @Override
     public void updateStretchFiveEighthTwelveText(String tally) {
@@ -245,7 +245,7 @@ public class FiveEighthFragment extends Fragment implements FiveEigths.View, Num
 
     @OnLongClick(R.id.fiveEighthsS12View)
     public boolean fiveEighthS12LP() {
-        showDialog(Job.FiveE_s12, "s12'");
+        showDialog(TallyArea.FiveE_s12, "s12'");
         return true;
     }
 

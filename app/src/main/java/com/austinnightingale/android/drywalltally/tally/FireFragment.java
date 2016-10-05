@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.dialogs.TallyInputDialog;
 
 import javax.inject.Inject;
@@ -69,8 +69,8 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
     public int getID() {
         int id;
         Intent intent = getActivity().getIntent();
-        if (intent.hasExtra(Job.ID)) {
-            id = intent.getIntExtra(Job.ID, -1);
+        if (intent.hasExtra(TallyArea.ID)) {
+            id = intent.getIntExtra(TallyArea.ID, -1);
         } else {
             throw new IllegalArgumentException("no job Id in Intent");
         }
@@ -122,11 +122,11 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.fire8Plus)
     public void fire8Plus() {
-        firePrenter.updateJob(Job.FIRE_8, 1);
+        firePrenter.updateJob(TallyArea.FIRE_8, 1);
     }
     @OnClick(R.id.fire8Minus)
     public void fire8Minus() {
-        firePrenter.updateJob(Job.FIRE_8, -1);
+        firePrenter.updateJob(TallyArea.FIRE_8, -1);
     }
     @Override
     public void updateFire8Text(String tally) {
@@ -134,7 +134,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
     }
     @OnLongClick(R.id.fire8View)
     public boolean fire8LP() {
-        showDialog(Job.FIRE_8, "8'");
+        showDialog(TallyArea.FIRE_8, "8'");
         return true;
     }
 
@@ -144,11 +144,11 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.fire9Plus)
     public void fire9Plus() {
-        firePrenter.updateJob(Job.FIRE_9, 1);
+        firePrenter.updateJob(TallyArea.FIRE_9, 1);
     }
     @OnClick(R.id.fire9Minus)
     public void fire9Minus() {
-        firePrenter.updateJob(Job.FIRE_9, -1);
+        firePrenter.updateJob(TallyArea.FIRE_9, -1);
     }
     @Override
     public void updateFire9Text(String tally) {
@@ -156,7 +156,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
     }
     @OnLongClick(R.id.fire9View)
     public boolean fire9LP() {
-        showDialog(Job.FIRE_9, "9'");
+        showDialog(TallyArea.FIRE_9, "9'");
         return true;
     }
 
@@ -166,11 +166,11 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.fire10Plus)
     public void fire10Plus() {
-        firePrenter.updateJob(Job.FIRE_10, 1);
+        firePrenter.updateJob(TallyArea.FIRE_10, 1);
     }
     @OnClick(R.id.fire10Minus)
     public void fire10Minus() {
-        firePrenter.updateJob(Job.FIRE_10, -1);
+        firePrenter.updateJob(TallyArea.FIRE_10, -1);
     }
     @Override
     public void updateFire10Text(String tally) {
@@ -178,7 +178,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
     }
     @OnLongClick(R.id.fire10View)
     public boolean fire10LP() {
-        showDialog(Job.FIRE_10, "10'");
+        showDialog(TallyArea.FIRE_10, "10'");
         return true;
     }
 
@@ -188,11 +188,11 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.fire12Plus)
     public void fire12Plus() {
-        firePrenter.updateJob(Job.FIRE_12, 1);
+        firePrenter.updateJob(TallyArea.FIRE_12, 1);
     }
     @OnClick(R.id.fire12Minus)
     public void fire12Minus() {
-        firePrenter.updateJob(Job.FIRE_12, -1);
+        firePrenter.updateJob(TallyArea.FIRE_12, -1);
     }
     @Override
     public void updateFire12Text(String tally) {
@@ -200,7 +200,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
     }
     @OnLongClick(R.id.fire12View)
     public boolean fire12LP() {
-        showDialog(Job.FIRE_12, "12'");
+        showDialog(TallyArea.FIRE_12, "12'");
         return true;
     }
 
@@ -210,11 +210,11 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.fire14Plus)
     public void fire14Plus() {
-        firePrenter.updateJob(Job.FIRE_14, 1);
+        firePrenter.updateJob(TallyArea.FIRE_14, 1);
     }
     @OnClick(R.id.fire14Minus)
     public void fire14Minus() {
-        firePrenter.updateJob(Job.FIRE_14, -1);
+        firePrenter.updateJob(TallyArea.FIRE_14, -1);
     }
     @Override
     public void updateFire14Text(String tally) {
@@ -222,7 +222,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
     }
     @OnLongClick(R.id.fire14View)
     public boolean fire14LP() {
-        showDialog(Job.FIRE_14, "14'");
+        showDialog(TallyArea.FIRE_14, "14'");
         return true;
     }
 
@@ -232,11 +232,11 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.fire16Plus)
     public void fire16Plus() {
-        firePrenter.updateJob(Job.FIRE_16, 1);
+        firePrenter.updateJob(TallyArea.FIRE_16, 1);
     }
     @OnClick(R.id.fire16Minus)
     public void fire16Minus() {
-        firePrenter.updateJob(Job.FIRE_16, -1);
+        firePrenter.updateJob(TallyArea.FIRE_16, -1);
     }
     @Override
     public void updateFire16Text(String tally) {
@@ -244,7 +244,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
     }
     @OnLongClick(R.id.fire16View)
     public boolean fire16LP() {
-        showDialog(Job.FIRE_16, "16'");
+        showDialog(TallyArea.FIRE_16, "16'");
         return true;
     }
     
@@ -255,12 +255,12 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.mold8Plus)
     public void mold8Plus() {
-        firePrenter.updateJob(Job.MOLD_8, 1);
+        firePrenter.updateJob(TallyArea.MOLD_8, 1);
     }
 
     @OnClick(R.id.mold8Minus)
     public void mold8Minus() {
-        firePrenter.updateJob(Job.MOLD_8, -1);
+        firePrenter.updateJob(TallyArea.MOLD_8, -1);
     }
 
     @Override
@@ -270,7 +270,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
 
     @OnLongClick(R.id.mold8View)
     public boolean mold8LP() {
-        showDialog(Job.MOLD_8, "m8'");
+        showDialog(TallyArea.MOLD_8, "m8'");
         return true;
     }
 
@@ -280,12 +280,12 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
      */
     @OnClick(R.id.mold12Plus)
     public void mold12Plus() {
-        firePrenter.updateJob(Job.MOLD_12, 1);
+        firePrenter.updateJob(TallyArea.MOLD_12, 1);
     }
 
     @OnClick(R.id.mold12Minus)
     public void mold12Minus() {
-        firePrenter.updateJob(Job.MOLD_12, -1);
+        firePrenter.updateJob(TallyArea.MOLD_12, -1);
     }
     @Override
     public void updateMold12Text(String tally) {
@@ -294,7 +294,7 @@ public class FireFragment extends Fragment implements Fire.View, NumberPickerLis
 
     @OnLongClick(R.id.mold12View)
     public boolean mold12LP() {
-        showDialog(Job.MOLD_12, "m12'");
+        showDialog(TallyArea.MOLD_12, "m12'");
         return true;
     }
 }

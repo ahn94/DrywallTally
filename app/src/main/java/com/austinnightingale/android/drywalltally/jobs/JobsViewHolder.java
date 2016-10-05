@@ -5,19 +5,20 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.Utils;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
-
+import com.austinnightingale.android.drywalltally.job.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 
-public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener, RecyclerView.OnLongClickListener{
+public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener, RecyclerView.OnLongClickListener {
 
     JobsCallBack jobsCallBack;
-
+    DAO dao;
     @BindView(R.id.job_name)
     TextView jobName;
     @BindView(R.id.job_date)
@@ -28,8 +29,9 @@ public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerV
 
     private Job mJob;
 
-    public JobsViewHolder(View itemView, JobsCallBack jobsCallBack) {
+    public JobsViewHolder(View itemView, JobsCallBack jobsCallBack, DAO doa) {
         super(itemView);
+        this.dao = doa;
         ButterKnife.bind(this, itemView);
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
@@ -40,7 +42,14 @@ public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerV
         mJob = job;
         jobName.setText(mJob.jobName());
         jobDate.setText(DateFormat.get(mJob.createdOn()));
-//        footage.setText(Utils.areaTotalSqFt(mJob) + " Sq. Ft.");
+        dao.getTallyAreaListForJobId(mJob.jobID())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(tallyAreas -> {
+                    String formated = Utils.jobTotalFtString(tallyAreas) + " Sq. Ft.";
+                    footage.setText(formated);
+                });
+
     }
 
 

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.dialogs.TallyInputDialog;
 
 import javax.inject.Inject;
@@ -69,8 +69,8 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
     public int getID() {
         int id;
         Intent intent = getActivity().getIntent();
-        if (intent.hasExtra(Job.ID)) {
-            id = intent.getIntExtra(Job.ID, -1);
+        if (intent.hasExtra(TallyArea.ID)) {
+            id = intent.getIntExtra(TallyArea.ID, -1);
         } else {
             throw new IllegalArgumentException("no job Id in Intent");
         }
@@ -121,12 +121,12 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
      */
     @OnClick(R.id.ceil8Plus)
     public void ceiling8Plus() {
-        ceilingPrenter.updateJob(Job.CEIL_8, 1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_8, 1);
     }
 
     @OnClick(R.id.ceil8Minus)
     public void ceiling8Minus() {
-        ceilingPrenter.updateJob(Job.CEIL_8, -1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_8, -1);
     }
 
     @Override
@@ -136,7 +136,7 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
 
     @OnLongClick(R.id.ceil8View)
     public boolean ceiling8LP() {
-        showDialog(Job.CEIL_8, "c8'");
+        showDialog(TallyArea.CEIL_8, "c8'");
         return true;
     }
 
@@ -146,12 +146,12 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
      */
     @OnClick(R.id.ceil9Plus)
     public void ceiling9Plus() {
-        ceilingPrenter.updateJob(Job.CEIL_9, 1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_9, 1);
     }
 
     @OnClick(R.id.ceil9Minus)
     public void ceiling9Minus() {
-        ceilingPrenter.updateJob(Job.CEIL_9, -1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_9, -1);
     }
 
     @Override
@@ -161,7 +161,7 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
 
     @OnLongClick(R.id.ceil9View)
     public boolean ceiling9LP() {
-        showDialog(Job.CEIL_9, "c9'");
+        showDialog(TallyArea.CEIL_9, "c9'");
         return true;
     }
 
@@ -170,12 +170,12 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
      */
     @OnClick(R.id.ceil10Plus)
     public void ceiling10Plus() {
-        ceilingPrenter.updateJob(Job.CEIL_10, 1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_10, 1);
     }
 
     @OnClick(R.id.ceil10Minus)
     public void ceiling10Minus() {
-        ceilingPrenter.updateJob(Job.CEIL_10, -1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_10, -1);
     }
 
     @Override
@@ -185,7 +185,7 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
 
     @OnLongClick(R.id.ceil10View)
     public boolean ceiling10LP() {
-        showDialog(Job.CEIL_10, "c10'");
+        showDialog(TallyArea.CEIL_10, "c10'");
         return true;
     }
 
@@ -194,12 +194,12 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
      */
     @OnClick(R.id.ceil12Plus)
     public void ceiling12Plus() {
-        ceilingPrenter.updateJob(Job.CEIL_12, 1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_12, 1);
     }
 
     @OnClick(R.id.ceil12Minus)
     public void ceiling12Minus() {
-        ceilingPrenter.updateJob(Job.CEIL_12, -1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_12, -1);
     }
 
     @Override
@@ -209,7 +209,7 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
 
     @OnLongClick(R.id.ceil12View)
     public boolean ceiling12LP() {
-        showDialog(Job.CEIL_12, "c12'");
+        showDialog(TallyArea.CEIL_12, "c12'");
         return true;
     }
 
@@ -219,12 +219,12 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
      */
     @OnClick(R.id.ceil14Plus)
     public void ceiling14Plus() {
-        ceilingPrenter.updateJob(Job.CEIL_14, 1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_14, 1);
     }
 
     @OnClick(R.id.ceil14Minus)
     public void ceiling14Minus() {
-        ceilingPrenter.updateJob(Job.CEIL_14, -1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_14, -1);
     }
     @Override
     public void updateCeil14Text(String tally) {
@@ -233,7 +233,7 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
 
     @OnLongClick(R.id.ceil14View)
     public boolean ceiling14LP() {
-        showDialog(Job.CEIL_14, "c14'");
+        showDialog(TallyArea.CEIL_14, "c14'");
         return true;
     }
 
@@ -243,12 +243,12 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
      */
     @OnClick(R.id.ceil16Plus)
     public void ceiling16Plus() {
-        ceilingPrenter.updateJob(Job.CEIL_16, 1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_16, 1);
     }
 
     @OnClick(R.id.ceil16Minus)
     public void ceiling16Minus() {
-        ceilingPrenter.updateJob(Job.CEIL_16, -1);
+        ceilingPrenter.updateJob(TallyArea.CEIL_16, -1);
     }
     @Override
     public void updateCeil16Text(String tally) {
@@ -257,7 +257,7 @@ public class CeilingsFragment extends Fragment implements Ceiling.View, NumberPi
 
     @OnLongClick(R.id.ceil16View)
     public boolean ceiling16LP() {
-        showDialog(Job.CEIL_16, "c16'");
+        showDialog(TallyArea.CEIL_16, "c16'");
         return true;
     }
 

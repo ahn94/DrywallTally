@@ -1,8 +1,7 @@
 package com.austinnightingale.android.drywalltally.tally;
 
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
@@ -12,8 +11,8 @@ public class HalfInchPresenter extends BasePresenter implements HalfInch.Present
     private HalfInch.View HalfView;
 
     @Inject
-    public HalfInchPresenter(BriteDatabase db) {
-        super(db);
+    public HalfInchPresenter(DAO dao) {
+        super(dao);
     }
 
     @Override

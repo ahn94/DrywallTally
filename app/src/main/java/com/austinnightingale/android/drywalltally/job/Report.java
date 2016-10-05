@@ -116,6 +116,63 @@ public class Report {
         );
     }
 
+    public static List<String[]> getExtraValueLabelPairs(Job job) {
+        List<String[]> extras = new ArrayList<>();
+        if (job.CScrews() > 0) {
+            extras.add(new String[] {String.valueOf(job.CScrews()), "Coarse Screws"} );
+        }
+
+        if (job.dsa20() > 0) {
+            extras.add(new String[] {String.valueOf(job.dsa20()), "DSA20"} );
+        }
+
+        if (job.shims() > 0) {
+            extras.add(new String[] {String.valueOf(job.shims()), "Shims"} );
+        }
+
+        if (job.liteBlue() > 0) {
+            extras.add(new String[] {String.valueOf(job.liteBlue()), "Lite Blue"} );
+        }
+
+        if (job.magnumHp() > 0) {
+            extras.add(new String[] {String.valueOf(job.magnumHp()), "Magnum HP"} );
+        }
+
+        if (job.hot45() > 0) {
+            extras.add(new String[] {String.valueOf(job.hot45()), "Hot 45"} );
+        }
+
+        if (job.hot90() > 0) {
+            extras.add(new String[] {String.valueOf(job.hot90()), "Hot 90"} );
+        }
+
+        if (job.hot20() > 0) {
+            extras.add(new String[] {String.valueOf(job.hot20()), "Hot 20"} );
+        }
+
+        if (job.hot5() > 0) {
+            extras.add(new String[] {String.valueOf(job.hot5()), "Hot 5"} );
+        }
+
+        if (job.levelcoat() > 0) {
+            extras.add(new String[] {String.valueOf(job.levelcoat()), "5 Gallon LevelCoat"} );
+        }
+
+        if (job.ultraflex325() > 0) {
+            extras.add(new String[] {String.valueOf(job.ultraflex325()), "Ultraflex 325"} );
+        }
+
+        if (job.ultraflex450() > 0) {
+            extras.add(new String[] {String.valueOf(job.ultraflex450()), "Ultraflex 450"} );
+        }
+
+        if (extras.size() == 0) {
+            extras.add(new String[]{String.valueOf(0), "Extras Added"});
+        }
+
+        return extras;
+    }
+    
     public static List<String[]> getOptionValueLabelPairs(Job job) {
 
         List<String[]> options = new ArrayList<>();

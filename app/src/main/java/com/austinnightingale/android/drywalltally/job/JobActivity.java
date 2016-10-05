@@ -19,14 +19,17 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.austinnightingale.android.drywalltally.JobReport;
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.job.options.TabsFragment;
-import com.austinnightingale.android.drywalltally.job.summary.SummaryViewPager;
-import com.austinnightingale.android.drywalltally.tally.TallyViewPager;
-import com.austinnightingale.android.drywalltally.tally.TallyActivity;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.android.drywalltally.job.options.OptionsTabFragment;
+import com.austinnightingale.android.drywalltally.job.summary.jobsummary.JobSummaryFragment;
+import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TalliesPagerFragment;
+import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TallySummaryFragment;
 import com.squareup.sqlbrite.BriteDatabase;
 
 import java.util.List;
@@ -49,6 +52,8 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
 
     @Inject
     BriteDatabase db;
+    @Inject
+    DAO dao;
     List<HeightCharge> charges;
 
     //comment
@@ -59,6 +64,10 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
         ButterKnife.bind(this);
+
+        if (savedInstanceState == null) {
+            setJobOptionsFragment(0);
+        }
 
         ((TallyApplication) getApplication()).getComponent().inject(this);
         TextView headerName = (TextView) navigationView.getHeaderView(0)
@@ -98,31 +107,19 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.report) {
-            sendReport(getJob(), getHeightChargeList());
+            Job job = dao.getJobwithId(getID()).toBlocking().first();
+            sendReport(job);
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void sendReport(Job job, List<HeightCharge> heightChargeList) {
+    private void sendReport(Job job) {
+        JobReport report = new JobReport(getID(), dao);
         Intent r = new Intent(Intent.ACTION_SEND);
         r.setType("text/plain");
-        r.putExtra(Intent.EXTRA_TEXT, Report.forJob(job, heightChargeList, null));
+        r.putExtra(Intent.EXTRA_TEXT, report.getReport());
         r.putExtra(Intent.EXTRA_SUBJECT, job.jobName() + " Tally");
         startActivity(Intent.createChooser(r, "Send tally via"));
-    }
-
-    private List<HeightCharge> getHeightChargeList() {
-        return db.createQuery(HeightCharge.TABLE, HeightCharge.getHeightChargesWithJobId, String.valueOf(getID()))
-                .mapToList(HeightCharge.mapper())
-                .toBlocking()
-                .first();
-    }
-
-    private Job getJob() {
-        return db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
-                .mapToOne(Job.mapper())
-                .toBlocking()
-                .first();
     }
 
     public int getID() {
@@ -142,16 +139,18 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.job_area) {
-            Intent intent = TallyActivity.newInstance(getID());
-            intent.setClass(this, TallyActivity.class);
-            startActivityForResult(intent, 0);
-        } else if (id == R.id.summary) {
-            setSummaryFragment(0);
-        } else if (id == R.id.tabbed) {
-            openFragment(new TabsFragment(), "tabs");
-        } else if (id == R.id.recycleview_options) {
-            setSummaryFragment(1);
+        if (id == R.id.job_summary) {
+            openFragment(new JobSummaryFragment(), "job_summary");
+        } else if (id == R.id.options_job_area) {
+            setJobOptionsFragment(4);
+        } else if (id == R.id.options_main) {
+            setJobOptionsFragment(0);
+        } else if (id == R.id.area_tally_summary) {
+            openFragment(new TalliesPagerFragment(), "tallies");
+        } else if (id == R.id.job_tally_summary) {
+            Job job = dao.getJobwithId(getID()).toBlocking().first();
+            List<TallyArea> tallies = dao.getTallyAreaListForJobId(getID()).toBlocking().first();
+            openFragment(TallySummaryFragment.newInstance(Utils.getJobTally(job.jobName() + " Job", tallies), true), "job tally");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -159,25 +158,14 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
         return false;
     }
 
-    private void setSummaryFragment(int position) {
-        SummaryViewPager pagerFragment = (SummaryViewPager) getSupportFragmentManager()
-                .findFragmentByTag("summary");
-        if (pagerFragment != null && pagerFragment.isVisible()) {
-            pagerFragment.setPosition(position);
+    private void setJobOptionsFragment(int position) {
+        OptionsTabFragment jobOptionsFragment = (OptionsTabFragment) getSupportFragmentManager()
+                .findFragmentByTag("job options");
+        if (jobOptionsFragment != null && jobOptionsFragment.isVisible()) {
+            jobOptionsFragment.setPosition(position);
         } else {
-            SummaryViewPager pager = SummaryViewPager.newInstance(position);
-            openFragment(pager, "summary");
-        }
-    }
-
-    public void setTallyFragment(int position) {
-        TallyViewPager pagerFragment = (TallyViewPager) getSupportFragmentManager()
-                .findFragmentByTag("tally");
-        if (pagerFragment != null && pagerFragment.isVisible()) {
-            pagerFragment.setPosition(position);
-        } else {
-            TallyViewPager pager = TallyViewPager.newInstance(position);
-            openFragment(pager, "tally");
+            OptionsTabFragment pager = OptionsTabFragment.newInstance(position);
+            openFragment(pager, "job options");
         }
     }
 

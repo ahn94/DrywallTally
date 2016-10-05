@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.summary.tallyadapter.viewholders;
+package com.austinnightingale.android.drywalltally.job.summary.tallysummary;
 
 import android.view.View;
 import android.widget.TextView;
@@ -8,13 +8,9 @@ import com.austinnightingale.android.drywalltally.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by Austin on 9/26/2016.
- */
 
 public class CeilViewHolder extends TallyViewHolder {
-
-    @BindView(R.id.ceil_8_total)
+        @BindView(R.id.ceil_8_total)
     TextView ceil8Total;
     @BindView(R.id.ceil_9_total)
     TextView ceil9Total;

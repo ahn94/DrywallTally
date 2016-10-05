@@ -1,8 +1,7 @@
 package com.austinnightingale.android.drywalltally.tally;
 
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
@@ -15,8 +14,8 @@ public class FirePresenter extends BasePresenter implements Fire.Presenter {
     private Fire.View fireView;
 
     @Inject
-    public FirePresenter(BriteDatabase db) {
-        super(db);
+    public FirePresenter(DAO dao) {
+        super(dao);
     }
 
     @Override

@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageAdapter extends FragmentStatePagerAdapter {
+public class PageAdapter extends FragmentStatePagerAdapter{
 
     private final List<Fragment> mFragmentList;
     private final List<String> mFragmentTitleList;
@@ -37,4 +37,5 @@ public class PageAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mFragmentTitleList.get(position);
     }
+
 }

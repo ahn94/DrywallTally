@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.summary.tallyadapter.viewholders;
+package com.austinnightingale.android.drywalltally.job.summary.tallysummary;
 
 import android.view.View;
 import android.widget.TextView;

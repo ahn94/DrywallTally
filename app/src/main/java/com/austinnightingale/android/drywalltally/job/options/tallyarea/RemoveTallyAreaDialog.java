@@ -8,9 +8,8 @@ import android.support.v4.app.DialogFragment;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
@@ -27,7 +26,7 @@ public class RemoveTallyAreaDialog extends DialogFragment {
     }
 
     @Inject
-    BriteDatabase db;
+    DAO dao;
 
     private int areaId;
     private String areaName;
@@ -36,8 +35,8 @@ public class RemoveTallyAreaDialog extends DialogFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         ((TallyApplication) getActivity().getApplication()).getComponent().inject(this);
-        areaId = getArguments().getInt(Job.ID);
-        areaName = getArguments().getString(Job.JOB_NAME);
+        areaId = getArguments().getInt(TallyArea.ID);
+        areaName = getArguments().getString(TallyArea.AREA_NAME);
     }
 
     @NonNull
@@ -50,7 +49,7 @@ public class RemoveTallyAreaDialog extends DialogFragment {
                 .positiveText("Delete")
                 .negativeText("Cancel")
                 .onPositive((materialDialog, dialogAction) -> {
-                    db.delete(TallyArea.TABLE, TallyArea.ID + " = ?", String.valueOf(areaId));
+                    dao.deleteTallyArea(areaId);
                 })
                 .build();
     }

@@ -13,10 +13,9 @@ import android.view.ViewGroup;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.tally.TallyActivity;
-import com.squareup.sqlbrite.BriteDatabase;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import javax.inject.Inject;
@@ -36,7 +35,7 @@ public class TallyAreasFragment extends Fragment implements TallyCallback{
     TallyAreaAdapter adapter;
 
     @Inject
-    BriteDatabase db;
+    DAO dao;
     Subscription subscription;
 
 
@@ -82,8 +81,7 @@ public class TallyAreasFragment extends Fragment implements TallyCallback{
     @Override
     public void onResume() {
         super.onResume();
-        subscription = db.createQuery(TallyArea.TABLE, TallyArea.getAllTallyAreasForJob, String.valueOf(getID()))
-                .mapToList(TallyArea.mapper())
+        subscription = dao.getTallyAreaListForJobId(getID())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(adapter);
@@ -113,6 +111,7 @@ public class TallyAreasFragment extends Fragment implements TallyCallback{
 
     @Override
     public void showDialog(Integer id, String areaName) {
-        RemoveTallyAreaDialog.newInstance(id, areaName).show(getFragmentManager(), "remove tally area");
+        RemoveTallyAreaDialog.newInstance(id, areaName)
+                .show(getFragmentManager(), "remove tally area");
     }
 }

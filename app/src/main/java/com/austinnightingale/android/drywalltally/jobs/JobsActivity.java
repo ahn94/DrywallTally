@@ -1,7 +1,6 @@
 package com.austinnightingale.android.drywalltally.jobs;
 
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +8,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,14 +16,15 @@ import android.widget.ViewSwitcher;
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
 import com.austinnightingale.android.drywalltally.backup.BackupActivity;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.job.JobActivity;
-import com.squareup.sqlbrite.BriteDatabase;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.List;
 
 import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -41,7 +40,7 @@ public final class JobsActivity extends AppCompatActivity implements JobsCallBac
     JobsRecycleAdapter adapter;
     List<Job> jobs;
     @Inject
-    BriteDatabase db;
+    DAO dao;
 
 
     private Subscription subscription;
@@ -53,14 +52,13 @@ public final class JobsActivity extends AppCompatActivity implements JobsCallBac
         setContentView(R.layout.activity_jobs);
         ButterKnife.bind(this);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
 
         ((TallyApplication)getApplication()).getComponent().inject(this);
 
-        adapter = new JobsRecycleAdapter(jobs, this);
+        adapter = new JobsRecycleAdapter(jobs, this, dao);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(
                 new HorizontalDividerItemDecoration.Builder(this)
@@ -83,8 +81,7 @@ public final class JobsActivity extends AppCompatActivity implements JobsCallBac
     @Override
     protected void onResume() {
         super.onResume();
-        subscription = db.createQuery(Job.TABLE, "SELECT * FROM " +Job.TABLE+ ";")
-                .mapToList(Job.mapper())
+        subscription = dao.getAllJobs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(adapter);

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.austinnightingale.android.drywalltally.R;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
 
 import java.util.List;
@@ -20,10 +21,12 @@ public class JobsRecycleAdapter extends RecyclerView.Adapter<JobsViewHolder> imp
 
     List<Job> jobs;
 
-    JobsCallBack jobsCallBack;
+    private JobsCallBack jobsCallBack;
+    private DAO dao;
 
-    public JobsRecycleAdapter(List<Job> jobs, JobsCallBack jobsCallBack) {
+    public JobsRecycleAdapter(List<Job> jobs, JobsCallBack jobsCallBack, DAO dao) {
         this.jobs = jobs;
+        this.dao = dao;
         this.jobsCallBack = jobsCallBack;
     }
 
@@ -31,7 +34,7 @@ public class JobsRecycleAdapter extends RecyclerView.Adapter<JobsViewHolder> imp
     public JobsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_jobs_list, parent, false);
-        return new JobsViewHolder(view, jobsCallBack);
+        return new JobsViewHolder(view, jobsCallBack, dao);
     }
 
     @Override

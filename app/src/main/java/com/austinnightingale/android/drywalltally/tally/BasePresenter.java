@@ -1,11 +1,9 @@
 package com.austinnightingale.android.drywalltally.tally;
 
 import android.content.ContentValues;
-import android.util.Log;
 
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import rx.Subscriber;
 import rx.Subscription;
@@ -16,11 +14,12 @@ public abstract class BasePresenter {
 
     private static final String TAG = BasePresenter.class.getName();
     private Subscription subscription;
-    private BriteDatabase db;
+
+    private DAO dao;
     private TallyArea mTallyArea;
 
-    public BasePresenter(BriteDatabase db) {
-        this.db = db;
+    public BasePresenter(DAO dao) {
+        this.dao = dao;
     }
 
     public abstract int getID();
@@ -36,7 +35,7 @@ public abstract class BasePresenter {
             updatedValue = 0;
         }
         content.put(column, updatedValue);
-        db.update(TallyArea.TABLE, content, TallyArea.ID + " = ?", String.valueOf(getID()));
+        dao.updateTallyArea(getID(), content);
     }
 
     public abstract void refreshView(TallyArea tallyArea);
@@ -46,8 +45,7 @@ public abstract class BasePresenter {
     }
 
     public void onResume() {
-        subscription = db.createQuery(TallyArea.TABLE, TallyArea.getTallyAreaWithID, String.valueOf(getID()))
-                .mapToOne(TallyArea.mapper())
+        subscription = dao.getTallyAreaWithId(getID())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<TallyArea>() {

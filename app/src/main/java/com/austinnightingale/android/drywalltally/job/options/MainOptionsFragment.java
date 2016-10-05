@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +21,8 @@ import com.jakewharton.rxbinding.widget.RxTextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 
@@ -64,24 +60,12 @@ public class MainOptionsFragment extends BaseJobFragment implements InputListene
                         updateJob(contentValues);
                     }
                 });
-        subscription.add(db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
-                .mapToOne(Job.mapper())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Job>() {
-                    @Override
-                    public void onCompleted() {
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("jobinfo", e.toString());
-                    }
-                    @Override
-                    public void onNext(Job job) {
-                        refreshView(job);
-                        Log.d("jobinfo", job.toString());
-                    }
-                }));
+        subscription.add(
+                dao.getJobwithId(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(this::refreshView)
+        );
     }
 
     private void refreshView(Job job) {

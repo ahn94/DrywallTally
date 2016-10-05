@@ -44,6 +44,20 @@
     <string name="hint_input_address">Address</string>
 
     <string name="format_height_charge">%1$s x %2$s @ %3$sft</string>
+    
+    
+    <string name="descr_course_screws">"1.5 in Coarse Screws"</string>
+    <string name="descr_dsa20">DSA20</string>
+    <string name="descr_shims">Shims</string>
+    <string name="descr_lite_blue">Lite Blue</string>
+    <string name="descr_magnum_hp">Magnum HP</string>
+    <string name="descr_mud_hot_45">Hot 45</string>
+    <string name="descr_mud_hot_90">Hot 90</string>
+    <string name="descr_mud_hot_20">Hot 20</string>
+    <string name="descr_mud_hot_5">Hot 5</string>
+    <string name="descr_5g_levelcoat">5 Gallon Levelcoat</string>
+    <string name="descr_ultraflex_325">325 Ultraflex</string>
+    <string name="descr_ultraflex_450">450 Ultraflex</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -56,4 +70,5 @@
     <string name="title_activity_tally">TallyActivity</string>
     <string name="menu_lable_job_areas">Job Areas</string>
     <string name="lbl_add_job_area">Add Job Area</string>
+    <string name="title_card_half_totals">1/2\" Totals</string>
 </resources>

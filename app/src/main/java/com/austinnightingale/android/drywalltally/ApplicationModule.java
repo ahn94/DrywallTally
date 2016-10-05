@@ -5,15 +5,16 @@ import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.DbOpenHelper;
 import com.austinnightingale.android.drywalltally.tally.Ceiling;
 import com.austinnightingale.android.drywalltally.tally.CeilingPresenter;
 import com.austinnightingale.android.drywalltally.tally.Fire;
 import com.austinnightingale.android.drywalltally.tally.FirePresenter;
 import com.austinnightingale.android.drywalltally.tally.FiveEigths;
+import com.austinnightingale.android.drywalltally.tally.HalfInch;
 import com.austinnightingale.android.drywalltally.tally.HalfInchPresenter;
 import com.austinnightingale.android.drywalltally.tally.fiveEighthsPresenter;
-import com.austinnightingale.android.drywalltally.tally.HalfInch;
 import com.squareup.sqlbrite.BriteDatabase;
 import com.squareup.sqlbrite.SqlBrite;
 
@@ -49,24 +50,30 @@ public class ApplicationModule {
         return sqlBrite.wrapDatabaseHelper(openHelper, Schedulers.io());
     }
 
-    @Provides @Singleton
-    public HalfInch.Presenter provideHalfRegPresenter(BriteDatabase db) {
-        return new HalfInchPresenter(db);
+    @Provides
+    @Singleton
+    public DAO provideDAO(BriteDatabase db) {
+        return new DAO(db);
     }
 
     @Provides @Singleton
-    public FiveEigths.Presenter providesFiveEighthPresenter(BriteDatabase db) {
-        return new fiveEighthsPresenter(db);
+    public HalfInch.Presenter provideHalfRegPresenter(DAO dao) {
+        return new HalfInchPresenter(dao);
     }
 
     @Provides @Singleton
-    public Ceiling.Presenter providesCeilingPresenter(BriteDatabase db) {
-        return new CeilingPresenter(db);
+    public FiveEigths.Presenter providesFiveEighthPresenter(DAO dao) {
+        return new fiveEighthsPresenter(dao);
     }
 
     @Provides @Singleton
-    public Fire.Presenter providesFirePresenter(BriteDatabase db) {
-        return new FirePresenter(db);
+    public Ceiling.Presenter providesCeilingPresenter(DAO dao) {
+        return new CeilingPresenter(dao);
+    }
+
+    @Provides @Singleton
+    public Fire.Presenter providesFirePresenter(DAO dao) {
+        return new FirePresenter(dao);
     }
 
 }

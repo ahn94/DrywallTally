@@ -26,45 +26,7 @@ public abstract class Job {
     public static final String ID = "_id";
     public static final String JOB_NAME = "job_name";
     public static final String CREATED_AT = "created_at";
-
-
-
-    public static final String HALF_8 = "half_regular_eight";
-    public static final String HALF_9 = "half_regular_nine";
-    public static final String HALF_10 = "half_regular_ten";
-    public static final String HALF_12 = "half_regular_twelve";
-    public static final String HALF_14 = "half_regular_fourteen";
-    public static final String HALF_16 = "half_regular_sixteen";
-    public static final String CEIL_8 = "ceiling_eight";
-
-    public static final String CEIL_9 = "ceiling_nine";
-    public static final String CEIL_10 = "ceiling_ten";
-    public static final String CEIL_12 = "ceiling_twelve";
-    public static final String CEIL_14 = "ceiling_fourteen";
-    public static final String CEIL_16 = "ceiling_sixteen";
-
-    public static final String FIRE_8 = "fire_8";
-    public static final String FIRE_9 = "fire_9";
-    public static final String FIRE_10 = "fire_10";
-    public static final String FIRE_12 = "fire_12";
-    public static final String FIRE_14 = "fire_14";
-    public static final String FIRE_16 = "fire_16";
-    public static final String MOLD_8 = "mold_resistant_eight";
-    public static final String MOLD_12 = "mold_resistant_twelve";
-
-    public static final String FiveE_8 = "five_eighth_regular_eight";
-    public static final String FiveE_9 = "five_eighth_regular_nine";
-    public static final String FiveE_10 = "five_eighth_regular_ten";
-    public static final String FiveE_12 = "five_eighth_regular_twelve";
-    public static final String FiveE_14 = "five_eighth_regular_fourteen";
-    public static final String HALF_s12 = "half_stretch_twelve";
-
-    public static final String HALF_s14 = "half_stretch_fourteen";
-    public static final String HALF_s16 = "half_stretch_sixteen";
-    public static final String FiveE_s12 = "five_eigth_stretch_twelve";
-
     public static final String COLUMN_NAME = "job_column";
-
     public static final String ADDRESS = "address";
     public static final String COMMENT = "comment";
     public static final String CEIL_FINISH = "ceiling_finish";
@@ -78,6 +40,19 @@ public abstract class Job {
     public static final String DOOR_WRAP = "door_wrap";
     public static final String OPENING_WRAP = "opening_wrap";
     public static final String L_TRIM = "l_trim";
+
+    public static final String SCREWS = "course_screws";
+    public static final String DSA20 = "dsa20";
+    public static final String SHIMS = "shims";
+    public static final String LITE_BLUE = "lite_blue";
+    public static final String MAGNUM_HP = "magnum_hp";
+    public static final String HOT_45 = "hot_45";
+    public static final String HOT_90 = "hot_90";
+    public static final String HOT_20 = "hot_20";
+    public static final String HOT_5 = "hot_5";
+    public static final String LEVELCOAT = "levelcoat";
+    public static final String ULTRAFLEX_325 = "ultraflex_325";
+    public static final String ULTRAFLEX_450 = "ultraflex_450";
 
     @Nullable
     @ColumnName(ID)
@@ -128,6 +103,42 @@ public abstract class Job {
 
     @ColumnName(L_TRIM)
     public abstract int lTrim();
+
+    @ColumnName(SCREWS)
+    public abstract int CScrews();
+
+    @ColumnName(DSA20)
+    public abstract int dsa20();
+
+    @ColumnName(SHIMS)
+    public abstract int shims();
+
+    @ColumnName(LITE_BLUE)
+    public abstract int liteBlue();
+
+    @ColumnName(MAGNUM_HP)
+    public abstract int magnumHp();
+
+    @ColumnName(HOT_45)
+    public abstract int hot45();
+
+    @ColumnName(HOT_90)
+    public abstract int hot90();
+
+    @ColumnName(HOT_20)
+    public abstract int hot20();
+
+    @ColumnName(HOT_5)
+    public abstract int hot5();
+
+    @ColumnName(LEVELCOAT)
+    public abstract int levelcoat();
+
+    @ColumnName(ULTRAFLEX_325)
+    public abstract int ultraflex325();
+
+    @ColumnName(ULTRAFLEX_450)
+    public abstract int ultraflex450();
 
 
     public static Job create(Cursor cursor) {
@@ -182,6 +193,30 @@ public abstract class Job {
         abstract Builder openingWrap(int value);
 
         abstract Builder lTrim(int value);
+
+        abstract Builder CScrews(int value);
+
+        abstract Builder dsa20(int value);
+
+        abstract Builder shims(int value);
+
+        abstract Builder liteBlue(int value);
+
+        abstract Builder magnumHp(int value);
+
+        abstract Builder hot45(int value);
+
+        abstract Builder hot90(int value);
+
+        abstract Builder hot20(int value);
+
+        abstract Builder hot5(int value);
+
+        abstract Builder levelcoat(int value);
+
+        abstract Builder ultraflex325(int value);
+
+        abstract Builder ultraflex450(int value);
     }
 
     public static final class ContentBuilder {

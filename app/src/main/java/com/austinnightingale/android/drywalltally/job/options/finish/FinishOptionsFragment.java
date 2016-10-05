@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
@@ -40,7 +38,6 @@ public class FinishOptionsFragment extends BaseJobFragment
     @BindView(R.id.rv_height_charges)
     RecyclerView heightRecycle;
 
-    Job mJob;
 
     HeightChargeAdapter adapter;
 
@@ -58,36 +55,21 @@ public class FinishOptionsFragment extends BaseJobFragment
     public void onResume() {
         super.onResume();
         subscription = new CompositeSubscription();
-        subscription.add(db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
-                .mapToOne(Job.mapper())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Job>() {
-                    @Override
-                    public void onCompleted() {
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("error", e.getMessage());
-                    }
-
-                    @Override
-                    public void onNext(Job job) {
-                        refreshView(job);
-                        mJob = job;
-                        Log.d("jobinfo", job.toString());
-                    }
-                }));
-
-        subscription.add(db.createQuery(HeightCharge.TABLE, HeightCharge.getHeightChargesWithJobId, String.valueOf(getID()))
-                .mapToList(HeightCharge.mapper())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(adapter));
+        subscription.add(
+                dao.getJobwithId(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(this::refreshView)
+        );
+        subscription.add(
+                dao.getHeightCharges(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(adapter)
+        );
     }
 
     private void refreshView(Job job) {
-        Log.d("jobdebug", job.toString());
         textCeilingFinish.setText(String.valueOf(job.ceilFinish()));
         textWallFinish.setText(String.valueOf(job.wallFinish()));
     }
@@ -107,7 +89,7 @@ public class FinishOptionsFragment extends BaseJobFragment
 
     @Override
     public void removeChargeWithId(int chargeId) {
-        db.delete(HeightCharge.TABLE, HeightCharge.ID + " = ?", String.valueOf(chargeId));
+        dao.deleteHeightCharge(chargeId);
     }
 
     @Override
@@ -126,7 +108,7 @@ public class FinishOptionsFragment extends BaseJobFragment
                 .setHeightCharge(heightCharge)
                 .setJobId(getID())
                 .build();
-        db.insert(HeightCharge.TABLE, charge.toContentValues());
+        dao.insertHeightCharge(charge);
     }
 
 

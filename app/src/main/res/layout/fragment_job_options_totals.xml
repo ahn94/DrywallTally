@@ -178,6 +178,10 @@
 
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_extras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_options"

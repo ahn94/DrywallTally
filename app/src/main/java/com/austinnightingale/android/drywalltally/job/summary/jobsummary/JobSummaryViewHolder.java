@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.summary.optionadapter;
+package com.austinnightingale.android.drywalltally.job.summary.jobsummary;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,14 +9,14 @@ import com.austinnightingale.android.drywalltally.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class OptionsViewHolder extends RecyclerView.ViewHolder {
+public class JobSummaryViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.text_value)
      TextView textValue;
     @BindView(R.id.text_label)
      TextView textLabel;
 
-    OptionsViewHolder(View itemView) {
+    JobSummaryViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }

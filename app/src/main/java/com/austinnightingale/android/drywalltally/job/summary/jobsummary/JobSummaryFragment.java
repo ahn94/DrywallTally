@@ -1,33 +1,32 @@
-package com.austinnightingale.android.drywalltally.job.summary;
+package com.austinnightingale.android.drywalltally.job.summary.jobsummary;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.android.drywalltally.job.Utils;
 import com.austinnightingale.android.drywalltally.job.options.finish.HeightChargeAdapter;
-import com.austinnightingale.android.drywalltally.job.summary.optionadapter.OptionsAdapter;
 import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 
-public class OptionTotalsFragment extends BaseJobFragment {
+public class JobSummaryFragment extends BaseJobFragment {
 
     @BindView(R.id.text_name)
     TextView textName;
@@ -55,9 +54,12 @@ public class OptionTotalsFragment extends BaseJobFragment {
     RecyclerView heightRecycle;
     HeightChargeAdapter adapterHeight;
 
+    @BindView(R.id.rv_extras)
+    RecyclerView extrasRecycle;
     @BindView(R.id.rv_options)
     RecyclerView optionsRecycle;
-    OptionsAdapter adapterOption;
+    JobSummaryAdapter adapterOption;
+    JobSummaryAdapter adapterExtras;
 
     @Nullable
     @Override
@@ -66,10 +68,14 @@ public class OptionTotalsFragment extends BaseJobFragment {
         ButterKnife.bind(this, view);
 
 
-        adapterOption = new OptionsAdapter();
-        optionsRecycle.setAdapter(adapterOption);
+        adapterOption = new JobSummaryAdapter(1);
+        adapterExtras = new JobSummaryAdapter(2);
 
+        optionsRecycle.setAdapter(adapterExtras);
         optionsRecycle.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        extrasRecycle.setAdapter(adapterOption);
+        extrasRecycle.setLayoutManager(new LinearLayoutManager(getContext()));
 
         adapterHeight = new HeightChargeAdapter(this, false);
         heightRecycle.setAdapter(adapterHeight);
@@ -98,32 +104,36 @@ public class OptionTotalsFragment extends BaseJobFragment {
     @Override
     public void onResume() {
         super.onResume();
-        Observable<Job> jobObservable = db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
-                .mapToOne(Job.mapper())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-        subscription.add(jobObservable.subscribe(adapterOption));
-        subscription.add(jobObservable.subscribe(new Subscriber<Job>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.e("error", e.toString());
-            }
-
-            @Override
-            public void onNext(Job job) {
-                refreshView(job);
-            }
-        }));
-        subscription.add(db.createQuery(HeightCharge.TABLE, HeightCharge.getHeightChargesWithJobId, String.valueOf(getID()))
-                .mapToList(HeightCharge.mapper())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(adapterHeight));
+        subscription.add(
+                dao.getJobwithId(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(adapterOption)
+        );
+        subscription.add(
+                dao.getJobwithId(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(adapterExtras)
+        );
+        subscription.add(
+                dao.getJobwithId(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(this::refreshView)
+        );
+        subscription.add(
+                dao.getHeightCharges(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(adapterHeight)
+        );
+        subscription.add(
+                dao.getTallyAreaListForJobId(getID())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(this::refreshView)
+        );
     }
 
     public void refreshView(Job job) {
@@ -151,11 +161,12 @@ public class OptionTotalsFragment extends BaseJobFragment {
             divider.setVisibility(View.VISIBLE);
         }
 
-//        textWallFinish.setText(getString(R.string.format_wall_finish, job.wallFinish()));
-//        textCeilingFinish.setText(getString(R.string.format_ceil_finish, job.ceilFinish()));
-//
-//        textCeilingSqare.setText(getString(R.string.format_ceil_square, Utils.areaCeilingSqFt(job)));
-//        textTotalSquare.setText(getString(R.string.format_total_square, Utils.areaTotalSqFt(job)));
+        textWallFinish.setText(getString(R.string.format_wall_finish, job.wallFinish()));
+        textCeilingFinish.setText(getString(R.string.format_ceil_finish, job.ceilFinish()));
+    }
 
+    private void refreshView(List<TallyArea> tallyAreaList) {
+        textCeilingSqare.setText(getString(R.string.format_ceil_square, Utils.jobCeilingFtString(tallyAreaList)));
+        textTotalSquare.setText(getString(R.string.format_total_square, Utils.jobTotalFtString(tallyAreaList)));
     }
 }
