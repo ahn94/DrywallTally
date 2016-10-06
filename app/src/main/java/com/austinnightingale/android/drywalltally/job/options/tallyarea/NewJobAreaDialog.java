@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.text.InputType;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.austinnightingale.android.drywalltally.TallyApplication;
@@ -41,8 +40,6 @@ public class NewJobAreaDialog extends DialogFragment {
 
         if (!getArguments().containsKey(TallyArea.JOB_ID)) {
             throw new IllegalArgumentException("doesn't contain job id.");
-        } else {
-            Toast.makeText(context, "job id: " + getArguments().getInt(TallyArea.JOB_ID), Toast.LENGTH_SHORT).show();
         }
 
         ((TallyApplication) getActivity().getApplication()).getComponent().inject(this);
