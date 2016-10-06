@@ -24,8 +24,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 public class TallyAreasFragment extends Fragment implements TallyCallback{
@@ -81,10 +79,7 @@ public class TallyAreasFragment extends Fragment implements TallyCallback{
     @Override
     public void onResume() {
         super.onResume();
-        subscription = dao.getTallyAreaListForJobId(getID())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(adapter);
+        subscription = dao.obsTallyListByJobId(getID()).subscribe(adapter);
     }
 
     @Override

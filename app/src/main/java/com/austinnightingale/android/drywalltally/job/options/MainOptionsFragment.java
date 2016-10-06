@@ -22,14 +22,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 public class MainOptionsFragment extends BaseJobFragment implements InputListener {
 
-    @BindView(R.id.value_job_name) TextView textName;
-    @BindView(R.id.value_address) TextView textAddress;
+    @BindView(R.id.value_job_name)
+    TextView textName;
+    @BindView(R.id.value_address)
+    TextView textAddress;
     @BindView(R.id.input_comment)
     EditText inputComment;
 
@@ -61,10 +61,7 @@ public class MainOptionsFragment extends BaseJobFragment implements InputListene
                     }
                 });
         subscription.add(
-                dao.getJobwithId(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(this::refreshView)
+                dao.obsJobWithId(getID()).subscribe(this::refreshView)
         );
     }
 

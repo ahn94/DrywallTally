@@ -16,11 +16,10 @@ import android.widget.TextView;
 
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
-
 import com.austinnightingale.android.drywalltally.job.dialogs.InputDialog;
 import com.austinnightingale.android.drywalltally.job.dialogs.InputListener;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
@@ -29,8 +28,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Subscriber;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 public class UpchargeOptionsFragment extends Fragment implements InputListener {
@@ -46,7 +43,7 @@ public class UpchargeOptionsFragment extends Fragment implements InputListener {
     @BindView(R.id.value_ltrim) TextView textLtrim;
 
     @Inject
-    BriteDatabase db;
+    DAO dao;
     Subscription subscription;
     Job mJob;
 
@@ -115,10 +112,7 @@ public class UpchargeOptionsFragment extends Fragment implements InputListener {
     @Override
     public void onResume() {
         super.onResume();
-        subscription = db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(getID()))
-                .mapToOne(Job.mapper())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        subscription = dao.obsJobWithId(getID())
                 .subscribe(new Subscriber<Job>() {
                     @Override
                     public void onCompleted() {
@@ -143,7 +137,7 @@ public class UpchargeOptionsFragment extends Fragment implements InputListener {
     }
 
     public void updateJob(ContentValues values) {
-        db.update(Job.TABLE, values, Job.ID + " = ?", String.valueOf(getID()));
+        dao.updateJob(getID(), values);
     }
 
     @OnClick(R.id.view_bull_corner)

@@ -26,8 +26,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Subscriber;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 
@@ -123,9 +121,7 @@ public class ExtraOptionsFragment extends Fragment implements InputListener{
     @Override
     public void onResume() {
         super.onResume();
-        subscription = dao.getJobwithId(getID())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        subscription = dao.obsJobWithId(getID())
                 .subscribe(new Subscriber<Job>() {
                     @Override
                     public void onCompleted() {

@@ -11,7 +11,6 @@ import com.austinnightingale.android.drywalltally.jobs.DateFormat;
 
 import java.util.List;
 
-
 public class JobReport {
 
     
@@ -32,9 +31,9 @@ public class JobReport {
     }
 
     private void initStats() {
-        job = doa.getJobwithId(jobId).toBlocking().first();
-        heightCharges = doa.getHeightCharges(jobId).toBlocking().first();
-        tallyAreas = doa.getTallyAreaListForJobId(jobId).toBlocking().first();
+        job = doa.jobWithId(jobId);
+        heightCharges = doa.heightChargeListFromJobId(jobId);
+        tallyAreas = doa.tallyListByJobId(jobId);
     }
 
     public String getReport() {
@@ -253,7 +252,6 @@ public class JobReport {
                 report += addLine(Utils.tallyCeil14(area) + Utils.tallyHalf14(area), "14'");
                 report += addLine(Utils.tallyCeil16(area) + Utils.tallyHalf16(area), "16'");
             }
-
         }
 
         return report;

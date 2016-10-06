@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/options_job_area"
-        android:title="Job Tally"/>
+        android:title="Job Areas"/>
 
     <item
         android:id="@+id/options_main"

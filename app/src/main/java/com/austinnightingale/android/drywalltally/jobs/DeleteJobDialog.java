@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
@@ -28,7 +26,7 @@ public class DeleteJobDialog extends DialogFragment {
     }
 
     @Inject
-    BriteDatabase db;
+    DAO dao;
 
     private int jobID;
     private String jobName;
@@ -50,10 +48,7 @@ public class DeleteJobDialog extends DialogFragment {
                 .content("Delete " + jobName + "?")
                 .positiveText("Delete")
                 .negativeText("Cancel")
-                .onPositive((materialDialog, dialogAction) -> {
-                    db.delete(Job.TABLE, Job.ID + " = ?", String.valueOf(jobID));
-                    db.delete(HeightCharge.TABLE, HeightCharge.JOB_ID + " = ?", String.valueOf(jobID));
-                })
+                .onPositive((materialDialog, dialogAction) -> dao.deleteJobInfo(jobID))
                 .build();
     }
 }

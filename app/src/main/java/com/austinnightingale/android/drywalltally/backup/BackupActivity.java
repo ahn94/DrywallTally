@@ -142,9 +142,7 @@ public class BackupActivity extends AppCompatActivity {
                 }
             }
 
-            List<TallyArea> tallyAreas = dao.getTallyAreaListForJobId(job.jobID())
-                    .toBlocking().first();
-
+            List<TallyArea> tallyAreas = dao.tallyListByJobId(job.jobID());
 
             JobInfo jobInfo = JobInfo.builder()
                     .job(job)

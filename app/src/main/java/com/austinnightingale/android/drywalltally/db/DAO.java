@@ -10,6 +10,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class DAO {
 
@@ -21,31 +23,124 @@ public class DAO {
     }
 
 
-    public Observable<List<TallyArea>> getTallyAreaListForJobId(int jobId) {
+    /**
+     *
+     * Return Tally Area List from Job Id
+     *
+     */
+
+    private Observable<List<TallyArea>> getTallyAreaListForJobId(int jobId) {
         return db.createQuery(TallyArea.TABLE, TallyArea.getAllTallyAreasForJob, String.valueOf(jobId))
                 .mapToList(TallyArea.mapper());
     }
 
-    public Observable<TallyArea> getTallyAreaWithId(int areaId) {
+    public Observable<List<TallyArea>> obsTallyListByJobId(int jobId) {
+        return getTallyAreaListForJobId(jobId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public List<TallyArea> tallyListByJobId(int jobId) {
+        return getTallyAreaListForJobId(jobId)
+                .toBlocking()
+                .first();
+    }
+
+
+    /**
+     *
+     * Return Tally Area from Tally Area Id
+     *
+     */
+
+    private Observable<TallyArea> getTallyAreaWithId(int areaId) {
         return db.createQuery(TallyArea.TABLE, TallyArea.getTallyAreaWithID, String.valueOf(areaId))
                 .mapToOne(TallyArea.mapper());
     }
 
-    public Observable<Job> getJobwithId(int jobId) {
+    public Observable<TallyArea> obsTallyAreaWithId(int areaId) {
+        return getTallyAreaWithId(areaId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public TallyArea tallyAreaWithId(int areaId) {
+        return getTallyAreaWithId(areaId)
+                .toBlocking()
+                .first();
+    }
+
+
+    /**
+     *
+     * Return Job from Job Id
+     *
+     */
+
+    private Observable<Job> getJobwithId(int jobId) {
         return db.createQuery(Job.TABLE, Job.getJobwithIDQuery, String.valueOf(jobId))
                 .mapToOne(Job.mapper());
     }
 
-    public Observable<List<HeightCharge>> getHeightCharges(int jobId) {
+    public Observable<Job> obsJobWithId(int jobId) {
+        return getJobwithId(jobId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Job jobWithId(int jobId) {
+        return getJobwithId(jobId)
+                .toBlocking()
+                .first();
+    }
+
+
+    /**
+     *
+     * Return Height Charge List from Job Id
+     *
+     */
+
+    private Observable<List<HeightCharge>> getHeightCharges(int jobId) {
         return db.createQuery(HeightCharge.TABLE, HeightCharge.getHeightChargesWithJobId, String.valueOf(jobId))
                 .mapToList(HeightCharge.mapper());
     }
 
+    public Observable<List<HeightCharge>> obsHeightChargeListFromJobId(int jobId) {
+        return getHeightCharges(jobId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public List<HeightCharge> heightChargeListFromJobId(int jobId) {
+        return getHeightCharges(jobId)
+                .toBlocking()
+                .first();
+    }
+
+
+    /**
+     *
+     * Return All Jobs
+     *
+     */
+
     public Observable<List<Job>> getAllJobs() {
-         return db.createQuery(Job.TABLE, "SELECT * FROM " +Job.TABLE+ ";")
+        return db.createQuery(Job.TABLE, "SELECT * FROM " + Job.TABLE + ";")
                 .mapToList(Job.mapper());
     }
 
+    public Observable<List<Job>> obsAllJobs() {
+        return getAllJobs()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public List<Job> jobList() {
+        return getAllJobs()
+                .toBlocking()
+                .first();
+    }
 
 
     public int updateJob(int jobId, ContentValues values) {
@@ -64,7 +159,17 @@ public class DAO {
         return db.delete(HeightCharge.TABLE, HeightCharge.ID + " = ?", String.valueOf(heightId));
     }
 
+    public void deleteJobInfo(int jobId) {
+        db.delete(Job.TABLE, Job.ID + " = ?", String.valueOf(jobId));
+        db.delete(HeightCharge.TABLE, HeightCharge.JOB_ID + " = ?", String.valueOf(jobId));
+        db.delete(TallyArea.TABLE, TallyArea.JOB_ID + " = ?", String.valueOf(jobId));
+    }
+
     public long insertHeightCharge(HeightCharge charge) {
         return db.insert(HeightCharge.TABLE, charge.toContentValues());
+    }
+
+    public long insertTallyArea(ContentValues values) {
+        return db.insert(TallyArea.TABLE, values);
     }
 }

@@ -23,14 +23,12 @@ import com.austinnightingale.android.drywalltally.JobReport;
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.TallyApplication;
 import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.options.OptionsTabFragment;
 import com.austinnightingale.android.drywalltally.job.summary.jobsummary.JobSummaryFragment;
 import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TalliesPagerFragment;
 import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TallySummaryFragment;
-import com.squareup.sqlbrite.BriteDatabase;
 
 import java.util.List;
 
@@ -50,13 +48,9 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
-    @Inject
-    BriteDatabase db;
+
     @Inject
     DAO dao;
-    List<HeightCharge> charges;
-
-    //comment
 
 
     @Override
@@ -66,7 +60,7 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
         ButterKnife.bind(this);
 
         if (savedInstanceState == null) {
-            setJobOptionsFragment(0);
+            setJobOptionsFragment(4);
         }
 
         ((TallyApplication) getApplication()).getComponent().inject(this);
@@ -107,7 +101,7 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.report) {
-            Job job = dao.getJobwithId(getID()).toBlocking().first();
+            Job job = dao.jobWithId(getID());
             sendReport(job);
         }
         return super.onOptionsItemSelected(item);
@@ -148,8 +142,8 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
         } else if (id == R.id.area_tally_summary) {
             openFragment(new TalliesPagerFragment(), "tallies");
         } else if (id == R.id.job_tally_summary) {
-            Job job = dao.getJobwithId(getID()).toBlocking().first();
-            List<TallyArea> tallies = dao.getTallyAreaListForJobId(getID()).toBlocking().first();
+            Job job = dao.jobWithId(getID());
+            List<TallyArea> tallies = dao.tallyListByJobId(getID());
             openFragment(TallySummaryFragment.newInstance(Utils.getJobTally(job.jobName() + " Job", tallies), true), "job tally");
         }
 

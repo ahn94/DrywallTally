@@ -22,8 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import rx.Observable;
 
 
 public class JobSummaryFragment extends BaseJobFragment {
@@ -104,36 +103,18 @@ public class JobSummaryFragment extends BaseJobFragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        Observable<Job> jobObs = dao.obsJobWithId(getID());
+
+        subscription.add(jobObs.subscribe(adapterOption));
+        subscription.add(jobObs.subscribe(adapterExtras));
+        subscription.add(jobObs.subscribe(this::refreshView));
+
         subscription.add(
-                dao.getJobwithId(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(adapterOption)
+                dao.obsHeightChargeListFromJobId(getID()).subscribe(adapterHeight)
         );
-        subscription.add(
-                dao.getJobwithId(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(adapterExtras)
-        );
-        subscription.add(
-                dao.getJobwithId(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(this::refreshView)
-        );
-        subscription.add(
-                dao.getHeightCharges(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(adapterHeight)
-        );
-        subscription.add(
-                dao.getTallyAreaListForJobId(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(this::refreshView)
-        );
+
+        subscription.add(dao.obsTallyListByJobId(getID()).subscribe(this::refreshView));
     }
 
     public void refreshView(Job job) {

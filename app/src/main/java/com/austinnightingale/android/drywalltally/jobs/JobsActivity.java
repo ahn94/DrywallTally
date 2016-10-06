@@ -28,8 +28,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public final class JobsActivity extends AppCompatActivity implements JobsCallBack{
 
@@ -81,9 +79,7 @@ public final class JobsActivity extends AppCompatActivity implements JobsCallBac
     @Override
     protected void onResume() {
         super.onResume();
-        subscription = dao.getAllJobs()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        subscription = dao.obsAllJobs()
                 .subscribe(adapter);
     }
 

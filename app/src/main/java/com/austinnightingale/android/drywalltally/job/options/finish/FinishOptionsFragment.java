@@ -22,8 +22,6 @@ import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
 
@@ -56,16 +54,10 @@ public class FinishOptionsFragment extends BaseJobFragment
         super.onResume();
         subscription = new CompositeSubscription();
         subscription.add(
-                dao.getJobwithId(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(this::refreshView)
+                dao.obsJobWithId(getID()).subscribe(this::refreshView)
         );
         subscription.add(
-                dao.getHeightCharges(getID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(adapter)
+                dao.obsHeightChargeListFromJobId(getID()).subscribe(adapter)
         );
     }
 

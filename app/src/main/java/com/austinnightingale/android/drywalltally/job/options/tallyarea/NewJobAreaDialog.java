@@ -10,8 +10,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.squareup.sqlbrite.BriteDatabase;
 
@@ -33,6 +32,8 @@ public class NewJobAreaDialog extends DialogFragment {
 
     @Inject
     BriteDatabase db;
+    @Inject
+    DAO dao;
 
     @Override
     public void onAttach(Context context) {
@@ -61,7 +62,7 @@ public class NewJobAreaDialog extends DialogFragment {
                 .negativeText("Cancel")
                 .onPositive((materialDialog, dialogAction) -> {
                     String name = materialDialog.getInputEditText().getText().toString();
-                    db.insert(TallyArea.TABLE, new TallyArea.ContentBuilder()
+                    dao.insertTallyArea(new TallyArea.ContentBuilder()
                             .jobName(name)
                             .jobId(getArguments().getInt(TallyArea.JOB_ID))
                             .build());

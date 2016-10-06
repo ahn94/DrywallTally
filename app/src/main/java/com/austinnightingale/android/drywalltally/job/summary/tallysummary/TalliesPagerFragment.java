@@ -72,7 +72,7 @@ public class TalliesPagerFragment extends Fragment implements ViewPager.OnPageCh
         View view = inflater.inflate(R.layout.fragment_totals_pager, container, false);
         ButterKnife.bind(this, view);
 
-        tallyAreas = dao.getTallyAreaListForJobId(getID()).toBlocking().first();
+        tallyAreas = dao.tallyListByJobId(getID());
 
         if (Utils.jobTotalFtNum(tallyAreas) == 0) {
             talliesFlipper.setDisplayedChild(1);

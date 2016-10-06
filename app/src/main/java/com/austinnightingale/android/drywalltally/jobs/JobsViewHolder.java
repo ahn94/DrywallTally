@@ -7,12 +7,14 @@ import android.widget.TextView;
 import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.db.DAO;
 import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.Utils;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import rx.Subscriber;
 
 
 public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener, RecyclerView.OnLongClickListener {
@@ -42,12 +44,23 @@ public class JobsViewHolder extends RecyclerView.ViewHolder implements RecyclerV
         mJob = job;
         jobName.setText(mJob.jobName());
         jobDate.setText(DateFormat.get(mJob.createdOn()));
-        dao.getTallyAreaListForJobId(mJob.jobID())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(tallyAreas -> {
-                    String formated = Utils.jobTotalFtString(tallyAreas) + " Sq. Ft.";
-                    footage.setText(formated);
+        dao.obsTallyListByJobId(job.jobID())
+                .subscribe(new Subscriber<List<TallyArea>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onNext(List<TallyArea> tallyAreas) {
+                        String formated = Utils.jobTotalFtString(tallyAreas) + " Sq. Ft.";
+                        footage.setText(formated);
+                    }
                 });
 
     }

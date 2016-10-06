@@ -49,7 +49,7 @@ public class OptionsTabFragment extends Fragment {
         adapter.addFragment(new FinishOptionsFragment(), "Finish");
         adapter.addFragment(new TallyAreasFragment(), "Job Areas");
         pager.setAdapter(adapter);
-        pager.setCurrentItem(3);
+        pager.setCurrentItem(4);
         pager.setOffscreenPageLimit(3);
         tabLayout.setupWithViewPager(pager, true);
 
