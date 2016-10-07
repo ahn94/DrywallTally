@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Austin on 9/7/2016.
  */
-public class TalliesPagerFragment extends Fragment implements ViewPager.OnPageChangeListener{
+public class TalliesPagerFragment extends Fragment {
 
     public static TalliesPagerFragment newInstance(int position) {
         TalliesPagerFragment pager = new TalliesPagerFragment();
@@ -54,6 +54,7 @@ public class TalliesPagerFragment extends Fragment implements ViewPager.OnPageCh
         getActivity().setTitle("Tally Summary");
         adapter = new PageAdapter(getActivity().getSupportFragmentManager());
         ((TallyApplication) getActivity().getApplication()).getComponent().inject(this);
+        getActivity().setTitle("Area Tallies");
     }
 
     public int getID() {
@@ -81,10 +82,7 @@ public class TalliesPagerFragment extends Fragment implements ViewPager.OnPageCh
             for (TallyArea area : tallyAreas) {
                 adapter.addFragment(TallySummaryFragment.newInstance(area, false), area.areaName() + " Area");
             }
-            onPageSelected(0);
         }
-
-        pager.addOnPageChangeListener(this);
 
         pager.setAdapter(adapter);
         pager.setOffscreenPageLimit(3);
@@ -92,18 +90,4 @@ public class TalliesPagerFragment extends Fragment implements ViewPager.OnPageCh
         return view;
     }
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        getActivity().setTitle(adapter.getPageTitle(position));
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
 }
