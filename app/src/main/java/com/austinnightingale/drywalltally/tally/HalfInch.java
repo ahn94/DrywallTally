@@ -1,6 +1,5 @@
 package com.austinnightingale.android.drywalltally.tally;
 
-import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
 
 /**

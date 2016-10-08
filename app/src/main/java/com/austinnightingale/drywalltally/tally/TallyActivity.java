@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
 import com.austinnightingale.android.drywalltally.job.options.PageAdapter;
 

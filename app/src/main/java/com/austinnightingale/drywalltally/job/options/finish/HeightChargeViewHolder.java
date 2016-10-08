@@ -9,7 +9,6 @@ import com.austinnightingale.android.drywalltally.R;
 import com.austinnightingale.android.drywalltally.db.HeightCharge;
 import com.austinnightingale.android.drywalltally.job.dialogs.RemoveChargeListener;
 
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnLongClick;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.austinnightingale.android.drywalltally">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.austinnightingale.android.drywalltally">
 
     <application
         android:name=".TallyApplication"
@@ -12,8 +13,8 @@
         android:windowSoftInputMode="stateVisible|adjustResize">
         <activity
             android:name=".job.JobActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".jobs.JobsActivity"
@@ -25,24 +26,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".backup.BackupActivity"
             android:label="@string/title_activity_backup"
             android:parentActivityName=".jobs.JobsActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".jobs.JobsActivity"/>
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".tally.TallyActivity"
             android:label="@string/title_activity_tally"
             android:parentActivityName=".job.JobActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.austinnightingale.android.drywalltally.job.JobActivity"/>
+                android:value=".job.JobActivity"/>
         </activity>
     </application>
 

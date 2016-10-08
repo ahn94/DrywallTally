@@ -9,7 +9,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.austinnightingale.android.drywalltally"
+        applicationId "com.austinnightingale.drywalltally"
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 19
         targetSdkVersion 24

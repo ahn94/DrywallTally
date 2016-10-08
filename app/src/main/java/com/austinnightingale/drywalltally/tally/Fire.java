@@ -1,26 +1,30 @@
 package com.austinnightingale.android.drywalltally.tally;
 
-import com.austinnightingale.android.drywalltally.db.Job;
 import com.austinnightingale.android.drywalltally.db.TallyArea;
 
 /**
- * Created by Austin on 8/20/2016.
+ * Created by Austin on 9/24/2016.
  */
-public interface Ceiling {
+
+public interface Fire {
 
     interface View {
 
-        void updateCeil8Text(String tally);
+        void updateFire8Text(String tally);
 
-        void updateCeil9Text(String tally);
+        void updateFire9Text(String tally);
 
-        void updateCeil10Text(String tally);
+        void updateFire10Text(String tally);
 
-        void updateCeil12Text(String tally);
+        void updateFire12Text(String tally);
 
-        void updateCeil14Text(String tally);
+        void updateFire14Text(String tally);
 
-        void updateCeil16Text(String tally);
+        void updateFire16Text(String tally);
+
+        void updateMold8Text(String tally);
+
+        void updateMold12Text(String tally);
 
         int getID();
 
