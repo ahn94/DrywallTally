@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.jobs;
+package com.austinnightingale.drywalltally.jobs;
 
 import android.support.v4.app.DialogFragment;
 

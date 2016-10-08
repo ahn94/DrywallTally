@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options.finish;
+package com.austinnightingale.drywalltally.job.options.finish;
 
 
 import android.content.ContentValues;
@@ -10,14 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.job.dialogs.ChoiceDialog;
-import com.austinnightingale.android.drywalltally.job.dialogs.InputListener;
-import com.austinnightingale.android.drywalltally.job.dialogs.RemoveChargeDialog;
-import com.austinnightingale.android.drywalltally.job.dialogs.RemoveChargeListener;
-import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.HeightCharge;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.job.dialogs.ChoiceDialog;
+import com.austinnightingale.drywalltally.job.dialogs.InputListener;
+import com.austinnightingale.drywalltally.job.dialogs.RemoveChargeDialog;
+import com.austinnightingale.drywalltally.job.dialogs.RemoveChargeListener;
+import com.austinnightingale.drywalltally.tally.BaseJobFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

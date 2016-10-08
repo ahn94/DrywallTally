@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.jobs;
+package com.austinnightingale.drywalltally.jobs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.support.v4.app.DialogFragment;
 import android.text.InputType;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.Job;
 import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;

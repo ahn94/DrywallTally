@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options.finish;
+package com.austinnightingale.drywalltally.job.options.finish;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,17 +10,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.austinnightingale.android.drywalltally.R;
+import com.austinnightingale.drywalltally.R;
 
 import biz.kasual.materialnumberpicker.MaterialNumberPicker;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by Austin on 9/6/2016.
- */
+
 public class HeightChargeDialog extends DialogFragment {
 
     public static HeightChargeDialog newInstance(Fragment targetFragment) {
@@ -61,14 +58,11 @@ public class HeightChargeDialog extends DialogFragment {
                 .customView(view, false)
                 .positiveText("Set")
                 .negativeText("Cancel")
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog materialDialog, @NonNull DialogAction dialogAction) {
-                        int length = pickerLength.getValue();
-                        int width = pickerWidth.getValue();
-                        int height = pickerHeight.getValue();
-                        callback.addCharge(getString(R.string.format_height_charge, length, width, height));
-                    }
+                .onPositive((materialDialog, dialogAction) -> {
+                    int length = pickerLength.getValue();
+                    int width = pickerWidth.getValue();
+                    int height = pickerHeight.getValue();
+                    callback.addCharge(getString(R.string.format_height_charge, length, width, height));
                 })
                 .build();
     }

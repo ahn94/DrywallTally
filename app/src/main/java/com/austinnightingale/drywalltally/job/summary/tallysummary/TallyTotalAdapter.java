@@ -1,13 +1,13 @@
-package com.austinnightingale.android.drywalltally.job.summary.tallysummary;
+package com.austinnightingale.drywalltally.job.summary.tallysummary;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.Report;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.job.Report;
 
 import java.util.ArrayList;
 import java.util.List;

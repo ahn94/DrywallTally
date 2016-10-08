@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.db;
+package com.austinnightingale.drywalltally.db;
 
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;

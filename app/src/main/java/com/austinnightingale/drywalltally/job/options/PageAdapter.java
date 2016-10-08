@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options;
+package com.austinnightingale.drywalltally.job.options;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

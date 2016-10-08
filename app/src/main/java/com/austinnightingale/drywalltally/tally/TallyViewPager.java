@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.tally;
+package com.austinnightingale.drywalltally.tally;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.job.options.PageAdapter;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.job.options.PageAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

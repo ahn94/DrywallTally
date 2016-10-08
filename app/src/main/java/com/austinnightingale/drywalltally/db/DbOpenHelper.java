@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.db;
+package com.austinnightingale.drywalltally.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

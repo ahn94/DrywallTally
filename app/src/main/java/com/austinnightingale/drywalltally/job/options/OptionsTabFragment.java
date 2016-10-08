@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options;
+package com.austinnightingale.drywalltally.job.options;
 
 
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.job.options.finish.FinishOptionsFragment;
-import com.austinnightingale.android.drywalltally.job.options.tallyarea.TallyAreasFragment;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.job.options.finish.FinishOptionsFragment;
+import com.austinnightingale.drywalltally.job.options.tallyarea.TallyAreasFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

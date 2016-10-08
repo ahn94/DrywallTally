@@ -1,6 +1,6 @@
-package com.austinnightingale.android.drywalltally.job;
+package com.austinnightingale.drywalltally.job;
 
-import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.db.TallyArea;
 
 import java.util.List;
 import java.util.Locale;

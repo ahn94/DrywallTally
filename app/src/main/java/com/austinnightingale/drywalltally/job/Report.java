@@ -1,9 +1,9 @@
-package com.austinnightingale.android.drywalltally.job;
+package com.austinnightingale.drywalltally.job;
 
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.jobs.DateFormat;
+import com.austinnightingale.drywalltally.db.HeightCharge;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.jobs.DateFormat;
 
 import java.util.ArrayList;
 import java.util.List;

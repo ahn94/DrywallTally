@@ -1,20 +1,20 @@
-package com.austinnightingale.android.drywalltally;
+package com.austinnightingale.drywalltally;
 
 
 import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.DbOpenHelper;
-import com.austinnightingale.android.drywalltally.tally.Ceiling;
-import com.austinnightingale.android.drywalltally.tally.CeilingPresenter;
-import com.austinnightingale.android.drywalltally.tally.Fire;
-import com.austinnightingale.android.drywalltally.tally.FirePresenter;
-import com.austinnightingale.android.drywalltally.tally.FiveEigths;
-import com.austinnightingale.android.drywalltally.tally.HalfInch;
-import com.austinnightingale.android.drywalltally.tally.HalfInchPresenter;
-import com.austinnightingale.android.drywalltally.tally.fiveEighthsPresenter;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.DbOpenHelper;
+import com.austinnightingale.drywalltally.tally.Ceiling;
+import com.austinnightingale.drywalltally.tally.CeilingPresenter;
+import com.austinnightingale.drywalltally.tally.Fire;
+import com.austinnightingale.drywalltally.tally.FirePresenter;
+import com.austinnightingale.drywalltally.tally.FiveEigths;
+import com.austinnightingale.drywalltally.tally.HalfInch;
+import com.austinnightingale.drywalltally.tally.HalfInchPresenter;
+import com.austinnightingale.drywalltally.tally.fiveEighthsPresenter;
 import com.squareup.sqlbrite.BriteDatabase;
 import com.squareup.sqlbrite.SqlBrite;
 

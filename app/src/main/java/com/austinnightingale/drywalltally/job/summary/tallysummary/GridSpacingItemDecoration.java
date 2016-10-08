@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.summary.tallysummary;
+package com.austinnightingale.drywalltally.job.summary.tallysummary;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

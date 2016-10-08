@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options;
+package com.austinnightingale.drywalltally.job.options;
 
 
 import android.content.ContentValues;
@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.job.dialogs.InputDialog;
-import com.austinnightingale.android.drywalltally.job.dialogs.InputListener;
-import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.job.dialogs.InputDialog;
+import com.austinnightingale.drywalltally.job.dialogs.InputListener;
+import com.austinnightingale.drywalltally.tally.BaseJobFragment;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
 import butterknife.BindView;

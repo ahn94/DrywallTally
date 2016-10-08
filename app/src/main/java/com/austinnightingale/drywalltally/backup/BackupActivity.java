@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.backup;
+package com.austinnightingale.drywalltally.backup;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -10,13 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.db.JobInfo;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.HeightCharge;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.db.JobInfo;
+import com.austinnightingale.drywalltally.db.TallyArea;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;

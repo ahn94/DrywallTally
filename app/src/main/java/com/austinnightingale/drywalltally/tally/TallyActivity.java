@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.tally;
+package com.austinnightingale.drywalltally.tally;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.options.PageAdapter;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.job.options.PageAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

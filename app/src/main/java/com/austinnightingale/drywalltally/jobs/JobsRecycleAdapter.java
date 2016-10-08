@@ -1,13 +1,13 @@
-package com.austinnightingale.android.drywalltally.jobs;
+package com.austinnightingale.drywalltally.jobs;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.Job;
 
 import java.util.List;
 

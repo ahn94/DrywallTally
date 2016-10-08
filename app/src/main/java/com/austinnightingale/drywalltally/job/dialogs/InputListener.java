@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.dialogs;
+package com.austinnightingale.drywalltally.job.dialogs;
 
 
 import android.content.ContentValues;

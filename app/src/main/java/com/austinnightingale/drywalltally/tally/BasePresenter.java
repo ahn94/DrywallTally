@@ -1,9 +1,9 @@
-package com.austinnightingale.android.drywalltally.tally;
+package com.austinnightingale.drywalltally.tally;
 
 import android.content.ContentValues;
 
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.TallyArea;
 
 import rx.Subscriber;
 import rx.Subscription;

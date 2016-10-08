@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.summary.tallysummary;
+package com.austinnightingale.drywalltally.job.summary.tallysummary;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.Utils;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.job.Utils;
 
 import javax.inject.Inject;
 

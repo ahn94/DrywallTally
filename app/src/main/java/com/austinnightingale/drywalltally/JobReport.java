@@ -1,13 +1,13 @@
-package com.austinnightingale.android.drywalltally;
+package com.austinnightingale.drywalltally;
 
 
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.Report;
-import com.austinnightingale.android.drywalltally.job.Utils;
-import com.austinnightingale.android.drywalltally.jobs.DateFormat;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.HeightCharge;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.job.Report;
+import com.austinnightingale.drywalltally.job.Utils;
+import com.austinnightingale.drywalltally.jobs.DateFormat;
 
 import java.util.List;
 

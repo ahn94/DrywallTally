@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job;
+package com.austinnightingale.drywalltally.job;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,16 +19,16 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.JobReport;
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.options.OptionsTabFragment;
-import com.austinnightingale.android.drywalltally.job.summary.jobsummary.JobSummaryFragment;
-import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TalliesPagerFragment;
-import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TallySummaryFragment;
+import com.austinnightingale.drywalltally.JobReport;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.job.options.OptionsTabFragment;
+import com.austinnightingale.drywalltally.job.summary.jobsummary.JobSummaryFragment;
+import com.austinnightingale.drywalltally.job.summary.tallysummary.TalliesPagerFragment;
+import com.austinnightingale.drywalltally.job.summary.tallysummary.TallySummaryFragment;
 
 import java.util.List;
 

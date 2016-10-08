@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.dialogs;
+package com.austinnightingale.drywalltally.job.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,7 +9,8 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
+import com.austinnightingale.drywalltally.db.HeightCharge;
+
 
 public class RemoveChargeDialog extends DialogFragment {
     public static final String TITLE = "title";

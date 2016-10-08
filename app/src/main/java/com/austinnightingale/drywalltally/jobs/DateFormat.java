@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.jobs;
+package com.austinnightingale.drywalltally.jobs;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

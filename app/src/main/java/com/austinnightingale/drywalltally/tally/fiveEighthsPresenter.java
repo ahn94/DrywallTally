@@ -1,7 +1,8 @@
-package com.austinnightingale.android.drywalltally.tally;
+package com.austinnightingale.drywalltally.tally;
 
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
+
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.TallyArea;
 
 /**
  * Created by Austin on 8/19/2016.

@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.tally;
+package com.austinnightingale.drywalltally.tally;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
-import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.Job;
 
 import javax.inject.Inject;
 

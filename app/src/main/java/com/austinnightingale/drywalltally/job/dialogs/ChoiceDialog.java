@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.dialogs;
+package com.austinnightingale.drywalltally.job.dialogs;
 
 import android.app.Dialog;
 import android.content.ContentValues;
@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.austinnightingale.android.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.db.Job;
 
 
 public class ChoiceDialog extends DialogFragment {

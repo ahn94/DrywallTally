@@ -1,27 +1,28 @@
-package com.austinnightingale.android.drywalltally;
+package com.austinnightingale.drywalltally;
 
-import com.austinnightingale.android.drywalltally.backup.BackupActivity;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.job.JobActivity;
-import com.austinnightingale.android.drywalltally.job.dialogs.RemoveChargeDialog;
-import com.austinnightingale.android.drywalltally.job.options.ExtraOptionsFragment;
-import com.austinnightingale.android.drywalltally.job.options.MainOptionsFragment;
-import com.austinnightingale.android.drywalltally.job.options.UpchargeOptionsFragment;
-import com.austinnightingale.android.drywalltally.job.options.finish.FinishOptionsFragment;
-import com.austinnightingale.android.drywalltally.job.options.tallyarea.NewJobAreaDialog;
-import com.austinnightingale.android.drywalltally.job.options.tallyarea.RemoveTallyAreaDialog;
-import com.austinnightingale.android.drywalltally.job.options.tallyarea.TallyAreasFragment;
-import com.austinnightingale.android.drywalltally.job.summary.jobsummary.JobSummaryFragment;
-import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TalliesPagerFragment;
-import com.austinnightingale.android.drywalltally.job.summary.tallysummary.TallySummaryFragment;
-import com.austinnightingale.android.drywalltally.jobs.DeleteJobDialog;
-import com.austinnightingale.android.drywalltally.jobs.JobsActivity;
-import com.austinnightingale.android.drywalltally.jobs.NewJobDialog;
-import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
-import com.austinnightingale.android.drywalltally.tally.CeilingsFragment;
-import com.austinnightingale.android.drywalltally.tally.FireFragment;
-import com.austinnightingale.android.drywalltally.tally.FiveEighthFragment;
-import com.austinnightingale.android.drywalltally.tally.HalfInchFragment;
+
+import com.austinnightingale.drywalltally.backup.BackupActivity;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.job.JobActivity;
+import com.austinnightingale.drywalltally.job.dialogs.RemoveChargeDialog;
+import com.austinnightingale.drywalltally.job.options.ExtraOptionsFragment;
+import com.austinnightingale.drywalltally.job.options.MainOptionsFragment;
+import com.austinnightingale.drywalltally.job.options.UpchargeOptionsFragment;
+import com.austinnightingale.drywalltally.job.options.finish.FinishOptionsFragment;
+import com.austinnightingale.drywalltally.job.options.tallyarea.NewJobAreaDialog;
+import com.austinnightingale.drywalltally.job.options.tallyarea.RemoveTallyAreaDialog;
+import com.austinnightingale.drywalltally.job.options.tallyarea.TallyAreasFragment;
+import com.austinnightingale.drywalltally.job.summary.jobsummary.JobSummaryFragment;
+import com.austinnightingale.drywalltally.job.summary.tallysummary.TalliesPagerFragment;
+import com.austinnightingale.drywalltally.job.summary.tallysummary.TallySummaryFragment;
+import com.austinnightingale.drywalltally.jobs.DeleteJobDialog;
+import com.austinnightingale.drywalltally.jobs.JobsActivity;
+import com.austinnightingale.drywalltally.jobs.NewJobDialog;
+import com.austinnightingale.drywalltally.tally.BaseJobFragment;
+import com.austinnightingale.drywalltally.tally.CeilingsFragment;
+import com.austinnightingale.drywalltally.tally.FireFragment;
+import com.austinnightingale.drywalltally.tally.FiveEighthFragment;
+import com.austinnightingale.drywalltally.tally.HalfInchFragment;
 
 import javax.inject.Singleton;
 

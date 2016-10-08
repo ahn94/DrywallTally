@@ -1,12 +1,12 @@
-package com.austinnightingale.android.drywalltally.job.options.tallyarea;
+package com.austinnightingale.drywalltally.job.options.tallyarea;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.Utils;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.job.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

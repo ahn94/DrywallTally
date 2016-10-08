@@ -1,19 +1,19 @@
-package com.austinnightingale.android.drywalltally.job.options.tallyarea;
+package com.austinnightingale.drywalltally.job.options.tallyarea;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.TallyArea;
 
 import java.util.List;
 
 import rx.functions.Action1;
 
 
-public class TallyAreaAdapter extends RecyclerView.Adapter<TallyAreaViewHolder> implements Action1<List<TallyArea>>{
+public class TallyAreaAdapter extends RecyclerView.Adapter<TallyAreaViewHolder> implements Action1<List<TallyArea>> {
 
     private List<TallyArea> mTallyAreas;
     private TallyCallback callback;

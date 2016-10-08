@@ -1,4 +1,5 @@
-package com.austinnightingale.android.drywalltally.backup;
+package com.austinnightingale.drywalltally.backup;
+
 
 import com.google.gson.TypeAdapterFactory;
 import com.ryanharter.auto.value.gson.GsonTypeAdapterFactory;

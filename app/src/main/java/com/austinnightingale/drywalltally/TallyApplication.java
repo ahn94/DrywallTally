@@ -1,21 +1,18 @@
-package com.austinnightingale.android.drywalltally;
+package com.austinnightingale.drywalltally;
 
 import android.app.Application;
 
-/**
- * Created by Austin on 8/12/2016.
- */
+
 public class TallyApplication extends Application {
 
-    private ApplicationComponent component;
+    private ApplicationComponent component = DaggerApplicationComponent.builder()
+                    .applicationModule(new ApplicationModule(this))
+                    .build();
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        component = DaggerApplicationComponent.builder()
-                        .applicationModule(new ApplicationModule(this))
-                        .build();
     }
 
     public ApplicationComponent getComponent() {

@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options.finish;
+package com.austinnightingale.drywalltally.job.options.finish;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.HeightCharge;
-import com.austinnightingale.android.drywalltally.job.dialogs.RemoveChargeListener;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.HeightCharge;
+import com.austinnightingale.drywalltally.job.dialogs.RemoveChargeListener;
 
 import java.util.ArrayList;
 import java.util.List;

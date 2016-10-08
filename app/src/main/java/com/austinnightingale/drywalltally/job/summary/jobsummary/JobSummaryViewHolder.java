@@ -1,10 +1,10 @@
-package com.austinnightingale.android.drywalltally.job.summary.jobsummary;
+package com.austinnightingale.drywalltally.job.summary.jobsummary;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.R;
+import com.austinnightingale.drywalltally.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

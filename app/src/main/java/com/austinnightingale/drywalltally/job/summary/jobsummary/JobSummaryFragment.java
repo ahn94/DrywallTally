@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.summary.jobsummary;
+package com.austinnightingale.drywalltally.job.summary.jobsummary;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
-import com.austinnightingale.android.drywalltally.job.Utils;
-import com.austinnightingale.android.drywalltally.job.options.finish.HeightChargeAdapter;
-import com.austinnightingale.android.drywalltally.tally.BaseJobFragment;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.job.Utils;
+import com.austinnightingale.drywalltally.job.options.finish.HeightChargeAdapter;
+import com.austinnightingale.drywalltally.tally.BaseJobFragment;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.List;

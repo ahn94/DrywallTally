@@ -1,9 +1,9 @@
-package com.austinnightingale.android.drywalltally.job.summary.tallysummary;
+package com.austinnightingale.drywalltally.job.summary.tallysummary;
 
 import android.view.View;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.R;
+import com.austinnightingale.drywalltally.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

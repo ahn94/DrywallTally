@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options;
+package com.austinnightingale.drywalltally.job.options;
 
 
 import android.content.ContentValues;
@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.austinnightingale.android.drywalltally.R;
-import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.Job;
-import com.austinnightingale.android.drywalltally.job.dialogs.InputDialog;
-import com.austinnightingale.android.drywalltally.job.dialogs.InputListener;
+import com.austinnightingale.drywalltally.R;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.job.dialogs.InputDialog;
+import com.austinnightingale.drywalltally.job.dialogs.InputListener;
 
 import javax.inject.Inject;
 

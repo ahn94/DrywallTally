@@ -1,4 +1,4 @@
-package com.austinnightingale.android.drywalltally.job.options.tallyarea;
+package com.austinnightingale.drywalltally.job.options.tallyarea;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,9 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.austinnightingale.android.drywalltally.TallyApplication;
-import com.austinnightingale.android.drywalltally.db.DAO;
-import com.austinnightingale.android.drywalltally.db.TallyArea;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.DAO;
+import com.austinnightingale.drywalltally.db.TallyArea;
 
 import javax.inject.Inject;
 
