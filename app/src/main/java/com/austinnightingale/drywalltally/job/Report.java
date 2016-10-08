@@ -135,7 +135,7 @@ public class Report {
         }
 
         if (job.magnumHp() > 0) {
-            extras.add(new String[] {String.valueOf(job.magnumHp()), "Magnum HP"} );
+            extras.add(new String[] {String.valueOf(job.magnumHp()), "Magnum AP"} );
         }
 
         if (job.hot45() > 0) {
