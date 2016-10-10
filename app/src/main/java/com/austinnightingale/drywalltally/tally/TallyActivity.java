@@ -6,7 +6,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.austinnightingale.drywalltally.R;
 import com.austinnightingale.drywalltally.db.TallyArea;
@@ -40,7 +39,7 @@ public class TallyActivity extends AppCompatActivity  {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Toast.makeText(this, "Job id: " + getID(), Toast.LENGTH_SHORT).show();
+
 
         adapter.addFragment(new HalfInchFragment(), "1/2\" Lite & Stretch");
         adapter.addFragment(new FiveEighthFragment(), "5/8\" Regular & Stretch");
