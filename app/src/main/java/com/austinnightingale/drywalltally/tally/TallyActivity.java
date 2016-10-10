@@ -60,7 +60,6 @@ public class TallyActivity extends AppCompatActivity  {
             }
         });
 
-//        pager.setCurrentItem(getArguments().getInt("position"));
         pager.setOffscreenPageLimit(3);
 
         setTitle(pager.getCurrentItem());

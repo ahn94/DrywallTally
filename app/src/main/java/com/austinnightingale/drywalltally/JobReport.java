@@ -62,7 +62,6 @@ public class JobReport {
         for (String[] extra : extras) {
             report += addLine(Integer.parseInt(extra[0]), extra[1]);
         }
-        report += "\n";
         return report;
     }
 
@@ -80,18 +79,19 @@ public class JobReport {
 
     public String jobTallyTotals() {
         String report = "";
-        if (tallyAreas.isEmpty()) {
-            report += "\n----------------------------\n";
+        if (Utils.jobTotalFtNum(tallyAreas) == 0) {
+            report += "\n------------------------------------\n";
             report += "No tallies added to job.\n";
-            report += "----------------------------\n";
+            report += "------------------------------------\n";
             return report;
         }
-        report += "\n\n----------------------------\n";
+        report += "\n----------------------------\n";
         report += "Job: " +job.jobName()+ "\n";
-        report += "----------------------------\n";
         if (tallyAreas.size() == 1) {
-            report += tallyAreas.get(0).areaName() + " is only job area added to job\n";
+            report += "Area(1 of 1): " + tallyAreas.get(0).areaName() + "\n";
         }
+        report += "----------------------------\n";
+
         report += "1/2\" Lite\n";
         report += addLine(Utils.jobHalf8(tallyAreas), "8'");
         report += addLine(Utils.jobHalf9(tallyAreas), "9'");
@@ -175,8 +175,10 @@ public class JobReport {
                 continue;
             }
 
-            report += "\n\n----------------------------\n";
+            report += "\n----------------------------\n";
             report += "Area: " +area.areaName() + "\n";
+            report += "Ceiling - " + Utils.areaCeilingSqFt(area) + " Sq. Ft.\n";
+            report += "Total - " + Utils.areaTotalSqFt(area) +  " Sq. Ft.\n";
             report += "----------------------------\n";
 
             if (Report.getTallySum(half) > 0) {
