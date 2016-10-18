@@ -157,6 +157,7 @@ public class Report {
         if (job.levelcoat() > 0) {
             extras.add(new String[] {String.valueOf(job.levelcoat()), "5 Gallon LevelCoat"} );
         }
+        
 
         if (job.ultraflex325() > 0) {
             extras.add(new String[] {String.valueOf(job.ultraflex325()), "Ultraflex 325"} );

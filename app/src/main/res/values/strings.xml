@@ -46,7 +46,7 @@
     <string name="format_height_charge">%1$s x %2$s @ %3$sft</string>
     
     
-    <string name="job_extra_course_screws">"1 &#188;\" Coarse Screws - Box"</string>
+    <string name="job_extra_course_screws">"1&#188;\" Coarse Screws - Box"</string>
     <string name="job_extra_dsa20">DSA20 - Carton</string>
     <string name="job_extra_shims">Shims - Bundle</string>
     <string name="job_extra_xcrack">X-Crack - Box</string>

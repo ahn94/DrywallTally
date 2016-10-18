@@ -53,6 +53,11 @@ public abstract class Job {
     public static final String LEVELCOAT = "levelcoat";
     public static final String ULTRAFLEX_325 = "ultraflex_325";
     public static final String ULTRAFLEX_450 = "ultraflex_450";
+    public static final String NOCOAT_8_90 = "nocoat_8ft_90";
+    public static final String NOCOAT_10_90 = "nocoat_10ft_90";
+    public static final String NOCOAT_8_BULLNOSE = "nocoat_8ft_bullnose";
+    public static final String NOCOAT_10_BULLNOSE = "nocoat_10ft_bullnose";
+    
 
     @Nullable
     @ColumnName(ID)
@@ -134,6 +139,18 @@ public abstract class Job {
     @ColumnName(LEVELCOAT)
     public abstract int levelcoat();
 
+    @ColumnName(NOCOAT_8_90)
+    public abstract int nocoat8ft90();
+
+    @ColumnName(NOCOAT_10_90)
+    public abstract int nocoat10ft90();
+
+    @ColumnName(NOCOAT_8_BULLNOSE)
+    public abstract int nocoat8ftBull();
+
+    @ColumnName(NOCOAT_10_BULLNOSE)
+    public abstract int nocoat10ftBull();
+
     @ColumnName(ULTRAFLEX_325)
     public abstract int ultraflex325();
 
@@ -214,6 +231,14 @@ public abstract class Job {
 
         abstract Builder levelcoat(int value);
 
+        abstract Builder nocoat8ft90(int value);
+
+        abstract Builder nocoat10ft90(int value);
+
+        abstract Builder nocoat8ftBull(int value);
+
+        abstract Builder nocoat10ftBull(int value);
+
         abstract Builder ultraflex325(int value);
 
         abstract Builder ultraflex450(int value);
@@ -279,6 +304,26 @@ public abstract class Job {
 
         public ContentBuilder linearLTrim(int lTrim) {
             values.put(Job.L_TRIM, lTrim);
+            return this;
+        }
+        
+        public ContentBuilder nocoat8ft90(int nocoat8ft90) {
+            values.put(Job.NOCOAT_8_90, nocoat8ft90);
+            return this;
+        }
+
+        public ContentBuilder nocoat10ft90(int nocoat10ft90) {
+            values.put(Job.NOCOAT_10_90, nocoat10ft90);
+            return this;
+        }
+        
+        public ContentBuilder nocoat8ftBull(int nocoat8ftBull) {
+            values.put(Job.NOCOAT_8_BULLNOSE, nocoat8ftBull);
+            return this;
+        }
+
+        public ContentBuilder nocoat10ftBull(int nocoat10ftBull) {
+            values.put(Job.NOCOAT_10_BULLNOSE, nocoat10ftBull);
             return this;
         }
 

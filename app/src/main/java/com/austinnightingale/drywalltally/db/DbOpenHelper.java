@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class DbOpenHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
 
     private static final String CREATE_JOBS_TABLE = ""
             + "CREATE TABLE " + Job.TABLE + "("
@@ -35,6 +35,10 @@ public class DbOpenHelper extends SQLiteOpenHelper {
             + Job.HOT_90 + " INTEGER NOT NULL DEFAULT 0,"
             + Job.HOT_20 + " INTEGER NOT NULL DEFAULT 0,"
             + Job.HOT_5 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.NOCOAT_8_90 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.NOCOAT_10_90 + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.NOCOAT_8_BULLNOSE + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.NOCOAT_8_BULLNOSE + " INTEGER NOT NULL DEFAULT 0,"
             + Job.LEVELCOAT + " INTEGER NOT NULL DEFAULT 0,"
             + Job.ULTRAFLEX_325 + " INTEGER NOT NULL DEFAULT 0,"
             + Job.ULTRAFLEX_450 + " INTEGER NOT NULL DEFAULT 0"
@@ -100,7 +104,12 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-
+        if (oldVersion < 2) {
+            sqLiteDatabase.execSQL(addColumntoJobTable(Job.NOCOAT_8_90));
+            sqLiteDatabase.execSQL(addColumntoJobTable(Job.NOCOAT_10_90));
+            sqLiteDatabase.execSQL(addColumntoJobTable(Job.NOCOAT_8_BULLNOSE));
+            sqLiteDatabase.execSQL(addColumntoJobTable(Job.NOCOAT_10_BULLNOSE));
+        }
     }
 
 }

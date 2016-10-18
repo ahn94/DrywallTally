@@ -55,6 +55,15 @@ public class ExtraOptionsFragment extends Fragment implements InputListener {
     TextView textUltraflex325;
     @BindView(R.id.value_ultraflex_450)
     TextView textUltraflex450;
+    @BindView(R.id.value_nocoat_8ft_90)
+    TextView textNoCoat8ft90;
+    @BindView(R.id.value_nocoat_10ft_90)
+    TextView textNoCoat10ft90;
+    @BindView(R.id.value_nocoat_8ft_bull)
+    TextView textNoCoat8ftBull;
+    @BindView(R.id.value_nocoat_10ft_bull)
+    TextView textNoCoat10ftBull;
+    
 
 
     private Subscription subscription;
@@ -104,6 +113,10 @@ public class ExtraOptionsFragment extends Fragment implements InputListener {
         textLevelCoat.setText(String.valueOf(job.levelcoat()));
         textUltraflex325.setText(String.valueOf(job.ultraflex325()));
         textUltraflex450.setText(String.valueOf(job.ultraflex450()));
+        textNoCoat8ft90.setText(String.valueOf(job.nocoat8ft90()));
+        textNoCoat10ft90.setText(String.valueOf(job.nocoat10ft90()));
+        textNoCoat8ftBull.setText(String.valueOf(job.nocoat8ftBull()));
+        textNoCoat10ftBull.setText(String.valueOf(job.nocoat10ftBull()));
     }
 
 
@@ -195,6 +208,26 @@ public class ExtraOptionsFragment extends Fragment implements InputListener {
     @OnClick(R.id.view_levelcoat)
     public void levelcoatClicked() {
         showDialog(Job.LEVELCOAT, getString(R.string.job_extra__5g_levelcoat));
+    }
+    
+    @OnClick(R.id.view_nocoat_8ft_90)
+    public void noCoat8ft90Clicked() {
+        showDialog(Job.NOCOAT_8_90, getString(R.string.job_extra_8_nocoat_90));
+    }
+
+    @OnClick(R.id.view_nocoat_10ft_90)
+    public void noCoat10ft90Clicked() {
+        showDialog(Job.NOCOAT_10_90, getString(R.string.job_extra_10_nocoat_90));
+    }
+
+    @OnClick(R.id.view_nocoat_8ft_bull)
+    public void noCoat8ftBullClicked() {
+        showDialog(Job.NOCOAT_8_BULLNOSE, getString(R.string.job_extra_8_nocoat_bull));
+    }
+
+    @OnClick(R.id.view_nocoat_10ft_bull)
+    public void noCoat10ftBullClicked() {
+        showDialog(Job.NOCOAT_10_BULLNOSE, getString(R.string.job_extra_10_nocoat_bull));
     }
 
     @OnClick(R.id.view_ultraflex_325)
