@@ -26,7 +26,7 @@
                 android:id="@+id/title_course_screws"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_course_screws"
+                android:text="@string/job_extra_course_screws"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -67,7 +67,7 @@
                 android:id="@+id/title_dsa20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_dsa20"
+                android:text="@string/job_extra_dsa20"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -105,7 +105,7 @@
                 android:id="@+id/title_shims"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_shims"
+                android:text="@string/job_extra_shims"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -143,7 +143,7 @@
                 android:id="@+id/title_lite_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_lite_blue"
+                android:text="@string/job_extra_lite_blue"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -181,7 +181,7 @@
                 android:id="@+id/title_magnum_hp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_magnum_hp"
+                android:text="@string/job_extra__magnum_ap"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -219,7 +219,7 @@
                 android:id="@+id/title_hot_45"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_mud_hot_45"
+                android:text="@string/job_extra_hot_45"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -257,7 +257,7 @@
                 android:id="@+id/title_hot_90"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_mud_hot_90"
+                android:text="@string/job_extra_hot_90"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -295,7 +295,7 @@
                 android:id="@+id/title_hot_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_mud_hot_20"
+                android:text="@string/job_extra_hot_20"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -333,7 +333,7 @@
                 android:id="@+id/title_hot_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_mud_hot_5"
+                android:text="@string/job_extra_hot_5"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -371,7 +371,7 @@
                 android:id="@+id/title_levelcoat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_5g_levelcoat"
+                android:text="@string/job_extra__5g_levelcoat"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -409,7 +409,7 @@
                 android:id="@+id/title_ultraflex_325"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_ultraflex_325"
+                android:text="@string/job_extra_ultraflex_325"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>
@@ -447,7 +447,7 @@
                 android:id="@+id/title_ultraflex_450"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/descr_ultraflex_450"
+                android:text="@string/job_extra_ultraflex_450"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:singleLine="false"/>

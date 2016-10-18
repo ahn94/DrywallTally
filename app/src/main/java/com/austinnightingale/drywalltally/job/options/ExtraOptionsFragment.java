@@ -149,61 +149,61 @@ public class ExtraOptionsFragment extends Fragment implements InputListener {
     
     @OnClick(R.id.view_course_screws)
     public void screwsClicked() {
-        showDialog(Job.SCREWS, getString(R.string.descr_course_screws));
+        showDialog(Job.SCREWS, getString(R.string.job_extra_course_screws));
     }
     
     @OnClick(R.id.view_dsa20)
     public void dsa20Clicked() {
-        showDialog(Job.DSA20, getString(R.string.descr_dsa20));
+        showDialog(Job.DSA20, getString(R.string.job_extra_dsa20));
     }
 
     @OnClick(R.id.view_shims)
     public void shimsClicked() {
-        showDialog(Job.SHIMS, getString(R.string.descr_shims));
+        showDialog(Job.SHIMS, getString(R.string.job_extra_shims));
     }
     
     @OnClick(R.id.view_lite_blue)
     public void liteBlueClicked() {
-        showDialog(Job.LITE_BLUE, getString(R.string.descr_lite_blue));
+        showDialog(Job.LITE_BLUE, getString(R.string.job_extra_lite_blue));
     }
     
     @OnClick(R.id.view_magnum_hp)
     public void magnumHpClicked() {
-        showDialog(Job.MAGNUM_HP, getString(R.string.descr_magnum_hp));
+        showDialog(Job.MAGNUM_HP, getString(R.string.job_extra__magnum_ap));
     }
     
     @OnClick(R.id.view_hot_45) 
     public void hot45Clicked() {
-        showDialog(Job.HOT_45, getString(R.string.descr_mud_hot_45));
+        showDialog(Job.HOT_45, getString(R.string.job_extra_hot_45));
     }
 
     @OnClick(R.id.view_hot_90)
     public void hot90Clicked() {
-        showDialog(Job.HOT_90, getString(R.string.descr_mud_hot_90));
+        showDialog(Job.HOT_90, getString(R.string.job_extra_hot_90));
     }
 
     @OnClick(R.id.view_hot_20)
     public void hot20Clicked() {
-        showDialog(Job.HOT_20, getString(R.string.descr_mud_hot_20));
+        showDialog(Job.HOT_20, getString(R.string.job_extra_hot_20));
     }
 
     @OnClick(R.id.view_hot_5)
     public void hot5Clicked() {
-        showDialog(Job.HOT_5, getString(R.string.descr_mud_hot_5));
+        showDialog(Job.HOT_5, getString(R.string.job_extra_hot_5));
     }
 
     @OnClick(R.id.view_levelcoat)
     public void levelcoatClicked() {
-        showDialog(Job.LEVELCOAT, getString(R.string.descr_5g_levelcoat));
+        showDialog(Job.LEVELCOAT, getString(R.string.job_extra__5g_levelcoat));
     }
 
     @OnClick(R.id.view_ultraflex_325)
     public void ultraFlex325Clicked() {
-        showDialog(Job.ULTRAFLEX_325, getString(R.string.descr_ultraflex_325));
+        showDialog(Job.ULTRAFLEX_325, getString(R.string.job_extra_ultraflex_325));
     }
 
     @OnClick(R.id.view_ultraflex_450)
     public void ultraFlex450Clicked() {
-        showDialog(Job.ULTRAFLEX_450, getString(R.string.descr_ultraflex_450));
+        showDialog(Job.ULTRAFLEX_450, getString(R.string.job_extra_ultraflex_450));
     }
 }

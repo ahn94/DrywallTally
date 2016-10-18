@@ -34,7 +34,7 @@
     <string name="stretch_fourteen_feet">s14\'</string>
     <string name="stretch_sixteen_feet">s16\'</string>
     <string name="hyphen_with_space">"-   "</string>
-    <string name="half_inch_regular">1/2\" Lite</string>
+    <string name="half_inch_regular"><![CDATA[&#189;\" Lite]]></string>
     <string name="five_eighths_regular">5/8\" Regular</string>
     <string name="half_inch_stretch">1/2\" Stretch</string>
     <string name="five_eighths_stretch">5/8\" Stretch</string>
@@ -46,18 +46,24 @@
     <string name="format_height_charge">%1$s x %2$s @ %3$sft</string>
     
     
-    <string name="descr_course_screws">"1.5 in Coarse Screws"</string>
-    <string name="descr_dsa20">DSA20</string>
-    <string name="descr_shims">Shims</string>
-    <string name="descr_lite_blue">Lite Blue</string>
-    <string name="descr_magnum_hp">Magnum AP</string>
-    <string name="descr_mud_hot_45">Hot 45</string>
-    <string name="descr_mud_hot_90">Hot 90</string>
-    <string name="descr_mud_hot_20">Hot 20</string>
-    <string name="descr_mud_hot_5">Hot 5</string>
-    <string name="descr_5g_levelcoat">5 Gallon Levelcoat</string>
-    <string name="descr_ultraflex_325">325 Ultraflex</string>
-    <string name="descr_ultraflex_450">450 Ultraflex</string>
+    <string name="job_extra_course_screws">"1 &#188;\" Coarse Screws - Box"</string>
+    <string name="job_extra_dsa20">DSA20 - Carton</string>
+    <string name="job_extra_shims">Shims - Bundle</string>
+    <string name="job_extra_xcrack">X-Crack - Box</string>
+    <string name="job_extra_lite_blue">Proform Lite Blue - Box</string>
+    <string name="job_extra__magnum_ap">Magnum AP - Box</string>
+    <string name="job_extra_hot_5">"5' Hot Mud - Bag"</string>
+    <string name="job_extra_hot_20">"20' Hot Mud - Bag"</string>
+    <string name="job_extra_hot_45">"45' Hot Mud - Bag"</string>
+    <string name="job_extra_hot_90">"90' Hot Mud - Bag"</string>
+    <string name="job_extra__5g_levelcoat">Levelcoat - 5 Gallon</string>
+    <string name="job_extra_ultraflex_325">325 Ultraflex - Box</string>
+    <string name="job_extra_ultraflex_450">450 Ultraflex - Box</string>
+    <string name="job_extra_8_nocoat_90">"8' Nocoat 90 - Box"</string>
+    <string name="job_extra_10_nocoat_90">"10' Nocoat 90 - Box"</string>
+    <string name="job_extra_8_nocoat_bull">"8' Nocoat Bullnose - Box"</string>
+    <string name="job_extra_10_nocoat_bull">"10' Nocoat Bullnose - Box"</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
