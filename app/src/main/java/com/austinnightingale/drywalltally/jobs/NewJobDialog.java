@@ -16,12 +16,13 @@ import javax.inject.Inject;
 
 public class NewJobDialog extends DialogFragment {
 
-        public static NewJobDialog newInstance() {
+    public static NewJobDialog newInstance() {
         return new NewJobDialog();
     }
 
     @Inject
     BriteDatabase db;
+
 
     @Override
     public void onAttach(Context context) {

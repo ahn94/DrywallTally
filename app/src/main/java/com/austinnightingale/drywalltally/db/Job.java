@@ -57,6 +57,7 @@ public abstract class Job {
     public static final String NOCOAT_10_90 = "nocoat_10ft_90";
     public static final String NOCOAT_8_BULLNOSE = "nocoat_8ft_bullnose";
     public static final String NOCOAT_10_BULLNOSE = "nocoat_10ft_bullnose";
+    public static final String XCRACK = "x_crack";
     
 
     @Nullable
@@ -151,6 +152,9 @@ public abstract class Job {
     @ColumnName(NOCOAT_10_BULLNOSE)
     public abstract int nocoat10ftBull();
 
+    @ColumnName(XCRACK)
+    public abstract int xcrack();
+
     @ColumnName(ULTRAFLEX_325)
     public abstract int ultraflex325();
 
@@ -239,6 +243,8 @@ public abstract class Job {
 
         abstract Builder nocoat10ftBull(int value);
 
+        abstract Builder xcrack(int value);
+
         abstract Builder ultraflex325(int value);
 
         abstract Builder ultraflex450(int value);
@@ -324,6 +330,11 @@ public abstract class Job {
 
         public ContentBuilder nocoat10ftBull(int nocoat10ftBull) {
             values.put(Job.NOCOAT_10_BULLNOSE, nocoat10ftBull);
+            return this;
+        }
+
+        public ContentBuilder xcrack(int xcrack) {
+            values.put(Job.XCRACK, xcrack);
             return this;
         }
 

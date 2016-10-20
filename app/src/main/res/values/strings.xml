@@ -59,14 +59,97 @@
     <string name="job_extra__5g_levelcoat">Levelcoat - 5 Gallon</string>
     <string name="job_extra_ultraflex_325">325 Ultraflex - Box</string>
     <string name="job_extra_ultraflex_450">450 Ultraflex - Box</string>
-    <string name="job_extra_8_nocoat_90">"8' Nocoat 90 - Box"</string>
-    <string name="job_extra_10_nocoat_90">"10' Nocoat 90 - Box"</string>
+    <string name="job_extra_8_nocoat_90">"8' Nocoat 90° - Box"</string>
+    <string name="job_extra_10_nocoat_90">"10' Nocoat 90° - Box"</string>
     <string name="job_extra_8_nocoat_bull">"8' Nocoat Bullnose - Box"</string>
     <string name="job_extra_10_nocoat_bull">"10' Nocoat Bullnose - Box"</string>
 
+    <plurals name="job_report_coarse_screws">
+        <item quantity="one">"Box 1&#188;\" Coarse Screw"</item>
+        <item quantity="other">"Boxes 1&#188;\" Coarse Screws"</item>
+    </plurals>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <plurals name="job_report_dsa20">
+        <item quantity="one">Carton DSA20</item>
+        <item quantity="other">Cartons DSA20</item>
+    </plurals>
+    
+    <plurals name="job_report_shims">
+        <item quantity="one">Bundle Shim</item>
+        <item quantity="other">Bundle Shim</item>
+    </plurals>
+    
+    <plurals name="job_report_xcrack">
+        <item quantity="one">Box X-Crack</item>
+        <item quantity="other">Boxes X-Crack</item>
+    </plurals>
+    
+    <plurals name="job_report_lite_blue">
+        <item quantity="one">Box Proform Lite Blue</item>
+        <item quantity="other">Boxes Proform Lite Blue</item>
+    </plurals>
+    
+    <plurals name="job_report_magnum_ap">
+        <item quantity="one">Box Magnum AP</item>
+        <item quantity="other">Boxes Magnum AP</item>
+    </plurals>
+    
+    <plurals name="job_report_hot_5">
+        <item quantity="one">"Bag 5' Hot Mud"</item>
+        <item quantity="other">"Bags 5' Hot Mud"</item>
+    </plurals>
+-
+    <plurals name="job_report_hot_20">
+        <item quantity="one">"Bag 20' Hot Mud"</item>
+        <item quantity="other">"Bags 20' Hot Mud"</item>
+    </plurals>
+
+    <plurals name="job_report_hot_45">
+        <item quantity="one">"Bag 45' Hot Mud"</item>
+        <item quantity="other">"Bags 45' Hot Mud"</item>
+    </plurals>
+
+    <plurals name="job_report_hot_90">
+        <item quantity="one">"Bag 90' Hot Mud"</item>
+        <item quantity="other">"Bags 90' Hot Mud"</item>
+    </plurals>
+
+    <plurals name="job_report_levelcoat_5gal">
+        <item quantity="one">Pail Magnum Level Coat</item>
+        <item quantity="other">Pails Magnum Level Coat</item>
+    </plurals>
+
+    <plurals name="job_report_ultraflex_325">
+        <item quantity="one">Box Ultraflex 325 Tape</item>
+        <item quantity="other">Boxes Ultraflex 325 Tape</item>
+    </plurals>
+
+    <plurals name="job_report_ultraflex_450">
+        <item quantity="one">Box Ultraflex 450 Tape</item>
+        <item quantity="other">Boxes Ultraflex 450 Tape</item>
+    </plurals>
+
+    <plurals name="job_report_8ft_nocoat_90">
+        <item quantity="one">"Box 8' No-Coat 90°"</item>
+        <item quantity="other">"Boxes 8' No-Coat 90°"</item>
+    </plurals>
+
+    <plurals name="job_report_10ft_nocoat_90">
+        <item quantity="one">"Box 10' No-Coat 90°"</item>
+        <item quantity="other">"Boxes 10' No-Coat 90°"</item>
+    </plurals>
+
+    <plurals name="job_report_8ft_nocoat_bull">
+        <item quantity="one">"Box 8' No-Coat Bullnose"</item>
+        <item quantity="other">"Boxes 8' No-Coat Bullnose"</item>
+    </plurals>
+
+    <plurals name="job_report_10ft_nocoat_bull">
+        <item quantity="one">"Box 10' No-Coat Bullnose"</item>
+        <item quantity="other">"Boxes 10' No-Coat Bullnose"</item>
+    </plurals>
+
+
     <string name="height_charges">Height Charges</string>
     <string name="format_wall_finish">"Wall Finish - %1s"</string>
     <string name="format_ceil_finish">"Ceiling Finish - %1s"</string>

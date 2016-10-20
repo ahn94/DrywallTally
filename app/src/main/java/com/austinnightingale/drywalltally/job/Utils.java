@@ -514,6 +514,13 @@ public class Utils {
         totalSquare += tallyArea.fiveEighthRegFourteen() * 14 * 4;
         totalSquare += tallyArea.fiveEightStretchTwelve() * 12 * 4.5;
 
+        totalSquare += tallyArea.fireEight() * 8 * 4;
+        totalSquare += tallyArea.fireNine() * 9 * 4;
+        totalSquare += tallyArea.fireTen() * 10 * 4;
+        totalSquare += tallyArea.fireTwelve() * 12 * 4;
+        totalSquare += tallyArea.fireFourteen() * 14 * 4;
+        totalSquare += tallyArea.fireSixteen() * 16 * 4;
+
         totalSquare += areaCeilingFt(tallyArea);
 
         return totalSquare;

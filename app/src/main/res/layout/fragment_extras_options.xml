@@ -550,6 +550,44 @@
             android:background="@android:color/darker_gray"/>
 
         <RelativeLayout
+            android:id="@+id/view_xcrack"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/title_xcrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/job_extra_xcrack"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:singleLine="false"/>
+
+            <TextView
+                android:id="@+id/value_xcrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_xcrack"
+                tools:text="value"
+                android:singleLine="false"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pref_icon"/>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <RelativeLayout
             android:id="@+id/view_ultraflex_325"
             android:layout_width="match_parent"
             android:layout_height="54dp"

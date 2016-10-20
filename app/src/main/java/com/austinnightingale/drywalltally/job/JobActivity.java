@@ -37,7 +37,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class JobActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class JobActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ReportListener {
 
 
     @BindView(R.id.toolbar)
@@ -101,14 +101,13 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.report) {
-            Job job = dao.jobWithId(getID());
-            sendReport(job);
+            JobReportDialog.newInstance().show(getSupportFragmentManager(), "job_report");
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void sendReport(Job job) {
-        JobReport report = new JobReport(getID(), dao);
+    private void sendReport(Job job, boolean halfTotalOnly, boolean includeOptions) {
+        JobReport report = new JobReport(getID(), dao, halfTotalOnly, includeOptions);
         Intent r = new Intent(Intent.ACTION_SEND);
         r.setType("text/plain");
         r.putExtra(Intent.EXTRA_TEXT, report.getReport());
@@ -185,5 +184,11 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
             }
         }
         return super.dispatchTouchEvent(event);
+    }
+
+    @Override
+    public void sendReportWithOptions(boolean halfTotalOnly, boolean includeOptions) {
+        Job job = dao.jobWithId(getID());
+        sendReport(job, halfTotalOnly, includeOptions);
     }
 }

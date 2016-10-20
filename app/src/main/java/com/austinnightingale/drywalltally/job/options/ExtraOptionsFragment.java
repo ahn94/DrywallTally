@@ -63,6 +63,8 @@ public class ExtraOptionsFragment extends Fragment implements InputListener {
     TextView textNoCoat8ftBull;
     @BindView(R.id.value_nocoat_10ft_bull)
     TextView textNoCoat10ftBull;
+    @BindView(R.id.value_xcrack)
+    TextView textXCrack;
     
 
 
@@ -117,6 +119,7 @@ public class ExtraOptionsFragment extends Fragment implements InputListener {
         textNoCoat10ft90.setText(String.valueOf(job.nocoat10ft90()));
         textNoCoat8ftBull.setText(String.valueOf(job.nocoat8ftBull()));
         textNoCoat10ftBull.setText(String.valueOf(job.nocoat10ftBull()));
+        textXCrack.setText(String.valueOf(job.xcrack()));
     }
 
 
@@ -228,6 +231,11 @@ public class ExtraOptionsFragment extends Fragment implements InputListener {
     @OnClick(R.id.view_nocoat_10ft_bull)
     public void noCoat10ftBullClicked() {
         showDialog(Job.NOCOAT_10_BULLNOSE, getString(R.string.job_extra_10_nocoat_bull));
+    }
+
+    @OnClick(R.id.view_xcrack)
+    public void xcrackClicked() {
+        showDialog(Job.XCRACK, getString(R.string.job_extra_xcrack));
     }
 
     @OnClick(R.id.view_ultraflex_325)

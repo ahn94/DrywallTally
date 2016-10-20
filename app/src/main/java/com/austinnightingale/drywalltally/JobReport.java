@@ -19,10 +19,14 @@ public class JobReport {
     private Job job;
     private List<HeightCharge> heightCharges;
     private List<TallyArea> tallyAreas;
+    private boolean halfTotalOnly;
+    private boolean includeOptions;
 
-    public JobReport(int jobId, DAO doa) {
+    public JobReport(int jobId, DAO doa, boolean halfTotalOnly, boolean includeOptions) {
         this.jobId = jobId;
         this.doa = doa;
+        this.includeOptions = includeOptions;
+        this.halfTotalOnly = halfTotalOnly;
         initStats();
     }
 
@@ -45,7 +49,9 @@ public class JobReport {
         report += getComment(job);
         report += "Ceiling - " + Utils.jobCeilingFtString(tallyAreas) + " Sq. Ft.\n";
         report += "Total - " + Utils.jobTotalFtString(tallyAreas) +  " Sq. Ft.\n\n";
-        report += printOptions();
+        if (includeOptions) {
+            report += printOptions();
+        }
         report += printExtras();
         report += heightCharges(heightCharges);
         report += jobTallyTotals();
@@ -85,21 +91,34 @@ public class JobReport {
             report += "------------------------------------\n";
             return report;
         }
-        report += "\n----------------------------\n";
-        report += "Job: " +job.jobName()+ "\n";
+        report += "\n----------------------------------\n";
+        report += "Total for Job: " +job.jobName()+ "\n";
         if (tallyAreas.size() == 1) {
             report += "Area(1 of 1): " + tallyAreas.get(0).areaName() + "\n";
         }
-        report += "----------------------------\n";
-
-        report += "1/2\" Lite\n";
-        report += addLine(Utils.jobHalf8(tallyAreas), "8'");
-        report += addLine(Utils.jobHalf9(tallyAreas), "9'");
-        report += addLine(Utils.jobHalf10(tallyAreas), "10'");
-        report += addLine(Utils.jobHalf12(tallyAreas), "12'");
-        report += addLine(Utils.jobHalf14(tallyAreas), "14'");
-        report += addLine(Utils.jobHalf16(tallyAreas), "16'");
+        report += "----------------------------------\n";
+        report += printHalfCeilingTotal();
         report += "\n";
+        if (!halfTotalOnly) {
+            report += "1/2\" Lite\n";
+            report += addLine(Utils.jobHalf8(tallyAreas), "8'");
+            report += addLine(Utils.jobHalf9(tallyAreas), "9'");
+            report += addLine(Utils.jobHalf10(tallyAreas), "10'");
+            report += addLine(Utils.jobHalf12(tallyAreas), "12'");
+            report += addLine(Utils.jobHalf14(tallyAreas), "14'");
+            report += addLine(Utils.jobHalf16(tallyAreas), "16'");
+            report += "\n";
+        }
+        if (!halfTotalOnly) {
+            report += "1/2\" Lite - Ceilings\n";
+            report += addLine(Utils.jobCeil8(tallyAreas), "8'");
+            report += addLine(Utils.jobCeil9(tallyAreas), "9'");
+            report += addLine(Utils.jobCeil10(tallyAreas), "10'");
+            report += addLine(Utils.jobCeil12(tallyAreas), "12'");
+            report += addLine(Utils.jobCeil14(tallyAreas), "14'");
+            report += addLine(Utils.jobCeil16(tallyAreas), "16'");
+            report += "\n";
+        }
         report += "1/2\" Stretch\n";
         report += addLine(Utils.jobHalfS12(tallyAreas), "12'");
         report += addLine(Utils.jobHalfS14(tallyAreas), "14'");
@@ -115,14 +134,6 @@ public class JobReport {
         report += "5/8\" Stretch\n";
         report += addLine(Utils.jobFiveES12(tallyAreas), "12'");
         report += "\n";
-        report += "Ceilings\n";
-        report += addLine(Utils.jobCeil8(tallyAreas), "8'");
-        report += addLine(Utils.jobCeil9(tallyAreas), "9'");
-        report += addLine(Utils.jobCeil10(tallyAreas), "10'");
-        report += addLine(Utils.jobCeil12(tallyAreas), "12'");
-        report += addLine(Utils.jobCeil14(tallyAreas), "14'");
-        report += addLine(Utils.jobCeil16(tallyAreas), "16'");
-        report += "\n";
         report += "Fire Resistant\n";
         report += addLine(Utils.jobFire8(tallyAreas), "8'");
         report += addLine(Utils.jobFire9(tallyAreas), "9'");
@@ -134,8 +145,7 @@ public class JobReport {
         report += "Mold Resistant\n";
         report += addLine(Utils.jobMold8(tallyAreas), "8'");
         report += addLine(Utils.jobMold8(tallyAreas), "12'");
-        report += "\n";
-        report += printHalfCeilingTotal();
+
         return report;
     }
 
@@ -145,7 +155,7 @@ public class JobReport {
         Integer[] half = Report.getHalfTallies(jobAreas);
         Integer[] ceiling = Report.getCeilTallies(jobAreas);
         if (Report.getTallySum(half) > 0 && Report.getTallySum(ceiling) > 0) {
-            report += "1/2\" Lite & Ceiling Total\n";
+            report += "1/2\" Lite Total\n";
             report += addLine(Utils.tallyCeil8(jobAreas) + Utils.tallyHalf8(jobAreas), "8'");
             report += addLine(Utils.tallyCeil9(jobAreas) + Utils.tallyHalf9(jobAreas), "9'");
             report += addLine(Utils.tallyCeil10(jobAreas) + Utils.tallyHalf10(jobAreas), "10'");
@@ -181,6 +191,17 @@ public class JobReport {
             report += "Total - " + Utils.areaTotalSqFt(area) +  " Sq. Ft.\n";
             report += "----------------------------\n";
 
+            if (Report.getTallySum(half) > 0 && Report.getTallySum(ceiling) > 0) {
+                report += "1/2\" Lite Total\n";
+                report += addLine(Utils.tallyCeil8(area) + Utils.tallyHalf8(area), "8'");
+                report += addLine(Utils.tallyCeil9(area) + Utils.tallyHalf9(area), "9'");
+                report += addLine(Utils.tallyCeil10(area) + Utils.tallyHalf10(area), "10'");
+                report += addLine(Utils.tallyCeil12(area) + Utils.tallyHalf12(area), "12'");
+                report += addLine(Utils.tallyCeil14(area) + Utils.tallyHalf14(area), "14'");
+                report += addLine(Utils.tallyCeil16(area) + Utils.tallyHalf16(area), "16'");
+                report += "\n";
+            }
+
             if (Report.getTallySum(half) > 0) {
                 report += "1/2\" Lite\n";
                 report += addLine(Utils.tallyHalf8(area), "8'");
@@ -189,6 +210,17 @@ public class JobReport {
                 report += addLine(Utils.tallyHalf12(area), "12'");
                 report += addLine(Utils.tallyHalf14(area), "14'");
                 report += addLine(Utils.tallyHalf16(area), "16'");
+                report += "\n";
+            }
+
+            if (Report.getTallySum(ceiling) > 0) {
+                report += "1/2\" Lite - Ceilings\n";
+                report += addLine(Utils.tallyCeil8(area), "8'");
+                report += addLine(Utils.tallyCeil9(area), "9'");
+                report += addLine(Utils.tallyCeil10(area), "10'");
+                report += addLine(Utils.tallyCeil12(area), "12'");
+                report += addLine(Utils.tallyCeil14(area), "14'");
+                report += addLine(Utils.tallyCeil16(area), "16'");
                 report += "\n";
             }
 
@@ -216,17 +248,6 @@ public class JobReport {
                 report += "\n";
             }
 
-            if (Report.getTallySum(ceiling) > 0) {
-                report += "Ceilings\n";
-                report += addLine(Utils.tallyCeil8(area), "8'");
-                report += addLine(Utils.tallyCeil9(area), "9'");
-                report += addLine(Utils.tallyCeil10(area), "10'");
-                report += addLine(Utils.tallyCeil12(area), "12'");
-                report += addLine(Utils.tallyCeil14(area), "14'");
-                report += addLine(Utils.tallyCeil16(area), "16'");
-                report += "\n";
-            }
-
             if (Report.getTallySum(fire) > 0) {
                 report += "Fire Resistant\n";
                 report += addLine(Utils.tallyFire8(area), "8'");
@@ -242,18 +263,9 @@ public class JobReport {
                 report += "Mold Resistant\n";
                 report += addLine(Utils.tallyMold8(area), "8'");
                 report += addLine(Utils.tallyMold8(area), "12'");
-                report += "\n";
             }
             
-            if (Report.getTallySum(half) > 0 && Report.getTallySum(ceiling) > 0) {
-                report += "1/2\" Lite & Ceiling Total\n";
-                report += addLine(Utils.tallyCeil8(area) + Utils.tallyHalf8(area), "8'");
-                report += addLine(Utils.tallyCeil9(area) + Utils.tallyHalf9(area), "9'");
-                report += addLine(Utils.tallyCeil10(area) + Utils.tallyHalf10(area), "10'");
-                report += addLine(Utils.tallyCeil12(area) + Utils.tallyHalf12(area), "12'");
-                report += addLine(Utils.tallyCeil14(area) + Utils.tallyHalf14(area), "14'");
-                report += addLine(Utils.tallyCeil16(area) + Utils.tallyHalf16(area), "16'");
-            }
+
         }
 
         return report;
