@@ -38,7 +38,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
             + Job.NOCOAT_8_90 + " INTEGER NOT NULL DEFAULT 0,"
             + Job.NOCOAT_10_90 + " INTEGER NOT NULL DEFAULT 0,"
             + Job.NOCOAT_8_BULLNOSE + " INTEGER NOT NULL DEFAULT 0,"
-            + Job.NOCOAT_8_BULLNOSE + " INTEGER NOT NULL DEFAULT 0,"
+            + Job.NOCOAT_10_BULLNOSE + " INTEGER NOT NULL DEFAULT 0,"
             + Job.LEVELCOAT + " INTEGER NOT NULL DEFAULT 0,"
             + Job.XCRACK + " INTEGER NOT NULL DEFAULT 0,"
             + Job.ULTRAFLEX_325 + " INTEGER NOT NULL DEFAULT 0,"
