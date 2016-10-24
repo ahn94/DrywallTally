@@ -34,7 +34,7 @@
     <string name="stretch_fourteen_feet">s14\'</string>
     <string name="stretch_sixteen_feet">s16\'</string>
     <string name="hyphen_with_space">"-   "</string>
-    <string name="half_inch_regular"><![CDATA[&#189;\" Lite]]></string>
+    <string name="half_inch_regular">1/2\" Lite</string>
     <string name="five_eighths_regular">5/8\" Regular</string>
     <string name="half_inch_stretch">1/2\" Stretch</string>
     <string name="five_eighths_stretch">5/8\" Stretch</string>

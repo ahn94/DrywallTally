@@ -27,7 +27,8 @@ public class HapticButton extends AppCompatImageButton {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        setSupportBackgroundTintList(getResources().getColorStateList(R.color.tallyButton));
+        setSupportBackgroundTintList(getResources().getColorStateList(R.color.haptic_button));
+
         if (!isInEditMode()) {
             vib = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
         }

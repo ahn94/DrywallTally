@@ -2,14 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:divider="@drawable/divider"
+              android:showDividers="middle|end"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-                  android:layout_height="0dp"
-                  android:layout_weight="1"
-                  android:orientation="horizontal"
-                  android:padding="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="0dp">
 
         <com.austinnightingale.drywalltally.tally.HapticButton
             android:id="@+id/half8Minus"
@@ -19,38 +22,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/half8View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/half8View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/eight_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/eight_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/regHalfEightTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/regHalfEightTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -76,38 +79,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/half9View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/half9View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/nine_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/nine_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/regHalfNineTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/regHalfNineTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -133,38 +136,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/half10View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/half10View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/ten_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/ten_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/regHalfTenTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/regHalfTenTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -190,38 +193,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/half12View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/half12View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/twelve_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/twelve_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/regHalfTwelveTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/regHalfTwelveTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -247,38 +250,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/half14View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/half14View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/fourteen_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/fourteen_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/regHalfFourteenTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/regHalfFourteenTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -304,39 +307,39 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/half16View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/half16View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/sixteen_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/sixteen_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"
-                android:textSize="30sp"
                 android:layout_gravity="center_vertical"
-                android:fontFamily="sans-serif"/>
+                android:fontFamily="sans-serif"
+                android:text="-"
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/regHalfSixteenTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/regHalfSixteenTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -362,38 +365,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/halfS12View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/halfS12View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/stretch_twelve_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/stretch_twelve_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/stretchHalfTwelveTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/stretchHalfTwelveTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -419,38 +422,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/halfS14View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/halfS14View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/stretch_fourteen_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/stretch_fourteen_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/stretchHalfFourteenTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/stretchHalfFourteenTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
@@ -476,38 +479,38 @@
             android:src="@mipmap/minus_icon"/>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/halfS16View"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:id="@+id/halfS16View">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/stretch_sixteen_feet"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:textAlignment="center"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/stretch_sixteen_feet"
+                android:textAlignment="center"
+                android:textSize="30sp"
                 android:textStyle="normal|bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="-"
-                android:textSize="30sp"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/stretchHalfSixteenTally"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/stretchHalfSixteenTally"
-                android:textSize="25sp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:text="0"
                 android:textAlignment="center"
-                android:layout_gravity="center_vertical"/>
+                android:textSize="25sp"/>
         </LinearLayout>
 
         <com.austinnightingale.drywalltally.tally.HapticButton
