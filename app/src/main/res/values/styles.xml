@@ -14,8 +14,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:hapticFeedbackEnabled">true</item>
-        <item name="android:soundEffectsEnabled">true</item>
+        <item name="android:hapticFeedbackEnabled">false</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

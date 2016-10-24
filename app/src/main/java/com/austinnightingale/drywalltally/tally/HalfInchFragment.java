@@ -112,6 +112,7 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
     @OnClick(R.id.half8Plus)
     public void regHalfEightIncrement() {
         halfPresenter.updateJob(TallyArea.HALF_8, 1);
+
     }
 
     @OnClick(R.id.half8Minus)
@@ -325,5 +326,4 @@ public class HalfInchFragment extends Fragment implements HalfInch.View, NumberP
         showDialog(TallyArea.HALF_s16, "s16'");
         return true;
     }
-
 }
