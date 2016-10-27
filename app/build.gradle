@@ -13,8 +13,8 @@ android {
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 5
-        versionName "1.5"
+        versionCode 6
+        versionName "1.6"
         jackOptions {
             enabled false
         }
