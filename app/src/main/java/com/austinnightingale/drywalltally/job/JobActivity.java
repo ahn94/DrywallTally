@@ -106,8 +106,8 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
         return super.onOptionsItemSelected(item);
     }
 
-    private void sendReport(Job job, boolean halfTotalOnly, boolean includeOptions) {
-        JobReport report = new JobReport(getID(), dao, halfTotalOnly, includeOptions);
+    private void sendReport(Job job, boolean halfTotalOnly, boolean includeOptions, boolean includeHeightCharges) {
+        JobReport report = new JobReport(getID(), dao, halfTotalOnly, includeOptions, includeHeightCharges);
         Intent r = new Intent(Intent.ACTION_SEND);
         r.setType("text/plain");
         r.putExtra(Intent.EXTRA_TEXT, report.getReport());
@@ -134,13 +134,18 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
 
         if (id == R.id.job_summary) {
             openFragment(new JobSummaryFragment(), "job_summary");
+            setTitle("Job Summary");
         } else if (id == R.id.options_job_area) {
             setJobOptionsFragment(4);
+            setTitle("Job Options");
         } else if (id == R.id.options_main) {
             setJobOptionsFragment(0);
+            setTitle("Job Options");
         } else if (id == R.id.area_tally_summary) {
             openFragment(new TalliesPagerFragment(), "tallies");
+            setTitle("Tallies - Areas");
         } else if (id == R.id.job_tally_summary) {
+            setTitle("Tallies - Job");
             Job job = dao.jobWithId(getID());
             List<TallyArea> tallies = dao.tallyListByJobId(getID());
             openFragment(TallySummaryFragment.newInstance(Utils.getJobTally(job.jobName() + " Job", tallies), true), "job tally");
@@ -187,8 +192,8 @@ public class JobActivity extends AppCompatActivity implements NavigationView.OnN
     }
 
     @Override
-    public void sendReportWithOptions(boolean halfTotalOnly, boolean includeOptions) {
+    public void sendReportWithOptions(boolean halfTotalOnly, boolean includeOptions, boolean includeHeightcharges) {
         Job job = dao.jobWithId(getID());
-        sendReport(job, halfTotalOnly, includeOptions);
+        sendReport(job, halfTotalOnly, includeOptions, includeHeightcharges);
     }
 }

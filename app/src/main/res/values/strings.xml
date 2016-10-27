@@ -160,4 +160,10 @@
     <string name="menu_lable_job_areas">Job Areas</string>
     <string name="lbl_add_job_area">Add Job Area</string>
     <string name="title_card_half_totals">1/2\" &amp; Ceiling Totals</string>
+    <string name="menu_edit_name">Change Name</string>
+    <string name="menu_delete">Remove</string>
+    <string name="dialog_name_change_title">"Change %1s name?"</string>
+    <string name="title_card_half_ceiling_total">1/2\" Lite - Ceilings</string>
+    <string name="card_title_half_plus_ceil_total">1/2\" Lite Totals</string>
+
 </resources>

@@ -5,5 +5,5 @@ package com.austinnightingale.drywalltally.job;
  */
 
 public interface ReportListener {
-    void sendReportWithOptions(boolean totalsOnly, boolean includeOptions);
+    void sendReportWithOptions(boolean totalsOnly, boolean includeOptions, boolean includeHeightcharges);
 }

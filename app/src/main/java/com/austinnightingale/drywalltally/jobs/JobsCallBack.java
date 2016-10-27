@@ -7,4 +7,6 @@ public interface JobsCallBack {
     void openFragment(DialogFragment fragment);
 
     void openJobActivity(int jobID, String name);
+
+    void openEditNameDialog(String table, String column, String title, Integer id);
 }

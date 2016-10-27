@@ -35,6 +35,8 @@ public class JobReportDialog extends DialogFragment {
     CheckBox checkOptions;
     @BindView(R.id.check_only_half_totals)
     CheckBox checkTotalsOnly;
+    @BindView(R.id.check_include_height_charges)
+    CheckBox checkHeightCharges;
 
     @Override
     public void onAttach(Context context) {
@@ -57,8 +59,9 @@ public class JobReportDialog extends DialogFragment {
                 .onPositive((dialog, which) -> {
                     boolean includeOptions = checkOptions.isChecked();
                     boolean totalsOnly = checkTotalsOnly.isChecked();
+                    boolean heightcharge = checkHeightCharges.isChecked();
                     ReportListener reportListener = (ReportListener) getActivity();
-                    reportListener.sendReportWithOptions(totalsOnly, includeOptions);
+                    reportListener.sendReportWithOptions(totalsOnly, includeOptions, heightcharge);
                 })
                 .build();
 

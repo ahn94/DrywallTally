@@ -21,12 +21,14 @@ public class JobReport {
     private List<TallyArea> tallyAreas;
     private boolean halfTotalOnly;
     private boolean includeOptions;
+    private boolean includeHeightCharges;
 
-    public JobReport(int jobId, DAO doa, boolean halfTotalOnly, boolean includeOptions) {
+    public JobReport(int jobId, DAO doa, boolean halfTotalOnly, boolean includeOptions, boolean includeHeightCharges) {
         this.jobId = jobId;
         this.doa = doa;
         this.includeOptions = includeOptions;
         this.halfTotalOnly = halfTotalOnly;
+        this.includeHeightCharges = includeHeightCharges;
         initStats();
     }
 
@@ -52,8 +54,13 @@ public class JobReport {
         if (includeOptions) {
             report += printOptions();
         }
+
         report += printExtras();
-        report += heightCharges(heightCharges);
+
+        if (includeHeightCharges) {
+            report += heightCharges(heightCharges);
+        }
+
         report += jobTallyTotals();
         if (tallyAreas.size() > 1) {
             report += printAreaTotals();
@@ -68,6 +75,7 @@ public class JobReport {
         for (String[] extra : extras) {
             report += addLine(Integer.parseInt(extra[0]), extra[1]);
         }
+        report += "\n";
         return report;
     }
 
@@ -86,12 +94,12 @@ public class JobReport {
     public String jobTallyTotals() {
         String report = "";
         if (Utils.jobTotalFtNum(tallyAreas) == 0) {
-            report += "\n------------------------------------\n";
+            report += "------------------------------------\n";
             report += "No tallies added to job.\n";
             report += "------------------------------------\n";
             return report;
         }
-        report += "\n----------------------------------\n";
+        report += "----------------------------------\n";
         report += "Total for Job: " +job.jobName()+ "\n";
         if (tallyAreas.size() == 1) {
             report += "Area(1 of 1): " + tallyAreas.get(0).areaName() + "\n";
@@ -305,7 +313,8 @@ public class JobReport {
         for (HeightCharge charge : heightChargeList) {
             str += charge.heightCharge() + "\n";
         }
-        str += (str.length() > 0) ? "\n" : "";
+        str += "\n";
+        str += "\n";
         return str;
     }
 

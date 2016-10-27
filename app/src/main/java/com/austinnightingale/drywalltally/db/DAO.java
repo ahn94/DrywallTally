@@ -22,6 +22,10 @@ public class DAO {
         this.db = db;
     }
 
+    public BriteDatabase getDb() {
+        return db;
+    }
+
 
     /**
      *

@@ -1,5 +1,7 @@
 package com.austinnightingale.drywalltally.job.options.tallyarea;
 
+import android.content.Context;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -22,12 +24,14 @@ public class TallyAreaViewHolder extends RecyclerView.ViewHolder {
     TextView squareFootage;
     private TallyCallback callback;
     private TallyArea mTallyArea;
+    private Context mContext;
 
 
     public TallyAreaViewHolder(View itemView, TallyCallback callback) {
         super(itemView);
         this.callback = callback;
         ButterKnife.bind(this, itemView);
+        mContext = itemView.getContext();
     }
 
     public void bind(TallyArea tallyArea) {
@@ -43,7 +47,26 @@ public class TallyAreaViewHolder extends RecyclerView.ViewHolder {
 
     @OnLongClick(R.id.item_view)
     public boolean longClicked() {
-        callback.showDialog(mTallyArea.Id(), mTallyArea.areaName());
+        PopupMenu menu = new PopupMenu(mContext, itemView);
+        menu.inflate(R.menu.modify);
+        menu.show();
+        menu.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.item_rec_edit:
+                    callback.showEditNameDialog(TallyArea.TABLE, 
+                            TallyArea.AREA_NAME, 
+                            mContext.getString(R.string.dialog_name_change_title, mTallyArea.areaName()),
+                            mTallyArea.Id()
+                    );
+                    return true;
+                case R.id.item_rec_remove:
+                    callback.showRemoveDialog(mTallyArea.Id(), mTallyArea.areaName());
+                    return true;
+                default:
+                    return false;
+            }
+        });
         return true;
     }
 }

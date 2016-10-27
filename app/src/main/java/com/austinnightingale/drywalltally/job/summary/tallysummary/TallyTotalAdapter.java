@@ -125,9 +125,23 @@ public class TallyTotalAdapter extends RecyclerView.Adapter<TallyViewHolder> imp
         Integer[] fire = Report.getFireTallies(tallyArea);
         Integer[] mold = Report.getMoldTallies(tallyArea);
 
+        Integer[] halfTotal = new Integer[half.length];
+        for (int n = 0; n < half.length; n++) {
+            halfTotal[n] = half[n] + ceiling[n];
+        }
+
+        if (Report.getTallySum(ceiling) > 0 && + Report.getTallySum(half) > 0) {
+            types.add(HALF_TOTAL);
+            data.add(halfTotal);
+        }
+
         if (showEmtpyCards || Report.getTallySum(half) > 0) {
             types.add(HALF);
             data.add(half);
+        }
+        if (showEmtpyCards || Report.getTallySum(ceiling) > 0) {
+            types.add(CEIL);
+            data.add(ceiling);
         }
 
         if (showEmtpyCards || Report.getTallySum(halfStretch) > 0) {
@@ -145,10 +159,6 @@ public class TallyTotalAdapter extends RecyclerView.Adapter<TallyViewHolder> imp
             data.add(fiveS);
         }
 
-        if (showEmtpyCards || Report.getTallySum(ceiling) > 0) {
-            types.add(CEIL);
-            data.add(ceiling);
-        }
 
         if (showEmtpyCards || Report.getTallySum(fire) > 0) {
             types.add(FIRE);
@@ -160,15 +170,6 @@ public class TallyTotalAdapter extends RecyclerView.Adapter<TallyViewHolder> imp
             data.add(mold);
         }
 
-        Integer[] halfTotal = new Integer[half.length];
-        for (int n = 0; n < half.length; n++) {
-            halfTotal[n] = half[n] + ceiling[n];
-        }
-
-        if (Report.getTallySum(ceiling) > 0 && + Report.getTallySum(half) > 0) {
-            types.add(HALF_TOTAL);
-            data.add(halfTotal);
-        }
 
         notifyDataSetChanged();
     }

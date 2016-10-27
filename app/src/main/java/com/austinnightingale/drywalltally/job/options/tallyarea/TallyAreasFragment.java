@@ -14,6 +14,7 @@ import com.austinnightingale.drywalltally.R;
 import com.austinnightingale.drywalltally.TallyApplication;
 import com.austinnightingale.drywalltally.db.DAO;
 import com.austinnightingale.drywalltally.db.Job;
+import com.austinnightingale.drywalltally.job.dialogs.EditNameDialog;
 import com.austinnightingale.drywalltally.tally.TallyActivity;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -104,8 +105,14 @@ public class TallyAreasFragment extends Fragment implements TallyCallback {
     }
 
     @Override
-    public void showDialog(Integer id, String areaName) {
+    public void showRemoveDialog(Integer id, String areaName) {
         RemoveTallyAreaDialog.newInstance(id, areaName)
                 .show(getFragmentManager(), "remove tally area");
+    }
+
+    @Override
+    public void showEditNameDialog(String table, String column, String title, Integer id) {
+        EditNameDialog.newInstance(table, column, title, id)
+                .show(getFragmentManager(), "edit name dialog");
     }
 }

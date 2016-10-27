@@ -5,6 +5,7 @@ import com.austinnightingale.drywalltally.backup.BackupActivity;
 import com.austinnightingale.drywalltally.db.DAO;
 import com.austinnightingale.drywalltally.job.JobActivity;
 import com.austinnightingale.drywalltally.job.JobReportDialog;
+import com.austinnightingale.drywalltally.job.dialogs.EditNameDialog;
 import com.austinnightingale.drywalltally.job.dialogs.RemoveChargeDialog;
 import com.austinnightingale.drywalltally.job.options.ExtraOptionsFragment;
 import com.austinnightingale.drywalltally.job.options.MainOptionsFragment;
@@ -60,5 +61,5 @@ public interface ApplicationComponent {
     void inject(TalliesPagerFragment talliesPagerFragment);
     void inject(ExtraOptionsFragment extraOptionsFragment);
     void inject(JobReportDialog reportDialog);
-
+    void inject(EditNameDialog editNameDialog);
 }

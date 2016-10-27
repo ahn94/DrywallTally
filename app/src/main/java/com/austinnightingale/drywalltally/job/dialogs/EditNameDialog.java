@@ -7,40 +7,49 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
+import android.text.InputType;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.austinnightingale.drywalltally.TallyApplication;
+import com.austinnightingale.drywalltally.db.DAO;
 import com.austinnightingale.drywalltally.db.Job;
 
+import javax.inject.Inject;
 
-public class InputDialog extends DialogFragment {
+/**
+ * Created by Austin on 10/26/2016.
+ */
+
+public class EditNameDialog extends DialogFragment {
+
     public static final String TITLE = "title";
-    public static final String INPUT = "input";
-    public static final String ALLOW_EMPTY_INPUT = "disableOnEmpty";
+    public static final String TABLE = "table";
+    public static final String ID = "_id";
 
 
-    public static InputDialog newInstance(String column, String title, int inputType, boolean allowEmptyInput,  Fragment targetFragment) {
+    public static EditNameDialog newInstance(String table, String column, String title,  int id) {
         Bundle args = new Bundle();
         args.putString(Job.COLUMN_NAME, column);
         args.putString(InputDialog.TITLE, title);
-        args.putInt(InputDialog.INPUT, inputType);
-        args.putBoolean(ALLOW_EMPTY_INPUT, allowEmptyInput);
+        args.putString(TABLE, table);
+        args.putInt(ID, id);
 
-        InputDialog inputDialog = new InputDialog();
-        inputDialog.setArguments(args);
-        inputDialog.setTargetFragment(targetFragment, 0);
-
-        return inputDialog;
+        EditNameDialog nameDialog = new EditNameDialog();
+        nameDialog.setArguments(args);
+        return nameDialog;
     }
 
 
-    private InputListener callback;
+    @Inject
+    DAO dao;
+
     String title = "title not available";
     String column = "column not available";
-    int inputType;
-    boolean allowEmptyInput;
+    String table = "title not available";
+    int id;
+    boolean allowEmptyInput = false;
 
-    public InputDialog() {
+    public EditNameDialog() {
 
     }
 
@@ -51,25 +60,22 @@ public class InputDialog extends DialogFragment {
         final Bundle args = getArguments();
 
         if (!args.containsKey(Job.COLUMN_NAME)) {
-            throw new NullPointerException("Args must include target fragment");
+            throw new NullPointerException("Args must include column name");
         } else if (!args.containsKey(TITLE)) {
             throw new NullPointerException("Args must include title for input");
-        } else if (!args.containsKey(INPUT)) {
-            throw new NullPointerException("Args must include input type");
-        } else if (!args.containsKey(ALLOW_EMPTY_INPUT)) {
-            throw new NullPointerException("Args must have disable on empty flag");
+        } else if (!args.containsKey(TABLE)) {
+            throw new NullPointerException("Args must include table name");
+        } else if (!args.containsKey(ID)) {
+            throw new NullPointerException("Args must have id");
         } else {
             title = args.getString(InputDialog.TITLE);
             column = args.getString(Job.COLUMN_NAME);
-            inputType = args.getInt(INPUT);
-            allowEmptyInput = args.getBoolean(ALLOW_EMPTY_INPUT);
+            table = args.getString(TABLE);
+            id = args.getInt(ID);
         }
 
-        try {
-            callback = (InputListener) getTargetFragment();
-        } catch (ClassCastException e) {
-            throw new ClassCastException("Calling fragment must implement InputListener Interface");
-        }
+        ((TallyApplication) getActivity().getApplication()).getComponent().inject(this);
+
     }
 
     @NonNull
@@ -78,11 +84,11 @@ public class InputDialog extends DialogFragment {
         final Context context = getActivity();
         return new MaterialDialog.Builder(context)
                 .title(title)
-                .inputType(inputType)
+                .inputType(InputType.TYPE_CLASS_TEXT)
                 .input(null, null, allowEmptyInput, (materialDialog, charSequence) -> {
                     ContentValues content = new ContentValues();
                     content.put(column, charSequence.toString());
-                    callback.setInputResults(content);
+                    dao.getDb().update(table, content, ID+ " = ?", String.valueOf(id));
                 })
                 .negativeText("Cancel")
                 .onNegative((materialDialog, dialogAction) -> dismiss())

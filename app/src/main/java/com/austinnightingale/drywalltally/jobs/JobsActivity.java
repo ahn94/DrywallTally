@@ -19,6 +19,7 @@ import com.austinnightingale.drywalltally.backup.BackupActivity;
 import com.austinnightingale.drywalltally.db.DAO;
 import com.austinnightingale.drywalltally.db.Job;
 import com.austinnightingale.drywalltally.job.JobActivity;
+import com.austinnightingale.drywalltally.job.dialogs.EditNameDialog;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.List;
@@ -126,5 +127,11 @@ public final class JobsActivity extends AppCompatActivity implements JobsCallBac
         intent.putExtra(Job.JOB_NAME, name);
         startActivity(intent);
 
+    }
+
+    @Override
+    public void openEditNameDialog(String table, String column, String title, Integer id) {
+        EditNameDialog.newInstance(table, column, title, id)
+                .show(getSupportFragmentManager(), "edit name dialog");
     }
 }

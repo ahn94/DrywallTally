@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 
 
 public class CeilViewHolder extends TallyViewHolder {
-        @BindView(R.id.ceil_8_total)
+    @BindView(R.id.ceil_8_total)
     TextView ceil8Total;
     @BindView(R.id.ceil_9_total)
     TextView ceil9Total;

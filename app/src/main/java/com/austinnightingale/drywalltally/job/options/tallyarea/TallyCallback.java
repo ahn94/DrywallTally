@@ -3,7 +3,10 @@ package com.austinnightingale.drywalltally.job.options.tallyarea;
 
 public interface TallyCallback {
 
-    public void openTallyForArea(int id);
+    void openTallyForArea(int id);
 
-    public void showDialog(Integer id, String areaName);
+    void showRemoveDialog(Integer id, String areaName);
+
+    void showEditNameDialog(String table, String column, String title, Integer id);
+
 }
