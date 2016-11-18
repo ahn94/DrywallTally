@@ -14,7 +14,8 @@ import java.util.List;
 
 import rx.functions.Action1;
 
-public class JobSummaryAdapter extends RecyclerView.Adapter<JobSummaryViewHolder> implements Action1<Job> {
+public class JobSummaryAdapter extends RecyclerView.Adapter<JobSummaryViewHolder>
+        implements Action1<Job> {
 
     List<String[]> options;
     int type;

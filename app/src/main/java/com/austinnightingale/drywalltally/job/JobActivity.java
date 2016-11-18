@@ -19,7 +19,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.austinnightingale.drywalltally.JobReport;
 import com.austinnightingale.drywalltally.R;
 import com.austinnightingale.drywalltally.TallyApplication;
 import com.austinnightingale.drywalltally.db.DAO;

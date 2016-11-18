@@ -4,10 +4,8 @@ import android.content.res.Resources;
 
 import com.austinnightingale.drywalltally.R;
 import com.austinnightingale.drywalltally.TallyApplication;
-import com.austinnightingale.drywalltally.db.HeightCharge;
 import com.austinnightingale.drywalltally.db.Job;
 import com.austinnightingale.drywalltally.db.TallyArea;
-import com.austinnightingale.drywalltally.jobs.DateFormat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,108 +15,6 @@ import java.util.List;
  */
 public class Report {
 
-    /**
-     *
-     * TODO: report each job area separately
-     *
-     */
-
-    public static String forJob(Job job, List<HeightCharge> heightChargeList, List<TallyArea> tallyAreas) {
-        String report = job.jobName() + "\n\n";
-        report += "Created on:\n";
-        report += DateFormat.getLong(job.createdOn()) + "\n\n";
-        report += getAddress(job) + "\n\n";
-
-        report += getComment(job);
-        report += "Ceiling - " + Utils.areaCeilingSqFt(tallyAreas.get(0)) + " Sq. Ft.\n";
-        report += "Total - " + Utils.areaTotalSqFt(tallyAreas.get(0)) +  " Sq. Ft.\n\n";
-        report += heightCharges(heightChargeList);
-        report += "1/2\" Regular\n";
-        report += addLine(tallyAreas.get(0).halfRegEight(), "8'");
-        report += addLine(tallyAreas.get(0).halfRegNine(), "9'");
-        report += addLine(tallyAreas.get(0).halfRegTen(), "10'");
-        report += addLine(tallyAreas.get(0).halfRegTwelve(), "12'");
-        report += addLine(tallyAreas.get(0).halfRegFourteen(), "14'");
-        report += addLine(tallyAreas.get(0).halfRegSixteen(), "16'");
-        report += "\n";
-        report += "1/2\" Stretch\n";
-        report += addLine(tallyAreas.get(0).halfStretchTwelve(), "12'");
-        report += addLine(tallyAreas.get(0).halfStretchFourteen(), "14'");
-        report += addLine(tallyAreas.get(0).halfStretchSixteen(), "16'");
-        report += "\n";
-        report += "5/8\" Regular\n";
-        report += addLine(tallyAreas.get(0).fiveEighthRegEight(), "8'");
-        report += addLine(tallyAreas.get(0).fiveEighthRegNine(), "9'");
-        report += addLine(tallyAreas.get(0).fiveEighthRegTen(), "10'");
-        report += addLine(tallyAreas.get(0).fiveEighthRegTwelve(), "12'");
-        report += addLine(tallyAreas.get(0).fiveEighthRegFourteen(), "14'");
-        report += "\n";
-        report += "5/8\" Stretch\n";
-        report += addLine(tallyAreas.get(0).fiveEightStretchTwelve(), "12'");
-        report += "\n";
-        report += "Ceilings\n";
-        report += addLine(tallyAreas.get(0).ceilingEight(), "8'");
-        report += addLine(tallyAreas.get(0).ceilingNine(), "9'");
-        report += addLine(tallyAreas.get(0).ceilingTen(), "10'");
-        report += addLine(tallyAreas.get(0).ceilingTwelve(), "12'");
-        report += addLine(tallyAreas.get(0).ceilingFourteen(), "14'");
-        report += addLine(tallyAreas.get(0).ceilingSixteen(), "16'");
-        report += "\n";
-        report += "Fire Resistant\n";
-        report += addLine(tallyAreas.get(0).fireEight(), "8'");
-        report += addLine(tallyAreas.get(0).fireNine(), "9'");
-        report += addLine(tallyAreas.get(0).fireTen(), "10'");
-        report += addLine(tallyAreas.get(0).fireTwelve(), "12'");
-        report += addLine(tallyAreas.get(0).fireFourteen(), "14'");
-        report += addLine(tallyAreas.get(0).fireSixteen(), "16'");
-        report += "\n";
-        report += "Mold Resistant\n";
-        report += addLine(tallyAreas.get(0).moldEight(), "8'");
-        report += addLine(tallyAreas.get(0).moldTwelve(), "12'");
-        report += "\n";
-        report += "Options\n";
-        List<String[]> options = Report.getOptionValueLabelPairs(job);
-        for (String[] option : options) {
-            report += addLine(Integer.parseInt(option[0]), option[1]);
-        }
-        return report;
-    }
-
-    private static String heightCharges(List<HeightCharge> heightChargeList) {
-        String str = "";
-        if (heightChargeList.size() > 0) {
-            str += "Height Charges\n";
-        }
-        for (HeightCharge charge : heightChargeList) {
-            str += charge.heightCharge() + "\n";
-        }
-        str += (str.length() > 0) ? "\n\n" : "";
-        return str;
-    }
-
-    private static String getComment(Job job) {
-        String commment = job.comment();
-        if (commment.length() > 0) {
-            return "Comment:\n" + commment + "\n\n";
-        } else return "";
-    }
-
-    private static String getAddress(Job job) {
-        String address = job.address();
-        if (address.length() > 0){
-            return "Address:\n" + address;
-        } else {
-            return "Address: not added";
-        }
-    }
-
-    public static String addLine(int value, String label) {
-        return String.format(
-                "%-5s-   %s\n",
-                value,
-                label
-        );
-    }
 
     public static List<String[]> getExtraValueLabelPairs(Job job) {
         List<String[]> extras = new ArrayList<>();

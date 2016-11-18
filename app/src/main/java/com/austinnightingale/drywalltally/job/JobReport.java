@@ -1,12 +1,10 @@
-package com.austinnightingale.drywalltally;
+package com.austinnightingale.drywalltally.job;
 
 
 import com.austinnightingale.drywalltally.db.DAO;
 import com.austinnightingale.drywalltally.db.HeightCharge;
 import com.austinnightingale.drywalltally.db.Job;
 import com.austinnightingale.drywalltally.db.TallyArea;
-import com.austinnightingale.drywalltally.job.Report;
-import com.austinnightingale.drywalltally.job.Utils;
 import com.austinnightingale.drywalltally.jobs.DateFormat;
 
 import java.util.List;

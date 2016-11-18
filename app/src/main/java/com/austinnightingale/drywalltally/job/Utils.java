@@ -117,7 +117,7 @@ public class Utils {
     }
 
     public static int tallyHalfS14(TallyArea area) {
-        return area.halfStretchTwelve();
+        return area.halfStretchFourteen();
     }
 
     public static int jobHalfS16(List<TallyArea> tallyAreas) {
